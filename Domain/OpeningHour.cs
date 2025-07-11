@@ -3,13 +3,10 @@ using Domain.Enums;
 
 namespace Domain;
 
-public class LibraryOpeningHours
+public class OpeningHour
 {
-    public int Id { get; set; }
+    public int Id { get; set; }   
     
-    [Required]
-    public int LibraryId { get; set; }
-
     public OpeningHourType OpeningHourType { get; set; }
 
     [Required]
@@ -20,7 +17,4 @@ public class LibraryOpeningHours
 
     [Required]
     public WeekType WeekType { get; set; }
-    
-    // Navigation property
-    public Library Library { get; set; } = null!;
 }

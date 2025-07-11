@@ -29,5 +29,4 @@ public class Library
     public ICollection<LibraryEmailContactDetail> LibraryEmailContactDetails { get; set; } = new List<LibraryEmailContactDetail>();
     public ICollection<LibraryPhoneNumberContactDetail> LibraryPhoneNumberContactDetails { get; set; } = new List<LibraryPhoneNumberContactDetail>();
     public ICollection<LibraryMailingAddress> LibraryMailingAddresses { get; set; } = new List<LibraryMailingAddress>();
-    public ICollection<LibraryOpeningHours> LibraryOpeningHours { get; set; } = new List<LibraryOpeningHours>();
 }

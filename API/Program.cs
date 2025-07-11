@@ -16,5 +16,20 @@ var app = builder.Build();
 // Configure the HTTP request pipeline.
 app.MapControllers();
 
+using var scope = app.Services.CreateScope();
+var service = scope.ServiceProvider;
+try
+{
+  var context = service.GetRequiredService<AppDbContext>();
+  await context.Database.MigrateAsync();
+  await DbInitializer.SeedData(context);
+}
+catch (Exception ex)
+{
+  //Console.WriteLine($"An error occurred while initializing the database: {ex.Message}");
+  var logger = service.GetRequiredService<ILogger<Program>>();
+  logger.LogError(ex, "An error occurred while initializing the database.");
+  throw;
+}
 app.Run();
   
