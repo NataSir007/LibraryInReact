@@ -1,0 +1,287 @@
+{
+  "cookieSettings": {
+    "title": "Cookie Settings",
+    "description": "Cookies used on the site are categorized based on their purpose. See below for a description of each category as well as the option to accept or reject it.",
+    "privacyInfo": "Privacy information for the site",
+    "categories": {
+      "chat": "Chat Services",
+      "map": "Map Services",
+      "essential": "Essential Cookies",
+      "analytics": "Analytics Cookies"
+    },
+    "acceptAll": "Accept All Cookies",
+    "acceptEssential": "Accept Only Essential Cookies",
+    "save": "Save Settings",
+    "enabled": "Enabled",
+    "disabled": "Disabled",
+    "categoryDescriptions": {
+      "chat": "Cookies required for chat functionality.",
+      "map": "Cookies required for map services.",
+      "essential": "Essential cookies are necessary for the website to function properly.",
+      "analytics": "Analytics cookies help us understand how visitors interact with the website."
+    }
+  },
+   "feedback": {
+    "title": "Feedback",
+    "subject": "Subject",
+    "subjects": {
+      "fees": "Fees, loans, reservations, customer information",
+      "collections": "Collections and purchases",
+      "website": "Website feedback",
+      "services": "Library services and events",
+      "other": "Other"
+    },
+    "cardNumber": "Library card number",
+    "feedbackTitle": "Title",
+    "message": "Message",
+    "url": "URL of page referred to (optional)",
+    "name": "Name",
+    "email": "Email",
+    "info": "If you want a reply to your message, please leave your name and email address.",
+    "privacy": "The information on the form will be sent to the site administrator (Kirjasto libraries) via email.",
+    "send": "Send",
+    "required": "Required",
+    "titleRequired": "Title is required",
+    "messageRequired": "Message is required"
+  },
+  "footerContent": {
+    "about": "ABOUT",
+    "findMore": "fIND MORE",
+    "needHelp": "NEED HELP?",
+    "whatIsLibrary": "What is Kirjasto?",
+    "cookieSettings": "Cookie Settings",
+    "howAreMaterialsSelected": "How are materials selected?",
+    "searchHistory": "Search history",
+    "searchTips": "Search Tips",
+    "feedback": "Feedback"
+  },
+  "howAreMaterialsSelected": {
+    "title": "How are materials selected?",
+    "subtitle1": "What do the material selection processes of Kirjasto libraries have in common?",
+    "subtitle2": "How are new works acquired?",
+    "subtitle3": "More copies of popular new works can be ordered",
+    "subtitle4": "Customers’ acquisition requests",
+    "paragraph1": "Kirjasto libraries include the City Libraries of Espoo, Helsinki, Kauniainen and Vantaa.",
+    "paragraph2": "For the most part, Kirjasto libraries have the same material selection principles. There are some city-specific differences that may affect selections.",
+    "paragraph3": "The libraries select materials that represent a wide variety of views and opinions.",
+    "paragraph4": "The library’s material selections are steered by the Public Libraries Act. The Act stipulates that the duties of a public library include the promotion of equal opportunities for everyone to access education and culture, the availability and use of information, and reading culture and versatile literacy skills.",
+    "paragraph5": "The library’s duties also include providing opportunities for lifelong learning and supporting active citizenship, democracy and freedom of expression. The implementation of these objectives is based on a sense of community, pluralism and cultural diversity.",  
+    "subtitle1Paragraph1": "The materials are selected primarily by selection groups consisting of library experts. The materials are acquired through each City’s material centre.",
+    "subtitle1Paragraph2": "Different material types have dedicated working groups who cooperate where necessary with both the libraries of their own City and different Kirjasto libraries.",
+    "subtitle1Paragraph3": "Different materials, such as books, newspapers and magazines, music, movies and games are acquired in both conventional and digital formats. Libraries also acquire borrowable items.",
+    "subtitle1Paragraph4": "The library can only acquire movies that are licensed for lending. The library pays copyright remuneration.",
+    "subtitle1Paragraph5": {
+      "beforeLink": "Materials are acquired for people of all ages and in the languages with the most speakers in the Helsinki Metropolitan Area. Kirjasto libraries have books for children, young people and adults in more than a hundred (100) languages. Materials in languages spoken less commonly in the Helsinki Metropolitan Area are provided by Helsinki City Library’s ",
+      "link": "Multilingual Library",
+      "afterLink": ". The Multilingual Library operates in the premises of Pasila Library."
+    },
+    "subtitle1Paragraph6": "Particularly expensive or rarely requested materials are acquired for Kirjasto libraries only in single copies.",
+    "subtitle1Paragraph7": "E-books, e-audiobooks and e-magazines can be borrowed via the national E-library service. The materials of the E-library are selected by national library professional groups. The collection is developing constantly. You can read more about the material selection policy of the E-library on the website of the National Library of Finland. You can submit requests for new e-books to the National Library by using the E-library’s feedback form when you are logged in.",
+    "subtitle2Paragraph1": "New works by Finnish publishers are ordered in advance before they are released. The new works become available to customers at the libraries as soon as they are released.",
+    "subtitle2Paragraph2": "New works can be reserved as soon as they have been ordered by the library. How soon the ordered works arrive at the library depends on whether they have been released or whether they are pre-ordered months before the release date.",
+    "subtitle2Paragraph3": "New works are readied for lending at material centres. After that, they are sent immediately to the customers who have reserved them or, if no reservations have been made, to the libraries.",
+    "subtitle3Paragraph1": "The experts of the libraries have a good understanding of popular works, and the aim is to order sufficient copies of such materials in advance. They also monitor demand and borrowing queues through statistics on a regular basis.",
+    "subtitle3Paragraph2": "More copies of popular works are ordered in a sensible manner within the available budget. The selecting parties estimate how long the spike in demand will continue and how frequently the work will be borrowed afterwards.",
+    "subtitle3Paragraph3": "Unfortunately, older works with frequent reservations are often sold out. In such cases, no additional copies can be acquired.",
+    "subtitle4Paragraph1": "You can submit requests for works to be acquired by using the acquisition request form on our online library website. You can also submit your request to the library staff directly.",
+    "subtitle4Paragraph2": "Most Finnish literature is acquired by Kirjasto libraries without a separate request.",
+    "subtitle4Paragraph3": "All acquisition requests are processed and assessed. The libraries receive plenty of acquisition requests and are, thus, often unable to respond.",
+    "subtitle4Paragraph4": "Examples of factors affecting the fulfilment of acquisition requests include the availability, and year of release of the work, the general level of interest in it, its suitability for the collections of public libraries, and its price. Course books of higher education institutions and scientific publications are only acquired for particularly cogent reasons.",
+    "subtitle4Paragraph5": "If the library decides to acquire a proposed work, its information will become available in the Kirjasto online library as soon as the order has been placed. You can then reserve the work. The person who made the proposal is not notified of the acquisition of the work, but you can save your search. When you save your search, you will receive an email notification when the work has been added to the Kirjasto library database. Instructions for saving a search."
+  },
+  "searchHistory": {
+    "titleSaveSearches": "Saved searches",
+    "loginLink1": "Please ",
+    "loginLink2": "log in",
+    "loginLink3": " to see your saved searches.",
+    "titleRecentSearches": "Recent searches",
+    "noSearches": "There are currently no searches in your history."
+  },
+  "searchTips": {
+    "title": "Search Tips",
+    "subtitleBasic": "Basic search",
+    "subtitleBasicParagraphs": {
+        "p1": "If search words are separated only by spaces, the search results are the same as when using the AND operator, i.e., the search results contain all the search words you have entered.",
+        "p2-1": "For example,",
+        "p2-2": " mannerheim carl",
+        "p2-3": " produces the same search results as",
+        "p2-4": " mannerheim AND carl."
+    },
+    "subtitleNarrowing": "Narrowing the search",
+     "subtitleNarrowingParagraphs": {
+        "p1": "You can use the",
+        "p2": " Narrow Search",
+        "p3": " menu to narrow your search according to format (e.g., image), organisation (e.g., Tikkurila library) or language. You can specify the year(s) of production by entering a range of years or using the visual timeline tool. Search results can be narrowed by selecting several criteria at the same time. By clicking on the arrow, you can display the locations or formats (e.g., game, boardgame) of a lower hierarchical level. By default, the menu displays the most relevant search results at the top.",
+        "p4": " You can see and delete criteria under the search field."    
+    },
+    "subtitleAdvanced": "Advanced search",
+    "subtitleAdvancedParagraphs": {
+      "fields": {
+        "title": "Search fields",
+        "p1": "The Advanced Search page has several search fields in which you can enter search terms and phrases, and use various search operators.",
+        "p2": "Adjacent to each search field is a drop-down menu, from which you can select the field of the relevant record (all fields, title, author, etc.). If necessary, you can target a search to several fields by using several search terms."
+      },
+      "match": {
+        "title": "Match drop-down",
+        "p1": "The match dropdown defines how to handle a query with several search fields:",
+        "bullet1-1": "ALL Terms (AND) ",
+        "bullet1-2": "  – Searches for records that match the content of all search fields.",
+        "bullet2-1": "ANY Terms (OR)",
+        "bullet2-2": " – Searches for records that match the content of one or more search fields.",
+        "bullet3-1": "NO Terms (NOT)",
+        "bullet3-2": " – Searches for records which do not feature the content of any of the search fields.",
+        "p2-1": "Add Search Field",
+        "p2-2": " allows you to add a new search field to the form."
+      },
+      "groups":  {
+          "title": "Search Groups",
+          "bullet1-1": "Add Search Group",
+          "bullet1-2": " allows you to add search fields for a new group",
+          "bullet2-1": "Remove Search Group",
+          "bullet2-2": " allows you to delete groups",
+          "bullet3-1": "To define the relationships between search groups, use the",
+          "bullet3-2": " ALL Groups (AND)",
+          "bullet3-3": " and ",
+          "bullet3-4": "ANY Groups (OR) ",
+          "bullet3-5": "search operators."
+        },
+      "example" : {
+        "title": "Example",
+        "p1": "If you wish to search information about the history of India and China, you can use search groups as follows:",
+        "bullet1": "Add the terms “India” and “China” to the search fields of the first search group.",
+        "bullet2-1": "Define the relationship between the search fields by selectings",
+        "bullet2-2": " ANY Terms (OR)",
+        "bullet2-3": " from the",
+        "bullet2-4": " Match",
+        "bullet2-5": " drop-down menu.",
+        "bullet3": "Create a new search group and add the term “history” to its search field.",
+        "bullet4-1": "Define the relationship between search groups as",
+        "bullet4-2": " ALL Groups (AND)."
+      }
+    },
+    "subtitleLogical": "Logical search operators",
+     "subtitleLogicalOperators": {
+      "and": "AND",
+      "plus": "+",
+      "or": "OR",
+      "not": "NOT",
+      "minus":"-",
+      "exclamationMarkMinus": "!-"
+    },
+    "subtitleLogicalParagraphs": {
+      "comma": ", ",
+      "commaAnd": ", and",
+      "point": ". ",
+      "nb": "NB!",
+      "nbP": "Boolean operators must be typed in CAPITAL LETTERS.",
+      "pAnd1": "AND, the conjunction operator, is the system’s default operator for multi-term queries that do not include an operator. When using the AND operator, the records included in the search results feature each of the terms in the search fields.",
+      "pAnd2": "For example, to search for records that include “economics” and “Keynes”:",
+      "pAnd3": "or",
+      "pPlus1": "the conjunction operator, is the system’s default operator for multi-term queries that do not include an operator.",
+      "pPlus2": " operator, the records included in the search results feature each of the terms in the search fields.",
+      "pPlus3": "For example, to search for records that include “economics” and “Keynes”:",
+      "pOr1": "The + sign can be used to indicate that the term must appear in each search result.",
+      "pOr2": "For example, to search for records that include “economics” and “Keynes”:",
+      "pExclamationMarkMinus1": "The \"!-\" operator excludes records that contain the following term.",
+      "pExclamationMarkMinus2": "To search for documents that contain \"economics\" but not \"Keynes\" use the query:",
+      "pExclamationMarkMinus3": "Note: The operator cannot be used with just one term. For example, the following search will return no results:",
+      "pExclamationMarkMinus4": "Note: If the term begins with the operator, it can be included by using the backslash (\\). For example: to search for !-merkki hakuehtona (in Finnish) use the query:",
+      "pExclamationMarkMinus5": "Note: The NOT operator can be used similarly with this operator. However, the NOT operator returns more results, some of which may contain the term following NOT."
+    },
+    "subtitlePhrase": "Phrase searches",
+    "subtitlePhraseParagraphs": {
+      "p1": "The phrase search Helsingin yliopisto will also search for results such as Helsingin yliopistossa:",
+      "p2": "A phrase search is useful for obtaining results with words in a certain order. In a Finnish-language search, a phrase search will extensively seek inflected and compound forms of your phrase in different fields. In a search conducted in languages other than Finnish, a phrase search will not include inflected or compound forms, with the exception of singular nouns whose plural forms end in -s and vice versa. Accurate results will be given greater priority and therefore will feature higher in search results arranged in order of relevance. To perform a phrase search, enter your search terms within quotation marks.",
+      "p3": "When conducting a search in other languages, a phrase search such as classroom board will also display results for classroom boards but not for classroom chalkboard:"
+    },
+    "subtitleWildcard": "Wildcard characters",
+    "subtitleWildcardParagraphs": {
+      "p1-1": "The wildcard symbols",
+      "p1-2": " and ",
+      "p1-3": " can be used to replace characters in search terms to ensure that the search results include all inflected forms of the search term.",
+      "p2": "The use of wildcard symbols is not recommended for search terms in Finnish, since their use will exclude some processing measures related to the search terms. These include, for example, the processing of synonyms and splitting terms at a hyphen.",
+      "p3": "Finna automatically takes into account the various inflected forms and word endings of Finnish search terms. For example, if the search term is “taulu”, the search engine will also recognise its inflected forms, such as “taulut” and “taulujen”. The use of wildcards may confuse the search engine’s automatic processes. A search for a plural with an ‘s’ ending automatically returns singular versions of the word as well, and vice versa. For example, the search for “paintings” also finds “painting”.",
+      "p4": "NB! The wildcard symbols (* and ?) cannot be the first character of a search term.",
+      "asterisk" : {
+        "title" : "* (Asterisk)",
+        "p1": "The asterisk symbol replaces one or several characters in the search term. The search results will also include the form of the search term that was used when performing a search.",
+        "p2": "The search term may be truncated at the end with an asterisk. For example, to find search results for the terms competition, competitions, competitor and competitiveness, use the search term:",
+        "p3": "The asterisk may also be used in the middle of a search term to replace one or more characters. For example, to search for both the terms color and colour, use the search term:"
+      },
+      "questionMark": {
+        "title": "? (Question Mark)",
+        "p1":"The question mark symbol replaces one character in the search term, enabling the use of different word forms.",
+        "p2": "For example, to find results for both the terms woman and women, use the search term:"
+      }
+    },
+    "subtitleFuzzy": "Fuzzy searches",
+    "subtitleFuzzyParagraphs":{
+      "p1": "A fuzzy search generates results in which words similar to the actual search word also appear.",
+      "p2": "carries out a fuzzy search when used as the last character in a single-term search. ",
+      "p3": "For example, a fuzzy search for the term “roam”:",
+      "p4": "This search finds such terms as “foam” and “roams”. The similarity of the search to the original term can be regulated with a parameter between zero and one.",
+      "p5": "The closer the value is to one, the more similar the term will be to the original term. roam~0.8",
+      "p6": "The default value of the parameter is 0.5 if it is not separately defined for a fuzzy search."
+    },
+    "subtitleProximity": "Proximity searches",
+    "subtitleProximityParagraphs":{
+      "p1": "Proximity searches look for documents in which the search terms are within a specified distance, but not necessarily one after the other. ",
+      "p2": "performs a proximity search at the end of a multi-term search phrase when combined with a proximity value.",
+      "p3": "For example, to search for the terms “economics” and “Keynes” when they appear within a distance of no more than ten terms from each other:"
+    },
+    "subtitleRange": "Range searches",
+    "subtitleRangeParagraphs":{
+      "p1-1": "Range searches can be conducted using either curvy brackets ",
+      "p1-2": "or square brackets ",
+      "p1-3": ". When using curvy brackets, the search takes into account only the values between the terms entered, excluding the terms itself. Square brackets, in contrast, also include the terms entered in the range searched for.",
+      "p2": "For example, to search for a term that begins with the letter B or C using the query:",
+      "p3": "For example, to search for the values 2002–2003:",
+      "p4": "NB! The word TO between the values must be typed in CAPITAL LETTERS."
+    },
+    "subtitleWeighted": "Weighted search terms",
+    "subtitleWeightedParagraphs":{
+      "p1": "^ assigns a weight to the search term in a query.",
+      "p2": "For example, to assign added weight to the search term “Keynes”:"
+    },
+    "subtitleSearch": "Search by classification",
+    "subtitleSearchParagraphs":{
+      "p1": "The libraries of Espoo, Vantaa and Kauniainen use the Finnish Public Libraries Classification System (PLC). Helsinki City Library uses the Helsinki City Library Classification System (HCLCS).",
+      "p2": "You can search for material according to the classification in the following way:",
+      "p3": "In the search results, all works classified under the PLC class 654.92 Cats will be displayed.",
+      "p4": "In the search results, all works classified under the HCLCS class 67.452 Cats will be displayed."
+    },
+    "subtitleSaved": "Saved searches and alert schedule",    
+    "subtitleSavedParagraph": "You'll find information about saved searches and alert schedule on Using the services of the Kirjasto online library page."
+  },
+  "whatIsLibrary": {
+    "title": "What is Kirjasto?",
+    "whatKirjastoOffers": "What Kirjasto libraries offer",
+    "statistics": "Statistics",
+    "paragraph1": "Kirjasto on pääkaupunkiseudun yleisten kirjastojen verkosto (Helsinki Metropolitan Area Libraries). Siihen kuuluvat Helsingin, Espoon, Kauniaisten ja Vantaan kaupunginkirjastot.",
+    "paragraph2": "There are more than 60 libraries that employ almost 800 people in the Kirjasto area. Kirjasto.fi is the shared online library for the Kirjasto area, where you can renew your loans, make reservations, browse through events at the libraries, and read library news and recommendations.",
+    "paragraph3": "With a Kirjasto library card, you can borrow books and other materials from all the libraries in the area. You can also return your loans to any library in the area.",
+    "paragraph4": "Kirjasto cooperation provides us with results that we could not achieve on our own.",
+    "whatKirjastoOffersBullets": {
+      "bullet1": "library system",
+      "bullet2": "net library, e-library",
+      "bullet3": "right to borrow material and library card",
+      "bullet4": "user regulations and payment policy",
+      "bullet5": "collections",
+      "bullet6": "material acquisition system and joint acquisition places",
+      "bullet7": "transfer of materials between municipalities",
+      "bullet8": "book and music stockrooms that give out loans",
+      "bullet9": "teams coordinating operations",
+      "bullet10": "training",
+      "bullet11": "information, campaigns, and customer surveys"
+    },    
+    "statisticsBullets":{
+      "bullet1": "66 libraries, five bookmobiles and library bicycles",
+      "bullet2": "7 patient libraries and home service",
+      "bullet3": "staff: over 750 library and media professionals",
+      "bullet4": "total number of loans 16.1 million",
+      "bullet5": "annual visits approx. 27 million, of which more than 13 million are net library visitors",
+      "bullet6": "3 million items",
+      "bullet7": "Kirjasto libraries serve more than a million customers in the metropolitan area"
+    }
+  }
+}

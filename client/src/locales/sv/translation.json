@@ -1,0 +1,287 @@
+{
+  "cookieSettings": {
+    "title": "Cookie-inställningar",
+    "description": "Cookies som används på webbplatsen är kategoriserade efter deras syfte. Se nedan för en beskrivning av varje kategori samt möjligheten att acceptera eller avvisa den.",
+    "privacyInfo": "Integritetsinformation för webbplatsen",
+    "categories": {
+      "chat": "Chattjänster",
+      "map": "Karttjänster",
+      "essential": "Nödvändiga cookies",
+      "analytics": "Analyscookies"
+    },
+    "acceptAll": "Acceptera alla cookies",
+    "acceptEssential": "Acceptera endast nödvändiga cookies",
+    "save": "Spara inställningar",
+    "enabled": "Aktiverad",
+    "disabled": "Inaktiverad",
+    "categoryDescriptions": {
+      "chat": "Cookies som krävs för chattfunktionalitet.",
+      "map": "Cookies som krävs för karttjänster.",
+      "essential": "Nödvändiga cookies krävs för att webbplatsen ska fungera korrekt.",
+      "analytics": "Analyscookies hjälper oss att förstå hur besökare använder webbplatsen."
+    }
+  },
+  "feedback": {
+    "title": "Respons",
+    "subject": "Ämne",
+    "subjects": {
+      "fees": "Avgifter, lån, reservationer, kundinformation",
+      "collections": "Samlingar och inköp",
+      "website": "Webbplatsfeedback",
+      "services": "Bibliotekstjänster och evenemang",
+      "other": "Annat"
+    },
+    "cardNumber": "Bibliotekskortsnummer",
+    "feedbackTitle": "Rubrik",
+    "message": "Meddelande",
+    "url": "URL till refererad sida (valfritt)",
+    "name": "Namn",
+    "email": "E-post",
+    "info": "Om du vill ha svar på ditt meddelande, lämna ditt namn och din e-postadress.",
+    "privacy": "Uppgifterna i formuläret skickas till webbplatsens administratör (Kirjasto-biblioteken) via e-post.",
+    "send": "Skicka",
+    "required": "Obligatorisk",
+    "titleRequired": "Rubrik är obligatorisk",
+    "messageRequired": "Meddelande är obligatoriskt"
+  },
+  "footerContent": {
+    "about": "Om",
+    "findMore": "Hitta mer",
+    "needHelp": "Behöver du hjälp?",
+    "whatIsLibrary": "Vad är biblioteket?",
+    "cookieSettings": "Cookie-inställningar",
+    "howAreMaterialsSelected": "Hur väljs material ut?",
+    "searchHistory": "Sökhistorik",
+    "searchTips": "Söktips",
+    "feedback": "Respons"
+  },
+ "howAreMaterialsSelected": {
+    "title": "Hur väljs material ut?",
+    "subtitle1": "Vad har Kirjasto-bibliotekens materialurvalsprocesser gemensamt?",
+    "subtitle2": "Hur anskaffas nya verk?",
+    "subtitle3": "Fler exemplar av populära nya verk kan beställas",
+    "subtitle4": "Kundernas anskaffningsönskemål",
+    "paragraph1": "Kirjasto-biblioteken omfattar stadsbiblioteken i Esbo, Helsingfors, Grankulla och Vanda.",
+    "paragraph2": "Kirjasto-biblioteken har i huvudsak samma principer för materialurval. Det finns vissa stadspecifika skillnader som kan påverka urvalet.",
+    "paragraph3": "Biblioteken väljer material som representerar ett brett spektrum av åsikter och perspektiv.",
+    "paragraph4": "Bibliotekets materialurval styrs av lagen om allmänna bibliotek. Lagen föreskriver att bibliotekens uppgifter omfattar främjandet av lika möjligheter för alla att få tillgång till utbildning och kultur, informationens tillgänglighet och användning samt läskultur och mångsidiga läsfärdigheter.",
+    "paragraph5": "Bibliotekets uppgifter innefattar också att erbjuda möjligheter till livslångt lärande samt att stödja aktivt medborgarskap, demokrati och yttrandefrihet. Måluppfyllelsen bygger på gemenskap, mångfald och kulturell variation.",
+    "subtitle1Paragraph1": "Materialet väljs huvudsakligen av urvalsgrupper som består av biblioteksproffs. Materialet anskaffas via respektive stads materialcentrum.",
+    "subtitle1Paragraph2": "Olika materialtyper har dedikerade arbetsgrupper som vid behov samarbetar med både den egna stadens bibliotek och andra Kirjasto-bibliotek.",
+    "subtitle1Paragraph3": "Olika typer av material, såsom böcker, tidningar och tidskrifter, musik, filmer och spel, anskaffas i både traditionellt och digitalt format. Biblioteken anskaffar även lånebara föremål.",
+    "subtitle1Paragraph4": "Biblioteket kan endast anskaffa filmer som har licens för utlåning. Biblioteket betalar ersättning för upphovsrätt.",
+    "subtitle1Paragraph5": {
+      "beforeLink": "Material anskaffas för personer i alla åldrar och på de språk som talas mest i huvudstadsregionen. Kirjasto-biblioteken har böcker för barn, unga och vuxna på över hundra (100) språk. Material på mindre vanliga språk i huvudstadsregionen tillhandahålls av Helsingfors stadsbiblioteks ",
+      "link": "Flerspråkiga bibliotek",
+      "afterLink": ". Det Flerspråkiga biblioteket finns i Böle bibliotek."
+    },
+    "subtitle1Paragraph6": "Särskilt kostsamma eller sällan efterfrågade material anskaffas till Kirjasto-biblioteken endast i enstaka exemplar.",
+    "subtitle1Paragraph7": "E-böcker, e-ljudböcker och e-tidskrifter kan lånas via den nationella E-bibliotekstjänsten. Materialet i E-biblioteket väljs ut av nationella yrkesgrupper inom biblioteksväsendet. Samlingen utvecklas kontinuerligt. Du kan läsa mer om E-bibliotekets materialurvalsprinciper på Nationalbibliotekets webbplats. Du kan skicka in förslag på nya e-böcker via E-bibliotekets responsformulär när du är inloggad.",
+    "subtitle2Paragraph1": "Nya verk från finländska förlag beställs i förväg innan de ges ut. Verken blir tillgängliga för bibliotekskunder direkt vid lanseringen.",
+    "subtitle2Paragraph2": "Nya verk kan reserveras så snart biblioteket har lagt en beställning. Hur snabbt de anländer till biblioteket beror på om de redan är publicerade eller om de är förhandsbeställda flera månader före utgivningsdatumet.",
+    "subtitle2Paragraph3": "Nya verk förbereds för utlåning vid materialcentrumen. Därefter skickas de direkt till de kunder som har reserverat dem eller, om inga reservationer finns, till biblioteket.",
+    "subtitle3Paragraph1": "Bibliotekens experter har god kännedom om populära verk, och målet är att beställa tillräckligt många exemplar i förväg. De följer också efterfrågan och låneköer regelbundet genom statistik.",
+    "subtitle3Paragraph2": "Fler exemplar av populära verk beställs på ett förnuftigt sätt inom ramen för tillgänglig budget. Urvalsgrupperna bedömer hur länge efterfrågan kommer att vara hög och hur ofta verket lånas därefter.",
+    "subtitle3Paragraph3": "Tyvärr är äldre verk med många reservationer ofta slut hos förlagen. I sådana fall kan inga nya exemplar anskaffas.",
+    "subtitle4Paragraph1": "Du kan skicka in förslag på material via anskaffningsformuläret i nätbiblioteket eller direkt till personalen.",
+    "subtitle4Paragraph2": "De flesta finska litterära verk anskaffas av Kirjasto-biblioteken utan särskilda önskemål.",
+    "subtitle4Paragraph3": "Alla förslag på anskaffningar behandlas och bedöms. Biblioteken får många förslag och kan därför ofta inte ge ett personligt svar.",
+    "subtitle4Paragraph4": "Exempel på faktorer som påverkar anskaffningsbeslutet är tillgången till verket, utgivningsår, allmänt intresse, dess lämplighet för folkbibliotekets samlingar och priset. Kurslitteratur från högskolor och vetenskapliga publikationer anskaffas endast om det finns särskilt starka skäl.",
+    "subtitle4Paragraph5": "Om biblioteket beslutar att anskaffa ett föreslaget verk, visas informationen i Kirjasto-nätbiblioteket så snart beställningen har gjorts. Du kan då reservera verket. Den person som föreslog verket får inte ett separat meddelande, men du kan spara din sökning. När du sparar sökningen får du ett e-postmeddelande när verket har lagts till i Kirjasto-bibliotekets databas. Instruktioner för att spara en sökning."
+  },
+  "searchHistory": {
+    "titleSaveSearches": "Sparade sökningar",
+    "loginLink1": "Vänligen ",
+    "loginLink2": "logga in",
+    "loginLink3": " för att se dina sparade sökningar.",
+    "titleRecentSearches": "Senaste sökningar",
+    "noSearches": "Det finns inga sökningar i din historik just nu."
+  },  
+  "searchTips": {
+    "title": "Söktips",
+    "subtitleBasic": "Grundläggande sökning",
+    "subtitleBasicParagraphs": {
+      "p1": "Om sökord separeras endast med mellanslag, blir sökresultaten desamma som vid användning av operatorn AND, dvs. sökresultaten innehåller alla sökord du har angett.",
+      "p2-1": "Till exempel,",
+      "p2-2": " mannerheim carl",
+      "p2-3": " ger samma sökresultat som",
+      "p2-4": " mannerheim AND carl."
+    },
+    "subtitleNarrowing": "Begränsa sökningen",
+    "subtitleNarrowingParagraphs": {
+      "p1": "Du kan använda menyn",
+      "p2": " Begränsa sökning",
+      "p3": " för att begränsa din sökning enligt format (t.ex. bild), organisation (t.ex. Tikkurila bibliotek) eller språk. Du kan ange produktionsår genom att mata in ett intervall eller använda det visuella tidslinjeverktyget. Sökresultaten kan begränsas genom att välja flera kriterier samtidigt. Genom att klicka på pilen kan du visa platser eller format (t.ex. spel, brädspel) på en lägre hierarkisk nivå. Som standard visas de mest relevanta sökresultaten högst upp.",
+      "p4": " Du kan se och ta bort kriterier under sökfältet."
+    },
+    "subtitleAdvanced": "Avancerad sökning",
+    "subtitleAdvancedParagraphs": {
+      "fields": {
+        "title": "Sökfält",
+        "p1": "På sidan för avancerad sökning finns flera sökfält där du kan ange sökord och fraser samt använda olika sökoperatorer.",
+        "p2": "Intill varje sökfält finns en rullgardinsmeny där du kan välja vilket fält i posten som ska sökas (alla fält, titel, författare etc.). Vid behov kan du rikta en sökning mot flera fält genom att använda flera söktermer."
+      },
+      "match": {
+        "title": "Match-rullgardinsmeny",
+        "p1": "Match-rullgardinsmenyn definierar hur en sökning med flera sökfält hanteras:",
+        "bullet1-1": "ALLA termer (AND)",
+        "bullet1-2": " – Söker efter poster som matchar innehållet i alla sökfält.",
+        "bullet2-1": "NÅGON term (OR)",
+        "bullet2-2": " – Söker efter poster som matchar innehållet i ett eller flera sökfält.",
+        "bullet3-1": "INGA termer (NOT)",
+        "bullet3-2": " – Söker efter poster som inte innehåller innehållet i något av sökfälten.",
+        "p2-1": "Lägg till sökfält",
+        "p2-2": " låter dig lägga till ett nytt sökfält i formuläret."
+      },
+      "groups": {
+        "title": "Sökgrupper",
+        "bullet1-1": "Lägg till sökgrupp",
+        "bullet1-2": " låter dig lägga till sökfält för en ny grupp",
+        "bullet2-1": "Ta bort sökgrupp",
+        "bullet2-2": " låter dig ta bort grupper",
+        "bullet3-1": "För att definiera relationerna mellan sökgrupper, använd operatorerna",
+        "bullet3-2": " ALLA grupper (AND)",
+        "bullet3-3": " och ",
+        "bullet3-4": "NÅGON grupp (OR)",
+        "bullet3-5": "."
+      },
+      "example": {
+        "title": "Exempel",
+        "p1": "Om du vill söka information om Indiens och Kinas historia kan du använda sökgrupper enligt följande:",
+        "bullet1": "Lägg till termerna ”Indien” och ”Kina” i sökfälten för den första sökgruppen.",
+        "bullet2-1": "Definiera relationen mellan sökfälten genom att välja",
+        "bullet2-2": " NÅGON term (OR)",
+        "bullet2-3": " från",
+        "bullet2-4": " Match",
+        "bullet2-5": "-rullgardinsmenyn.",
+        "bullet3": "Skapa en ny sökgrupp och lägg till termen ”historia” i dess sökfält.",
+        "bullet4-1": "Definiera relationen mellan sökgrupperna som",
+        "bullet4-2": " ALLA grupper (AND)."
+      }
+    },
+    "subtitleLogical": "Logiska sökoperatorer",
+    "subtitleLogicalOperators": {
+      "and": "AND",
+      "plus": "+",
+      "or": "OR",
+      "not": "NOT",
+      "minus": "-",
+      "exclamationMarkMinus": "!-"
+    },
+    "subtitleLogicalParagraphs": {
+      "comma": ", ",
+      "commaAnd": ", och",
+      "point": ". ",
+      "nb": "OBS!",
+      "nbP": "Booleska operatorer måste skrivas med VERSALER.",
+      "pAnd1": "AND, konjunktionsoperatorn, är systemets standardoperator för frågor med flera termer utan operator. När du använder operatorn AND innehåller sökresultaten varje term från sökfälten.",
+      "pAnd2": "Till exempel, för att söka efter poster som innehåller ”ekonomi” och ”Keynes”:",
+      "pAnd3": "eller",
+      "pPlus1": "konjunktionsoperatorn, är systemets standardoperator för frågor med flera termer utan operator.",
+      "pPlus2": " operatorn gör att posterna i sökresultaten innehåller varje term i sökfälten.",
+      "pPlus3": "Till exempel, för att söka efter poster som innehåller ”ekonomi” och ”Keynes”:",
+      "pOr1": "+-tecknet kan användas för att ange att termen måste finnas i varje sökresultat.",
+      "pOr2": "Till exempel, för att söka efter poster som innehåller ”ekonomi” och ”Keynes”:",
+      "pExclamationMarkMinus1": "Operatorn \"!-\" utesluter poster som innehåller efterföljande term.",
+      "pExclamationMarkMinus2": "För att söka efter dokument som innehåller \"ekonomi\" men inte \"Keynes\", använd frågan:",
+      "pExclamationMarkMinus3": "Observera: Operatorn kan inte användas med endast en term. Till exempel returnerar följande sökning inga resultat:",
+      "pExclamationMarkMinus4": "Observera: Om termen börjar med operatorn, kan den inkluderas med hjälp av bakstreck (\\). Till exempel: för att söka efter !-märke som villkor (på finska) använd frågan:",
+      "pExclamationMarkMinus5": "Observera: Operatorn NOT kan användas på liknande sätt som denna operator. Dock returnerar operatorn NOT fler resultat, varav vissa kan innehålla termen efter NOT."
+    },
+    "subtitlePhrase": "Frassökning",
+    "subtitlePhraseParagraphs": {
+      "p1": "Frassökningen Helsingin yliopisto hittar även resultat som Helsingin yliopistossa:",
+      "p2": "En frassökning är användbar för att få resultat med ord i en viss ordning. Vid sökning på finska söker frassökningen brett efter böjningsformer och sammansatta former i olika fält. Vid sökning på andra språk än finska ingår inte böjningsformer eller sammansättningar, med undantag för singulara substantiv vars pluralform slutar på -s och vice versa. Exakta träffar prioriteras högre och visas därför överst i relevanssorterade sökresultat. För att göra en frassökning, skriv söktermerna inom citationstecken.",
+      "p3": "Vid sökning på andra språk visar en frassökning som classroom board även resultat för classroom boards men inte för classroom chalkboard:"
+    },
+    "subtitleWildcard": "Wildcard-tecken",
+    "subtitleWildcardParagraphs": {
+      "p1-1": "Wildcard-tecknen",
+      "p1-2": " och ",
+      "p1-3": " kan användas för att ersätta tecken i söktermer så att sökresultaten innehåller alla böjningsformer.",
+      "p2": "Användning av wildcard-tecken rekommenderas inte vid sökningar på finska, eftersom de utesluter vissa processer relaterade till söktermerna. Detta inkluderar exempelvis hantering av synonymer och uppdelning av termer vid bindestreck.",
+      "p3": "Finna beaktar automatiskt olika böjningsformer och ändelser på finska söktermer. Exempelvis, om sökordet är ”taulu” så identifierar sökmotorn även böjningsformer som ”taulut” och ”taulujen”. Användning av wildcard kan störa denna automatiska behandling. En sökning på pluralform som slutar på ’s’ returnerar automatiskt även singularformer, och vice versa. Exempelvis: sökningen ”paintings” ger även ”painting”.",
+      "p4": "OBS! Wildcard-tecknen (* och ?) kan inte vara det första tecknet i en sökterm.",
+      "asterisk": {
+        "title": "* (Asterisk)",
+        "p1": "Asterisken ersätter ett eller flera tecken i söktermen. Sökresultaten inkluderar även den form som användes vid sökningen.",
+        "p2": "Söktermen kan trunkeras i slutet med en asterisk. Exempel: för att hitta competition, competitions, competitor och competitiveness, använd:",
+        "p3": "Asterisken kan även användas mitt i en sökterm för att ersätta ett eller flera tecken. Exempelvis: för att söka på både color och colour, använd:"
+      },
+      "questionMark": {
+        "title": "? (Frågetecken)",
+        "p1": "Frågetecknet ersätter ett tecken i söktermen, vilket möjliggör olika ordformer.",
+        "p2": "Exempel: för att hitta både woman och women, använd:"
+      }
+    },
+    "subtitleFuzzy": "Osäker sökning (fuzzy search)",
+    "subtitleFuzzyParagraphs": {
+      "p1": "En osäker sökning ger resultat där ord liknande det ursprungliga sökordet också visas.",
+      "p2": "utförs när tecknet används som sista tecken i en enskild sökterm.",
+      "p3": "Exempel: en osäker sökning på termen “roam”:",
+      "p4": "Sökningen hittar termer som “foam” och “roams”. Likheten styrs med ett värde mellan noll och ett.",
+      "p5": "Ju närmare värdet är ett, desto mer likt är ordet den ursprungliga termen. roam~0.8",
+      "p6": "Standardvärdet är 0.5 om inget annat anges."
+    },
+    "subtitleProximity": "Närhetssökning",
+    "subtitleProximityParagraphs": {
+      "p1": "Närhetssökningar söker dokument där söktermerna är inom ett visst avstånd från varandra, men inte nödvändigtvis direkt efter varandra.",
+      "p2": "utförs i slutet av en sökfras med flera termer när den kombineras med ett närhetsvärde.",
+      "p3": "Exempel: för att söka efter ”economics” och ”Keynes” när de förekommer inom tio ord från varandra:"
+    },
+    "subtitleRange": "Intervallsökning",
+    "subtitleRangeParagraphs": {
+      "p1-1": "Intervallsökning kan göras med antingen krullparenteser ",
+      "p1-2": "eller hakparenteser ",
+      "p1-3": ". Med krullparenteser inkluderas endast värdena mellan angivna termer, exklusive termerna själva. Hakparenteser inkluderar även de angivna termerna i sökningen.",
+      "p2": "Exempel: för att söka på ord som börjar med bokstav B eller C, använd:",
+      "p3": "Exempel: för att söka efter värden mellan 2002–2003:",
+      "p4": "OBS! Ordet TO mellan värden måste skrivas med VERSALER."
+    },
+    "subtitleWeighted": "Viktade söktermer",
+    "subtitleWeightedParagraphs": {
+      "p1": "^ anger vikt för söktermen i sökningen.",
+      "p2": "Exempel: för att ge söktermen “Keynes” större vikt:"
+    },
+    "subtitleSearch": "Sökning enligt klassifikation",
+    "subtitleSearchParagraphs": {
+      "p1": "Biblioteken i Esbo, Vanda och Kauniainen använder det finska allmänna klassifikationssystemet (PLC). Helsingfors stadsbibliotek använder Helsingfors klassifikationssystem (HCLCS).",
+      "p2": "Du kan söka material enligt klassifikation på följande sätt:",
+      "p3": "Sökresultaten visar alla verk som är klassificerade enligt PLC-klass 654.92 Katter.",
+      "p4": "Sökresultaten visar alla verk som är klassificerade enligt HCLCS-klass 67.452 Katter."
+    },
+    "subtitleSaved": "Sparade sökningar och påminnelseschema",
+    "subtitleSavedParagraph": "Du hittar information om sparade sökningar och påminnelseschemat på sidan Tjänster i Kirjasto-nätbiblioteket."
+  },
+  "whatIsLibrary": {
+    "title": "Vad är Kirjasto?",
+    "whatKirjastoOffers": "Vad Kirjasto-biblioteken erbjuder",
+    "statistics": "Statistik",
+    "paragraph1": "Kirjasto-nätverket (Helsingforsregionens bibliotek) består av stadsbiblioteken i Helsingfors, Esbo, Grankulla och Vanda.",
+    "paragraph2": "Det finns över 60 bibliotek i Kirjasto-området som sysselsätter nästan 800 personer. Kirjasto.fi är det gemensamma nätbiblioteket för området, där du kan förnya dina lån, göra reservationer, bläddra bland evenemang på biblioteken och läsa nyheter och rekommendationer.",
+    "paragraph3": "Med ett Kirjasto-bibliotekskort kan du låna böcker och annat material från alla bibliotek i området. Du kan även returnera dina lån till vilket bibliotek som helst inom nätverket.",
+    "paragraph4": "Kirjasto-samarbetet ger oss resultat som vi inte skulle kunna uppnå på egen hand.",
+    "whatKirjastoOffersBullets": {
+      "bullet1": "bibliotekssystem",
+      "bullet2": "nätbibliotek, e-bibliotek",
+      "bullet3": "rätt att låna material och bibliotekskort",
+      "bullet4": "användarregler och betalningspolicy",
+      "bullet5": "samlingar",
+      "bullet6": "system för materialanskaffning och gemensamma inköpsplatser",
+      "bullet7": "materialöverföring mellan kommuner",
+      "bullet8": "bok- och musikförråd som lånar ut material",
+      "bullet9": "team som samordnar verksamheten",
+      "bullet10": "utbildning",
+      "bullet11": "information, kampanjer och kundundersökningar"
+    },
+    "statisticsBullets": {
+      "bullet1": "66 bibliotek, fem bokbussar och biblioteks­cyklar",
+      "bullet2": "7 patientbibliotek och hemservice",
+      "bullet3": "personal: över 750 biblioteks- och medieproffs",
+      "bullet4": "totalt antal lån: 16,1 miljoner",
+      "bullet5": "årliga besök cirka 27 miljoner, varav över 13 miljoner är nätbiblioteksbesök",
+      "bullet6": "3 miljoner objekt",
+      "bullet7": "Kirjasto-biblioteken betjänar över en miljon kunder i huvudstadsregionen"
+    }
+  }
+}

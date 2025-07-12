@@ -1,0 +1,287 @@
+{
+  "cookieSettings": {
+    "title": "Evästeasetukset",
+    "description": "Sivustolla käytetyt evästeet on luokiteltu niiden käyttötarkoituksen mukaan. Katso alta kunkin kategorian kuvaus sekä mahdollisuus hyväksyä tai hylätä se.",
+    "privacyInfo": "Sivuston tietosuojatiedot",
+    "categories": {
+      "chat": "Chat-palvelut",
+      "map": "Karttapalvelut",
+      "essential": "Välttämättömät evästeet",
+      "analytics": "Analytiikkaevästeet"
+    },
+    "acceptAll": "Hyväksy kaikki evästeet",
+    "acceptEssential": "Hyväksy vain välttämättömät evästeet",
+    "save": "Tallenna asetukset",
+    "enabled": "Käytössä",
+    "disabled": "Ei käytössä",
+    "categoryDescriptions": {
+      "chat": "Chat-toiminnallisuuden edellyttämät evästeet.",
+      "map": "Karttapalveluiden edellyttämät evästeet.",
+      "essential": "Välttämättömät evästeet ovat tarpeellisia sivuston toiminnan kannalta.",
+      "analytics": "Analytiikkaevästeet auttavat meitä ymmärtämään, miten kävijät käyttävät sivustoa."
+    }
+  },
+   "feedback": {
+    "title": "Palaute",
+    "subject": "Aihe",
+    "subjects": {
+      "fees": "Maksut, lainat, varaukset, asiakastiedot",
+      "collections": "Kokoelmat ja hankinnat",
+      "website": "Verkkosivun palaute",
+      "services": "Kirjastopalvelut ja tapahtumat",
+      "other": "Muu"
+    },
+    "cardNumber": "Kirjastokortin numero",
+    "feedbackTitle": "Otsikko",
+    "message": "Viesti",
+    "url": "Viitatun sivun URL (valinnainen)",
+    "name": "Nimi",
+    "email": "Sähköposti",
+    "info": "Jos haluat vastauksen viestiisi, jätä nimesi ja sähköpostiosoitteesi.",
+    "privacy": "Lomakkeen tiedot lähetetään sivuston ylläpitäjälle (Kirjastot) sähköpostitse.",
+    "send": "Lähetä",
+    "required": "Pakollinen",
+    "titleRequired": "Otsikko on pakollinen",
+    "messageRequired": "Viesti on pakollinen"
+  },
+  "footerContent": {
+    "about": "TIETOA",
+    "findMore": "HAE LISÄÄ",
+    "needHelp": "TARVITSETKO APUA?",
+    "whatIsLibrary": "Mikä kirjasto on?",
+    "cookieSettings": "Evästeasetukset",
+    "howAreMaterialsSelected": "Aineistonvalinnan periaatteet",
+    "searchHistory": "Hakuhistoria",
+    "searchTips": "Tiedonhaun ohjeita",
+    "feedback": "Palaute"
+  },
+  "howAreMaterialsSelected": {
+    "title": "Miten aineisto valitaan?",
+    "subtitle1": "Mikä on yhteistä Helmet-kirjastojen aineiston valinnassa?",
+    "subtitle2": "Miten uutuudet hankitaan?",
+    "subtitle3": "Kysyttyjä uutuuksia voidaan tilata lisää",
+    "subtitle4": "Asiakkaiden hankintatoiveet",
+    "paragraph1": "Kirjasto-kirjastoja ovat Espoon, Helsingin, Kauniaisten ja Vantaan kaupunginkirjastot.",
+    "paragraph2": "Kirjasto-kirjastoilla on pääosin samat aineiston valinnan periaatteet. Kaupungeilla on joitakin paikallisia eroja, jotka voivat vaikuttaa valintaan.",
+    "paragraph3": "Kirjastoihin valitaan monipuolisesti eri näkemyksiä ja mielipiteitä edustavaa aineistoa.",
+    "paragraph4": "Laki yleisistä kirjastoista ohjaa kirjaston aineiston valintaa. Laki määrittelee yleisen kirjaston tehtäväksi edistää väestön yhdenvertaisia mahdollisuuksia sivistykseen ja kulttuuriin, tiedon saatavuutta ja käyttöä sekä lukemiskulttuuria ja monipuolista lukutaitoa.",
+    "paragraph5": "Kirjaston tehtävänä on lisäksi tarjota mahdollisuuksia elinikäiseen oppimiseen sekä tukea aktiivista kansalaisuutta, demokratiaa ja sananvapautta. Tavoitteen toteuttamisessa lähtökohtina ovat yhteisöllisyys, moniarvoisuus ja kulttuurinen moninaisuus.",
+    "subtitle1Paragraph1": "Aineistoa valitsevat pääosin valintaryhmät, jotka koostuvat kirjaston asiantuntijoista. Aineisto hankitaan jokaisen kaupungin omassa aineistokeskuksessa.",
+    "subtitle1Paragraph2": "Eri aineistoja varten on omat työryhmänsä, jotka tekevät tarvittaessa yhteistyötä sekä oman kaupungin kirjastojen että eri Helmet-kirjastojen kanssa.",
+    "subtitle1Paragraph3": "Erilaista aineistoa kuten kirjoja, lehtiä, musiikkia, elokuvia ja pelejä hankitaan sekä perinteisissä että digitaalisissa muodoissa. Kirjastoihin hankitaan myös lainattavia esineitä.",
+    "subtitle1Paragraph4": "Kirjasto voi hankkia vain elokuvia, joissa on lainausoikeus. Kirjasto maksaa tekijänoikeuskorvaukset.",
+    "subtitle1Paragraph5": {
+      "beforeLink": "Aineistoa hankitaan kaiken ikäisille ja pääkaupunkiseudulla eniten puhutuilla kielillä. Helmet-kirjastoissa on kirjoja lapsille, nuorille ja aikuisille yli sadalla (100) kielellä. Pääkaupunkiseudulla vähemmän puhutuilla kielillä olevaa aineistoa on Helsingin kaupunginkirjaston ",
+      "link": "Monikielinen kirjasto",
+      "afterLink": " Monikielinen kirjasto toimii Pasilan kirjastossa."
+    },
+    "subtitle1Paragraph6": "Erityisen kallista tai vähän kysyttyä aineistoa hankitaan Helmet-kirjastoihin vain yksittäisiä kappaleita.",
+    "subtitle1Paragraph7": "E-kirjoja, e-äänikirjoja ja e-aikakauslehtiä voit lainata valtakunnallisen palvelun kautta, kuntien yhteisestä E-kirjastosta. E-kirjaston aineiston valitsevat valtakunnalliset kirjastoammattilaisten ryhmät. Valikoima kehittyy jatkuvasti. E-kirjaston aineiston valinnasta voit lukea lisää Kansalliskirjaston sivuilta. Toiveita uusista e-kirjoista voit tehdä Kansalliskirjastoon E-kirjaston omalla palautelomakkeella, kun olet kirjautuneena.",
+    "subtitle2Paragraph1": "Suomalaisten kustantamojen uutuudet tilataan ennakkoon jo ennen kuin teos on julkaistu. Uutuusaineisto saadaan kirjastoihin ja asiakkaiden käyttöön heti, kun aineisto on ilmestynyt.",
+    "subtitle2Paragraph2": "Uutuuksia voi varata heti, kun aineistosta on tehty tilaus. Tilatun aineiston saapuminen kirjastoon riippuu siitä, onko teos jo julkaistu vai onko se tilattu ennakkoon kuukausia ennen julkaisemista.",
+    "subtitle2Paragraph3": "Uutuusaineisto käsitellään lainauskuntoon aineistokeskuksissa. Sen jälkeen se lähtee suoraan varaajille, tai mikäli varauksia ei ole, kirjastoihin.",
+    "subtitle3Paragraph1": "Kirjaston asiantuntijoilla on hyvä käsitys suositusta aineistosta, ja sitä pyritään tilaamaan riittävästi jo ennakkoon. Kysyntää ja varausjonoja seurataan myös tilastojen avulla säännöllisin väliajoin.",
+    "subtitle3Paragraph2": "Suosittua aineistoa tilataan lisää järkevällä tavalla, käytettävissä olevien määrärahojen puitteissa. Valitsijat arvioivat, miten pitkään kysyntäpiikki jatkuu ja kuinka paljon teosta sen jälkeen lainataan.",
+    "subtitle3Paragraph3": "Vanhemmat teokset, joihin on varauksia, ovat usein valitettavasti loppuunmyytyjä. Silloin täydennyshankintaa ei voida tehdä.",
+    "subtitle4Paragraph1": "Voit esittää toiveen hankittavasta aineistosta ja lähettää sen verkkokirjastomme sivuilta löytyvällä hankintaehdotuslomakkeella. Voit myös kertoa hankintatoiveesi kirjaston henkilökunnalle.",
+    "subtitle4Paragraph2": "Suurin osa suomalaisesta kirjallisuudesta hankitaan Helmet-kirjastoihin ilman eri toivetta.",
+    "subtitle4Paragraph3": "Kaikki hankintaehdotukset käsitellään ja arvioidaan. Hankintaehdotuksia tulee paljon, ja siksi ehdotuksiin ei usein pystytä vastaamaan.",
+    "subtitle4Paragraph4": "Hankintatoiveiden toteuttamiseen vaikuttavat esimerkiksi aineiston saatavuus, julkaisuvuosi, yleinen kiinnostavuus, sopivuus yleisten kirjastojen kokoelmiin ja myös hinta. Korkeakoulujen kurssikirjoja ja tieteellisiä julkaisuja hankitaan vain erityisen painavista syistä.",
+    "subtitle4Paragraph5": "Jos ehdotettu aineisto päätetään hankkia, sen tiedot näkyvät Helmet-verkkokirjastossa heti, kun tilaus on tehty. Pääset silloin tekemään aineistosta varauksen. Aineiston hankinnasta ei ilmoiteta ehdottajalle, mutta voit tallentaa itsellesi hakuvahdin. Hakuvahdin avulla saat sähköpostiisi ilmoituksen, kun teos on lisätty Helmet-kirjastojen tietokantaan. Ohjeet hakuvahdin tallentamiseen."
+  },
+  "searchHistory": {
+    "titleSaveSearches": "Tallennetut haut",
+    "loginLink1": "Ole hyvä ja ",
+    "loginLink2": "kirjaudu sisään",
+    "loginLink3": " nähdäksesi tallennetut hakusi.",
+    "titleRecentSearches": "Viimeisimmät haut",
+    "noSearches": "Hakuhistoriassasi ei ole vielä yhtään hakua."
+  },
+   "searchTips": {
+    "title": "Tiedonhaun ohjeita",
+    "subtitleBasic": "Perushaku",
+    "subtitleBasicParagraphs": {
+        "p1": "Pelkällä välilyönnillä erotetut hakusanat käyttäytyvät AND-hakulogiikalla eli hakutuloksien tulee sisältää kaikki antamasi hakusanat.",
+        "p2-1": "Esimerkiksi ",
+        "p2-2": " mannerheim carl",
+        "p2-3": " on sama haku kuin",
+        "p2-4": " mannerheim AND carl."
+    },
+    "subtitleNarrowing": "Haun rajaaminen",
+     "subtitleNarrowingParagraphs": {
+        "p1": "Haun jälkeen voit rajata hakutuloksia aineistotyypin (esim. video), kirjaston (esim. Tikkurilan kirjasto) tai vaikka kielen mukaan. Voit rajata julkaisuvuosia joko kirjoittamalla tietyt vuosivälit, joille haku kohdistuu, tai käyttämällä aikajanatyökalua. Voit myös käyttää useita rajauksia. Nuolta klikkaamalla saat näkyville alemman hierarkiatason rajauksia. (esim. peli, lautapeli). Eniten hakutuloksia keränneet hakuarvot näkyvät ylimmäisinä.",
+        "p2": "",
+        "p3": "",
+        "p4": " Tekemäsi rajaukset näkyvät hakukentän alla ja voit poistaa ne klikkaamalla rastia."    
+    },
+    "subtitleAdvanced": "Tarkennettu haku",
+    "subtitleAdvancedParagraphs": {
+      "fields": {
+        "title": "Hakukentät",
+        "p1": "Tarkennetun haun sivulla on useita hakukenttiä, joihin voi kirjoittaa hakutermejä ja –lausekkeita sekä hakuoperaattoreita.",
+        "p2": "Jokaisen hakukentän vieressä on alasvetovalikko, josta voi valita, mihin tietueen kenttään haku kohdistetaan (kaikki kentät, otsikko, tekijä, ym.). Useita termejä yhdistelevän haun voi tarvittaessa kohdistaa useampaan kenttään."
+      },
+      "match": {
+        "title": "Hae-valikko",
+        "p1": "Hae-valikko määrittelee, miten useita hakukenttiä sisältävä kysely käsitellään:",
+        "bullet1-1": "Kaikilla termeillä (AND)",
+        "bullet1-2": " — Tuottaa tulokseksi tietueet, jotka täsmäävät kaikkien hakukenttien sisältöön.",
+        "bullet2-1": "Millä tahansa termillä (OR)",
+        "bullet2-2": " — Tuottaa tulokseksi tietueet, jotka täsmäävät yhden tai useamman hakukentän sisältöön.",
+        "bullet3-1": "Ei millään termeistä (NOT)",
+        "bullet3-2": " — Tuottaa tulokseksi tietueet, joissa ei esiinny yhdenkään hakukentän sisältöä.",
+        "p2-1": "Lisää hakukenttä",
+        "p2-2": " — painikkeella voidaan lisätä uusi hakukenttä."
+      },
+      "groups":  {
+          "title": "Hakuryhmät",
+          "bullet1-1": "Lisää hakuryhmä",
+          "bullet1-2": " – painike lisää uuden ryhmän hakukenttiä.",
+          "bullet2-1": "Poista hakuryhmä",
+          "bullet2-2": " – painikkeella ryhmiä voidaan poistaa.",
+          "bullet3-1": "Hakuryhmien välisiä suhteita määritellään käyttäen",
+          "bullet3-2": " Kaikki ryhmät (AND)",
+          "bullet3-3": " ja ",
+          "bullet3-4": " Mikä tahansa ryhmä (OR) ",
+          "bullet3-5": "– hakuoperaattoreita."
+        },
+      "example" : {
+        "title": "Esimerkki tarkennetusta hausta",
+        "p1": "If you wish to search information about the history of India and China, you can use search groups as follows:",
+        "bullet1": "Add the terms “India” and “China” to the search fields of the first search group.",
+        "bullet2-1": "Define the relationship between the search fields by selectings",
+        "bullet2-2": " ANY Terms (OR)",
+        "bullet2-3": " from the",
+        "bullet2-4": " Match",
+        "bullet2-5": " drop-down menu.",
+        "bullet3": "Create a new search group and add the term “history” to its search field.",
+        "bullet4-1": "Define the relationship between search groups as",
+        "bullet4-2": " ALL Groups (AND)."
+      }
+    },
+    "subtitleLogical": "Logical search operators",
+     "subtitleLogicalOperators": {
+      "and": "AND",
+      "plus": "+",
+      "or": "OR",
+      "not": "NOT",
+      "minus":"-",
+      "exclamationMarkMinus": "!-"
+    },
+    "subtitleLogicalParagraphs": {
+      "comma": ", ",
+      "commaAnd": ", and",
+      "point": ". ",
+      "nb": "NB!",
+      "nbP": "Boolean operators must be typed in CAPITAL LETTERS.",
+      "pAnd1": "AND, the conjunction operator, is the system’s default operator for multi-term queries that do not include an operator. When using the AND operator, the records included in the search results feature each of the terms in the search fields.",
+      "pAnd2": "For example, to search for records that include “economics” and “Keynes”:",
+      "pAnd3": "or",
+      "pPlus1": "the conjunction operator, is the system’s default operator for multi-term queries that do not include an operator.",
+      "pPlus2": " operator, the records included in the search results feature each of the terms in the search fields.",
+      "pPlus3": "For example, to search for records that include “economics” and “Keynes”:",
+      "pOr1": "The + sign can be used to indicate that the term must appear in each search result.",
+      "pOr2": "For example, to search for records that include “economics” and “Keynes”:",
+      "pExclamationMarkMinus1": "The \"!-\" operator excludes records that contain the following term.",
+      "pExclamationMarkMinus2": "To search for documents that contain \"economics\" but not \"Keynes\" use the query:",
+      "pExclamationMarkMinus3": "Note: The operator cannot be used with just one term. For example, the following search will return no results:",
+      "pExclamationMarkMinus4": "Note: If the term begins with the operator, it can be included by using the backslash (\\). For example: to search for !-merkki hakuehtona (in Finnish) use the query:",
+      "pExclamationMarkMinus5": "Note: The NOT operator can be used similarly with this operator. However, the NOT operator returns more results, some of which may contain the term following NOT."
+    },
+    "subtitlePhrase": "Phrase searches",
+    "subtitlePhraseParagraphs": {
+      "p1": "The phrase search Helsingin yliopisto will also search for results such as Helsingin yliopistossa:",
+      "p2": "A phrase search is useful for obtaining results with words in a certain order. In a Finnish-language search, a phrase search will extensively seek inflected and compound forms of your phrase in different fields. In a search conducted in languages other than Finnish, a phrase search will not include inflected or compound forms, with the exception of singular nouns whose plural forms end in -s and vice versa. Accurate results will be given greater priority and therefore will feature higher in search results arranged in order of relevance. To perform a phrase search, enter your search terms within quotation marks.",
+      "p3": "When conducting a search in other languages, a phrase search such as classroom board will also display results for classroom boards but not for classroom chalkboard:"
+    },
+    "subtitleWildcard": "Wildcard characters",
+    "subtitleWildcardParagraphs": {
+      "p1-1": "The wildcard symbols",
+      "p1-2": " and ",
+      "p1-3": " can be used to replace characters in search terms to ensure that the search results include all inflected forms of the search term.",
+      "p2": "The use of wildcard symbols is not recommended for search terms in Finnish, since their use will exclude some processing measures related to the search terms. These include, for example, the processing of synonyms and splitting terms at a hyphen.",
+      "p3": "Finna automatically takes into account the various inflected forms and word endings of Finnish search terms. For example, if the search term is “taulu”, the search engine will also recognise its inflected forms, such as “taulut” and “taulujen”. The use of wildcards may confuse the search engine’s automatic processes. A search for a plural with an ‘s’ ending automatically returns singular versions of the word as well, and vice versa. For example, the search for “paintings” also finds “painting”.",
+      "p4": "NB! The wildcard symbols (* and ?) cannot be the first character of a search term.",
+      "asterisk" : {
+        "title" : "* (Asterisk)",
+        "p1": "The asterisk symbol replaces one or several characters in the search term. The search results will also include the form of the search term that was used when performing a search.",
+        "p2": "The search term may be truncated at the end with an asterisk. For example, to find search results for the terms competition, competitions, competitor and competitiveness, use the search term:",
+        "p3": "The asterisk may also be used in the middle of a search term to replace one or more characters. For example, to search for both the terms color and colour, use the search term:"
+      },
+      "questionMark": {
+        "title": "? (Question Mark)",
+        "p1":"The question mark symbol replaces one character in the search term, enabling the use of different word forms.",
+        "p2": "For example, to find results for both the terms woman and women, use the search term:"
+      }
+    },
+    "subtitleFuzzy": "Fuzzy searches",
+    "subtitleFuzzyParagraphs":{
+      "p1": "A fuzzy search generates results in which words similar to the actual search word also appear.",
+      "p2": "carries out a fuzzy search when used as the last character in a single-term search. ",
+      "p3": "For example, a fuzzy search for the term “roam”:",
+      "p4": "This search finds such terms as “foam” and “roams”. The similarity of the search to the original term can be regulated with a parameter between zero and one.",
+      "p5": "The closer the value is to one, the more similar the term will be to the original term. roam~0.8",
+      "p6": "The default value of the parameter is 0.5 if it is not separately defined for a fuzzy search."
+    },
+    "subtitleProximity": "Proximity searches",
+    "subtitleProximityParagraphs":{
+      "p1": "Proximity searches look for documents in which the search terms are within a specified distance, but not necessarily one after the other. ",
+      "p2": "performs a proximity search at the end of a multi-term search phrase when combined with a proximity value.",
+      "p3": "For example, to search for the terms “economics” and “Keynes” when they appear within a distance of no more than ten terms from each other:"
+    },
+    "subtitleRange": "Range searches",
+    "subtitleRangeParagraphs":{
+      "p1-1": "Range searches can be conducted using either curvy brackets ",
+      "p1-2": "or square brackets ",
+      "p1-3": ". When using curvy brackets, the search takes into account only the values between the terms entered, excluding the terms itself. Square brackets, in contrast, also include the terms entered in the range searched for.",
+      "p2": "For example, to search for a term that begins with the letter B or C using the query:",
+      "p3": "For example, to search for the values 2002–2003:",
+      "p4": "NB! The word TO between the values must be typed in CAPITAL LETTERS."
+    },
+    "subtitleWeighted": "Weighted search terms",
+    "subtitleWeightedParagraphs":{
+      "p1": "^ assigns a weight to the search term in a query.",
+      "p2": "For example, to assign added weight to the search term “Keynes”:"
+    },
+    "subtitleSearch": "Search by classification",
+    "subtitleSearchParagraphs":{
+      "p1": "The libraries of Espoo, Vantaa and Kauniainen use the Finnish Public Libraries Classification System (PLC). Helsinki City Library uses the Helsinki City Library Classification System (HCLCS).",
+      "p2": "You can search for material according to the classification in the following way:",
+      "p3": "In the search results, all works classified under the PLC class 654.92 Cats will be displayed.",
+      "p4": "In the search results, all works classified under the HCLCS class 67.452 Cats will be displayed."
+    },
+    "subtitleSaved": "Saved searches and alert schedule",    
+    "subtitleSavedParagraph": "You'll find information about saved searches and alert schedule on Using the services of the Kirjasto online library page."
+  },
+  "whatIsLibrary": {
+    "title": "Mikä Kirjasto on?",
+    "whatKirjastoOffers": "Yhteisiä Kirjasto-kirjastossa",
+    "statistics": "Tilastot",
+    "paragraph1": "Kirjasto network (Helsinki Metropolitan Area Libraries) consists of the city libraries of Helsinki, Espoo, Kauniainen, and Vantaa.",
+    "paragraph2": "Helmet-alueella on yli 60 kirjastoa, ja niissä on töissä lähes 800 henkilöä. Helmet.fi on Helmet-alueen yhteinen verkkokirjasto. Verkkokirjastossa voit esimerkiksi uusia lainasi, tehdä varauksia, tutustua kirjastojen tapahtumiin ja lukea kirjaston uutisia ja suosituksia.",
+    "paragraph3": "Helmet-kirjastokortilla voit lainata kirjoja ja muuta aineistoa kaikista alueen kirjastoista. Voit myös palauttaa lainat kaikkiin alueen kirjastoihin.",
+    "paragraph4": "Helmet-yhteistyöllä saavutamme tuloksia, joihin emme pystyisi yksin.",
+    "whatKirjastoOffersBullets": {
+      "bullet1": "kirjastojärjestelmä",
+      "bullet2": "verkkokirjasto, e-kirjasto",
+      "bullet3": "lainausoikeus ja kirjastokortti",
+      "bullet4": "käyttösäännöt ja maksupolitiikka",
+      "bullet5": "kokoelmat",
+      "bullet6": "aineiston hankintajärjestelmä ja yhteisiä hankintapaikkoja",
+      "bullet7": "aineistokuljetukset kuntien välillä",
+      "bullet8": "lainaavat kirja- ja musiikkivarastot",
+      "bullet9": "toimintaa koordinoivat ryhmät",
+      "bullet10": "koulutuksia",
+      "bullet11": "tiedotusta, kampanjoita ja asiakaskyselyitä"
+    },    
+    "statisticsBullets":{
+      "bullet1": "66 kirjastoa, viisi kirjastoautoa ja kirjastopyöriä",
+      "bullet2": "7 potilas- ja palvelukeskuskirjastoa ja kotipalvelu",
+      "bullet3": "yli 750 työntekijää",
+      "bullet4": "kokonaislainaus 16,1 miljoonaa",
+      "bullet5": "käyntien määrä vuodessa 27 miljoonaa, joista verkkokäynnit yli 13 miljoonaa",
+      "bullet6": "3 miljoonaa teosta",
+      "bullet7": "palvelee yli miljoonaa pääkaupunkiseudun asukasta"
+    }
+  }
+}
