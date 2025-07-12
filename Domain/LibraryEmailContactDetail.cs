@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace Domain;
 public class LibraryEmailContactDetail
@@ -20,5 +21,6 @@ public class LibraryEmailContactDetail
     public string ContactEmail { get; set; } = null!;
     
     // Navigation property
+    [JsonIgnore]
     public Library Library { get; set; } = null!;
 }

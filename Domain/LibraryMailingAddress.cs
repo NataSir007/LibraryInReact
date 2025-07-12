@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 using Domain.Enums;
 
 namespace Domain;
@@ -26,5 +27,6 @@ public class LibraryMailingAddress
     public string LocationName { get; set; } = null!;
     
     // Navigation property
+    [JsonIgnore]
     public Library Library { get; set; } = null!;
 }
