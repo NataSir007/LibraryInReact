@@ -1,4 +1,4 @@
-export default function ContentInfo() {
+export default function Content() {
   return (
     <div>Content</div>
   )

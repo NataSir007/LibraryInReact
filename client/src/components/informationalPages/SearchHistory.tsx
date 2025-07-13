@@ -1,7 +1,7 @@
 import { Box, Link, Typography } from "@mui/material";
 import { useTranslation } from "react-i18next";
 
-const SearchHistoryInfo = () => {
+const SearchHistory = () => {
   const { t } = useTranslation();
   
   return (
@@ -30,4 +30,4 @@ const SearchHistoryInfo = () => {
   );
 };
 
-export default SearchHistoryInfo;
+export default SearchHistory;

@@ -1,7 +1,7 @@
 import { Box, Typography, Link, Divider } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 
-export default function HowAreMaterialsSelectedInfo(){
+export default function HowAreMaterialsSelected(){
   const {t} = useTranslation();
 
   return (

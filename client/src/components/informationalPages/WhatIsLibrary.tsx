@@ -2,7 +2,7 @@ import { Box, Typography, List, ListItem, ListItemText, Link, ListItemIcon, Divi
 import { useTranslation } from 'react-i18next';
 
 
-export default function WhatIsLibraryInfo() {
+export default function WhatIsLibrary() {
   const {t} = useTranslation();
 
   const whatKirjastoOffers = [

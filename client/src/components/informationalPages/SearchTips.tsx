@@ -3,7 +3,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import AddIcon from '@mui/icons-material/Add';
 import { useTranslation } from 'react-i18next';
 
-export default function SearchTipsInfo() {
+export default function SearchTips() {
     const { t } = useTranslation();
   return (
     <Box sx={{ maxWidth: 1050, mx: "auto", p: 2 }}>

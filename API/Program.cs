@@ -12,6 +12,18 @@ builder.Services.AddControllers()
         options.JsonSerializerOptions.PropertyNamingPolicy = System.Text.Json.JsonNamingPolicy.CamelCase;
         options.JsonSerializerOptions.DefaultIgnoreCondition = System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull;
     });
+
+// Add CORS
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowReactApp", policy =>
+    {
+        policy.WithOrigins("http://localhost:3000", "http://localhost:5173", "https://localhost:3000", "https://localhost:5173")
+              .AllowAnyHeader()
+              .AllowAnyMethod();
+    });
+});
+
 builder.Services.AddDbContext<AppDbContext>(opt =>
 {
   opt.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection"));
@@ -20,6 +32,10 @@ builder.Services.AddDbContext<AppDbContext>(opt =>
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
+
+// Use CORS
+app.UseCors("AllowReactApp");
+
 app.MapControllers();
 
 using var scope = app.Services.CreateScope();

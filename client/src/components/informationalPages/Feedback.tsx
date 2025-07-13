@@ -9,7 +9,7 @@ import {
 } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 
-export default function FeedbackInfo() {
+export default function Feedback() {
   const { t } = useTranslation();
 
   const subjects = [
@@ -77,7 +77,7 @@ type ErrorState = Partial<Record<keyof FormState, string>>;
           onChange={handleChange('subject')}
           margin="normal"
         >
-          {subjects.map((option, index) => (
+          {subjects.map((option) => (
             <MenuItem key={option} value={option}>
               {option}
             </MenuItem>

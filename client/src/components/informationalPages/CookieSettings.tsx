@@ -38,7 +38,7 @@ const initialExpanded: ExpandedState = {
   analytics: false,
 };
 
-const CookieSettingsInfo: React.FC = () => {
+const CookieSettings: React.FC = () => {
   const { t } = useTranslation();
 
   const [expanded, setExpanded] = useState<ExpandedState>(initialExpanded);
@@ -153,4 +153,4 @@ const CookieSettingsInfo: React.FC = () => {
   );
 };
 
-export default CookieSettingsInfo;
+export default CookieSettings;
