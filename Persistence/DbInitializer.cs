@@ -99,39 +99,39 @@ public static class DbInitializer
     var emailContacts = new List<LibraryEmailContactDetail>
     {
         // Malmi Library (Id = 1)
-        new LibraryEmailContactDetail { Id = 1, LibraryId = 1, ServiceName = "Customer service", ContactName = "Maija Mehiläinen", ContactEmail = "maija.mehilainen@kirjaasto.com" },
-        new LibraryEmailContactDetail { Id = 2, LibraryId = 1, ServiceName = "Co-operation with schools", ContactName = "Ville Vinter", ContactEmail = "ville.vinter@kirjaasto.com" },
-        new LibraryEmailContactDetail { Id = 3, LibraryId = 1, ServiceName = "Contact person for daycare", ContactName = "Liisa Lumikello", ContactEmail = "liisa.lumikello@kirjaasto.com" },
-        new LibraryEmailContactDetail { Id = 4, LibraryId = 1, ServiceName = "Exhibition premises", ContactName = "Kalle Kukkamäki", ContactEmail = "kalle.kukkamaki@kirjaasto.com" },
-        new LibraryEmailContactDetail { Id = 5, LibraryId = 1, ServiceName = "Information services", ContactName = "Sanni Satakieli", ContactEmail = "sanni.satakieli@kirjaasto.com" },
+        new LibraryEmailContactDetail { Id = 1, LibraryId = 1, ServiceName = "Customer service", ContactName = "Maija Mehiläinen", ContactEmail = "maija.mehilainen@libraryinreact.com" },
+        new LibraryEmailContactDetail { Id = 2, LibraryId = 1, ServiceName = "Co-operation with schools", ContactName = "Ville Vinter", ContactEmail = "ville.vinter@libraryinreact.com" },
+        new LibraryEmailContactDetail { Id = 3, LibraryId = 1, ServiceName = "Contact person for daycare", ContactName = "Liisa Lumikello", ContactEmail = "liisa.lumikello@libraryinreact.com" },
+        new LibraryEmailContactDetail { Id = 4, LibraryId = 1, ServiceName = "Exhibition premises", ContactName = "Kalle Kukkamäki", ContactEmail = "kalle.kukkamaki@libraryinreact.com" },
+        new LibraryEmailContactDetail { Id = 5, LibraryId = 1, ServiceName = "Information services", ContactName = "Sanni Satakieli", ContactEmail = "sanni.satakieli@libraryinreact.com" },
 
         // Maunula Library (Id = 2)
-        new LibraryEmailContactDetail { Id = 6, LibraryId = 2, ServiceName = "Customer service", ContactName = "Apolon Kreikalainen", ContactEmail = "apolon.kreikalainen@kirjaasto.com" },
-        new LibraryEmailContactDetail { Id = 7, LibraryId = 2, ServiceName = "Co-operation with schools", ContactName = "Aino Aurinkonen", ContactEmail = "aino.aurinkonen@kirjaasto.com" },
-        new LibraryEmailContactDetail { Id = 8, LibraryId = 2, ServiceName = "Contact person for daycare", ContactName = "Paavo Puumerkki", ContactEmail = "paavo.puumerkki@kirjaasto.com" },
-        new LibraryEmailContactDetail { Id = 9, LibraryId = 2, ServiceName = "Exhibition premises", ContactName = "Elina Esikko", ContactEmail = "elina.esikko@kirjaasto.com" },
-        new LibraryEmailContactDetail { Id = 10, LibraryId = 2, ServiceName = "Information services", ContactName = "Mikael Marjanen", ContactEmail = "mikael.marjanen@kirjaasto.com" },
+        new LibraryEmailContactDetail { Id = 6, LibraryId = 2, ServiceName = "Customer service", ContactName = "Apolon Kreikalainen", ContactEmail = "apolon.kreikalainen@libraryinreact.com" },
+        new LibraryEmailContactDetail { Id = 7, LibraryId = 2, ServiceName = "Co-operation with schools", ContactName = "Aino Aurinkonen", ContactEmail = "aino.aurinkonen@libraryinreact.com" },
+        new LibraryEmailContactDetail { Id = 8, LibraryId = 2, ServiceName = "Contact person for daycare", ContactName = "Paavo Puumerkki", ContactEmail = "paavo.puumerkki@libraryinreact.com" },
+        new LibraryEmailContactDetail { Id = 9, LibraryId = 2, ServiceName = "Exhibition premises", ContactName = "Elina Esikko", ContactEmail = "elina.esikko@libraryinreact.com" },
+        new LibraryEmailContactDetail { Id = 10, LibraryId = 2, ServiceName = "Information services", ContactName = "Mikael Marjanen", ContactEmail = "mikael.marjanen@libraryinreact.com" },
 
         // Rikhardinkatu Library (Id = 3)
-        new LibraryEmailContactDetail { Id = 11, LibraryId = 3, ServiceName = "Customer service", ContactName = "Tuula Tuulikello", ContactEmail = "tuula.tuulikello@kirjaasto.com" },
-        new LibraryEmailContactDetail { Id = 12, LibraryId = 3, ServiceName = "Co-operation with schools", ContactName = "Heikki Heinäkuu", ContactEmail = "heikki.heinakuu@kirjaasto.com" },
-        new LibraryEmailContactDetail { Id = 13, LibraryId = 3, ServiceName = "Contact person for daycare", ContactName = "Sofia Sammakko", ContactEmail = "sofia.sammakko@kirjaasto.com" },
-        new LibraryEmailContactDetail { Id = 14, LibraryId = 3, ServiceName = "Exhibition premises", ContactName = "Risto Riimukivi", ContactEmail = "risto.riimukivi@kirjaasto.com" },
-        new LibraryEmailContactDetail { Id = 15, LibraryId = 3, ServiceName = "Information services", ContactName = "Anna Apilainen", ContactEmail = "anna.apilainen@kirjaasto.com" },
+        new LibraryEmailContactDetail { Id = 11, LibraryId = 3, ServiceName = "Customer service", ContactName = "Tuula Tuulikello", ContactEmail = "tuula.tuulikello@libraryinreact.com" },
+        new LibraryEmailContactDetail { Id = 12, LibraryId = 3, ServiceName = "Co-operation with schools", ContactName = "Heikki Heinäkuu", ContactEmail = "heikki.heinakuu@libraryinreact.com" },
+        new LibraryEmailContactDetail { Id = 13, LibraryId = 3, ServiceName = "Contact person for daycare", ContactName = "Sofia Sammakko", ContactEmail = "sofia.sammakko@libraryinreact.com" },
+        new LibraryEmailContactDetail { Id = 14, LibraryId = 3, ServiceName = "Exhibition premises", ContactName = "Risto Riimukivi", ContactEmail = "risto.riimukivi@libraryinreact.com" },
+        new LibraryEmailContactDetail { Id = 15, LibraryId = 3, ServiceName = "Information services", ContactName = "Anna Apilainen", ContactEmail = "anna.apilainen@libraryinreact.com" },
 
         // Tikkurila Library (Id = 4)
-        new LibraryEmailContactDetail { Id = 16, LibraryId = 4, ServiceName = "Customer service", ContactName = "Joonas Jäämeri", ContactEmail = "joonas.jaameri@kirjaasto.com" },
-        new LibraryEmailContactDetail { Id = 17, LibraryId = 4, ServiceName = "Co-operation with schools", ContactName = "Pirkko Pilvilinna", ContactEmail = "pirkko.pilvilinna@kirjaasto.com" },
-        new LibraryEmailContactDetail { Id = 18, LibraryId = 4, ServiceName = "Contact person for daycare", ContactName = "Oskari Omenankukka", ContactEmail = "oskari.omenankukka@kirjaasto.com" },
-        new LibraryEmailContactDetail { Id = 19, LibraryId = 4, ServiceName = "Exhibition premises", ContactName = "Laura Lintunen", ContactEmail = "laura.lintunen@kirjaasto.com" },
-        new LibraryEmailContactDetail { Id = 20, LibraryId = 4, ServiceName = "Information services", ContactName = "Veikko Viidakko", ContactEmail = "veikko.viidakko@kirjaasto.com" },
+        new LibraryEmailContactDetail { Id = 16, LibraryId = 4, ServiceName = "Customer service", ContactName = "Joonas Jäämeri", ContactEmail = "joonas.jaameri@libraryinreact.com" },
+        new LibraryEmailContactDetail { Id = 17, LibraryId = 4, ServiceName = "Co-operation with schools", ContactName = "Pirkko Pilvilinna", ContactEmail = "pirkko.pilvilinna@libraryinreact.com" },
+        new LibraryEmailContactDetail { Id = 18, LibraryId = 4, ServiceName = "Contact person for daycare", ContactName = "Oskari Omenankukka", ContactEmail = "oskari.omenankukka@libraryinreact.com" },
+        new LibraryEmailContactDetail { Id = 19, LibraryId = 4, ServiceName = "Exhibition premises", ContactName = "Laura Lintunen", ContactEmail = "laura.lintunen@libraryinreact.com" },
+        new LibraryEmailContactDetail { Id = 20, LibraryId = 4, ServiceName = "Information services", ContactName = "Veikko Viidakko", ContactEmail = "veikko.viidakko@libraryinreact.com" },
 
         // Sello Library (Id = 5)
-        new LibraryEmailContactDetail { Id = 21, LibraryId = 5, ServiceName = "Customer service", ContactName = "Kirsi Kirsikka", ContactEmail = "kirsi.kirsikka@kirjaasto.com" },
-        new LibraryEmailContactDetail { Id = 22, LibraryId = 5, ServiceName = "Co-operation with schools", ContactName = "Timo Tuulispää", ContactEmail = "timo.tuulispaa@kirjaasto.com" },
-        new LibraryEmailContactDetail { Id = 23, LibraryId = 5, ServiceName = "Contact person for daycare", ContactName = "Minna Mansikka", ContactEmail = "minna.mansikka@kirjaasto.com" },
-        new LibraryEmailContactDetail { Id = 24, LibraryId = 5, ServiceName = "Exhibition premises", ContactName = "Petri Putoava", ContactEmail = "petri.putoava@kirjaasto.com" },
-        new LibraryEmailContactDetail { Id = 25, LibraryId = 5, ServiceName = "Information services", ContactName = "Hanna Harmaakivi", ContactEmail = "hanna.harmaakivi@kirjaasto.com" }
+        new LibraryEmailContactDetail { Id = 21, LibraryId = 5, ServiceName = "Customer service", ContactName = "Kirsi Kirsikka", ContactEmail = "kirsi.kirsikka@libraryinreact.com" },
+        new LibraryEmailContactDetail { Id = 22, LibraryId = 5, ServiceName = "Co-operation with schools", ContactName = "Timo Tuulispää", ContactEmail = "timo.tuulispaa@libraryinreact.com" },
+        new LibraryEmailContactDetail { Id = 23, LibraryId = 5, ServiceName = "Contact person for daycare", ContactName = "Minna Mansikka", ContactEmail = "minna.mansikka@libraryinreact.com" },
+        new LibraryEmailContactDetail { Id = 24, LibraryId = 5, ServiceName = "Exhibition premises", ContactName = "Petri Putoava", ContactEmail = "petri.putoava@libraryinreact.com" },
+        new LibraryEmailContactDetail { Id = 25, LibraryId = 5, ServiceName = "Information services", ContactName = "Hanna Harmaakivi", ContactEmail = "hanna.harmaakivi@libraryinreact.com" }
     };
     context.LibraryEmailContactDetails.AddRange(emailContacts);
 

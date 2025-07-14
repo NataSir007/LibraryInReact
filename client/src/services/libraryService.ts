@@ -1,5 +1,5 @@
 import { apiService } from './apiService';
-import type { Library } from '../types/library/interfaces';
+import type { Library, OpeningHour, HolidayWeek } from '../types/library/interfaces';
 
 // Library-specific API calls
 export class LibraryService {
@@ -12,6 +12,16 @@ export class LibraryService {
   // Get single library by ID
   static async getLibrary(id: number): Promise<Library> {
     return apiService.get<Library>(`/api/libraries/${id}`);
+  }
+
+  // Get opening hours
+  static async getOpeningHours(): Promise<OpeningHour[]> {
+    return apiService.get<OpeningHour[]>('/api/libraries/opening-hours');
+  }
+
+  // Get holiday weeks
+  static async getHolidayWeeks(): Promise<HolidayWeek[]> {
+    return apiService.get<HolidayWeek[]>('/api/libraries/holiday-weeks');
   }
 
   // Create new library

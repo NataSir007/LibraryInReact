@@ -1,4 +1,4 @@
-import type { LocationType } from './enums';
+import type { LocationType, OpeningHourType, WeekType } from './enums';
 
 // Base entity interface
 export interface BaseEntity {
@@ -37,6 +37,32 @@ export interface LibraryMailingAddress extends BaseEntity {
   postalCode: string;
   locationType: LocationType;
   locationName: string;
+}
+
+// Opening hours and holiday weeks interfaces
+export interface OpeningHour extends BaseEntity {
+  openingHourType: OpeningHourType;
+  openingTime: string; // Time string in HH:mm:ss format
+  closingTime: string; // Time string in HH:mm:ss format
+  weekType: WeekType;
+}
+
+export interface HolidayWeek extends BaseEntity {
+  weekNumber: number;
+  monday: OpeningHourType;
+  tuesday: OpeningHourType;
+  wednesday: OpeningHourType;
+  thursday: OpeningHourType;
+  friday: OpeningHourType;
+  saturday: OpeningHourType;
+  sunday: OpeningHourType;
+}
+
+// Library status interface
+export interface LibraryStatus {
+  isOpen: boolean;
+  todayHours: string;
+  statusText: string;
 }
 
 /* Library-specific DTOs (Data Transfer Objects)

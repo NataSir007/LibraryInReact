@@ -32,5 +32,17 @@ namespace LibraryInReact.API.Controllers
 
       return library;
     }
+
+    [HttpGet("opening-hours")]
+    public async Task<ActionResult<List<OpeningHour>>> GetOpeningHours()
+    {
+      return await context.OpeningHours.ToListAsync();
+    }
+
+    [HttpGet("holiday-weeks")]
+    public async Task<ActionResult<List<HolidayWeek>>> GetHolidayWeeks()
+    {
+      return await context.HolidayWeeks.ToListAsync();
+    }
   }
 }

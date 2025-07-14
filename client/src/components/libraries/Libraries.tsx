@@ -6,7 +6,7 @@ import libraryMap from '../../assets/images/Library-map-Maunula.jpg';
 import { useLibraries } from '../../hooks/useLibraries';
 import LibrarySelector from './LibrarySelector';
 import LibraryDetails from './LibraryDetails';
-import OpeningHours from './OpeningHours';
+import LibraryOpeningHours from './LibraryOpeningHours';
 import LibraryContactDetails from './LibraryContactDetails';
 import SectionHeader from './SectionHeader';
 import LibraryImage from './LibraryImage';
@@ -79,22 +79,22 @@ export default function Libraries() {
         <Grid size={7}>
           <LibraryImage src={libraryMap} alt="Library Map" />
         </Grid>
-        <Grid size={4}>
+        <Grid size={3}>
           <SectionHeader title="General" />
         </Grid>
         <Grid size={3}>
           <SectionHeader title="Opening hours" />
         </Grid>
-        <Grid size={5}>
+        <Grid size={6}>
           <SectionHeader title="Contact details" />
         </Grid>
-        <Grid size={4}>
+        <Grid size={3}>
           <LibraryImage src={library} alt="Library" />
         </Grid>
         <Grid size={3}>
-          <OpeningHours />
+          <LibraryOpeningHours />
         </Grid>
-        <Grid size={5}>
+        <Grid size={6}>
           <LibraryContactDetails library={selectedLibrary} />
         </Grid>
       </Grid>
