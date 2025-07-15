@@ -1,5 +1,5 @@
 import { AppBar, Toolbar, Typography, Button, Box } from '@mui/material';
-import LanguageSelector from '../../components/Navbar/LanguageSelector';
+import LanguageSelector from '../../components/navbar/LanguageSelector';
 import MenuItemLink from '../shared/components/MenuItemLink';
 const themes = ["dark", "light", "custom"];
 

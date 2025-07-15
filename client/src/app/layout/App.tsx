@@ -1,13 +1,13 @@
 import { useState, useMemo } from "react";
 import { ThemeProvider, createTheme, CssBaseline } from "@mui/material";
-import Navbar from './NavBar'
+import Navbar from './Navbar'
 import LightTheme from "../shared/components/themes/LightTheme";
 import DarkTheme from "../shared/components/themes/DarkTheme";
 import CustomTheme from "../shared/components/themes/CustomTheme";
 import Dashboard from "./Dashboard";
 import CollapsibleFooter from "./CollapsibleFooter";
 
-const themeMap = {
+const themeMap: Record<string, unknown> = {
   light: LightTheme,
   dark: DarkTheme,
   custom: CustomTheme,

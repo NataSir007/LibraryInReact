@@ -2,7 +2,6 @@ import { Box, Grid, Typography, useMediaQuery, CircularProgress, Alert } from '@
 import { useTheme } from '@mui/material/styles';
 import { useState } from 'react';
 import library from '../../assets/images/Library - Maunula.jpg';
-import libraryMap from '../../assets/images/Library-map-Maunula.jpg';
 import { useLibraries } from '../../hooks/useLibraries';
 import LibrarySelector from './LibrarySelector';
 import LibraryDetails from './LibraryDetails';
@@ -10,16 +9,17 @@ import LibraryOpeningHours from './LibraryOpeningHours';
 import LibraryContactDetails from './LibraryContactDetails';
 import SectionHeader from './SectionHeader';
 import LibraryImage from './LibraryImage';
+import OpenStreetMapLibrariesMap from './OpenStreetMapLibrariesMap';
 
 export default function Libraries() {
   const theme = useTheme();
   const isLargerThanXs = useMediaQuery(theme.breakpoints.up("sm"));
   const { libraries, loading, error, refetch } = useLibraries();
-  const [selectedLibraryId, setSelectedLibraryId] = useState<number>(0);
+  const [selectedLibraryId, setSelectedLibraryId] = useState<number | null>(null); // null means "All libraries"
 
-  // Get the selected library or default to first library
-  const selectedLibrary = libraries.length > 0 
-    ? libraries.find(lib => lib.id === selectedLibraryId) || libraries[0]
+  // Get the selected library when a specific library is chosen
+  const selectedLibrary = selectedLibraryId 
+    ? libraries.find(lib => lib.id === selectedLibraryId) 
     : null;
 
   // Loading state
@@ -43,7 +43,7 @@ export default function Libraries() {
   }
 
   // No libraries found
-  if (!selectedLibrary) {
+  if (libraries.length === 0) {
     return (
       <Box sx={{ p: 4 }}>
         <Typography variant="h6">No libraries found</Typography>
@@ -69,34 +69,54 @@ export default function Libraries() {
         <Grid size={12}>
           <LibrarySelector 
             libraries={libraries}
-            selectedLibraryId={selectedLibrary.id}
+            selectedLibraryId={selectedLibraryId}
             onLibraryChange={setSelectedLibraryId}
           />
         </Grid>        
-        <Grid size={5}>
-          <LibraryDetails library={selectedLibrary} />
-        </Grid>
-        <Grid size={7}>
-          <LibraryImage src={libraryMap} alt="Library Map" />
-        </Grid>
-        <Grid size={3}>
-          <SectionHeader title="General" />
-        </Grid>
-        <Grid size={3}>
-          <SectionHeader title="Opening hours" />
-        </Grid>
-        <Grid size={6}>
-          <SectionHeader title="Contact details" />
-        </Grid>
-        <Grid size={3}>
-          <LibraryImage src={library} alt="Library" />
-        </Grid>
-        <Grid size={3}>
-          <LibraryOpeningHours />
-        </Grid>
-        <Grid size={6}>
-          <LibraryContactDetails library={selectedLibrary} />
-        </Grid>
+        
+        {/* Show library details only when a specific library is selected */}
+        {selectedLibrary ? (
+          <>
+            {/* When specific library selected: show details on left, map on right */}
+            <Grid size={5}>
+              <LibraryDetails library={selectedLibrary} />
+            </Grid>
+            <Grid size={7}>
+              <OpenStreetMapLibrariesMap 
+                libraries={libraries}
+                selectedLibraryId={selectedLibraryId}
+                height="300px"
+              />
+            </Grid>
+            <Grid size={3}>
+              <SectionHeader title="General" />
+            </Grid>
+            <Grid size={3}>
+              <SectionHeader title="Opening hours" />
+            </Grid>
+            <Grid size={6}>
+              <SectionHeader title="Contact details" />
+            </Grid>
+            <Grid size={3}>
+              <LibraryImage src={library} alt="Library" />
+            </Grid>
+            <Grid size={3}>
+              <LibraryOpeningHours />
+            </Grid>
+            <Grid size={6}>
+              <LibraryContactDetails library={selectedLibrary} />
+            </Grid>
+          </>
+        ) : (
+          /* When "All libraries" selected: show only full-width map */
+          <Grid size={12}>
+            <OpenStreetMapLibrariesMap 
+              libraries={libraries}
+              selectedLibraryId={selectedLibraryId}
+              height="400px"
+            />
+          </Grid>
+        )}
       </Grid>
     </Box>
   );
