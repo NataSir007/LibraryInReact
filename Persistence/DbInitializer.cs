@@ -316,6 +316,72 @@ public static class DbInitializer
             }
         };
     context.HolidayWeeks.AddRange(holidayWeeks);
+
+    // Seed LibraryImage for the libraries
+    var libraryImages = new List<LibraryImage>
+    {
+      // Maunula Library (Id = 2) - we have the actual image file for this one
+      new LibraryImage
+      {
+        Id = 1,
+        LibraryId = 2,
+        ImageType = ImageType.Main,
+        FileName = "library-maunula-main.jpg",
+        FilePath = "/uploads/libraries/library-maunula-main.jpg",
+        AltText = "Main exterior view of Maunula Library building"
+      },
+      
+      // Additional sample images for other libraries
+      new LibraryImage
+      {
+        Id = 2,
+        LibraryId = 1,
+        ImageType = ImageType.Main,
+        FileName = "malmi-library-main.jpg",
+        FilePath = "/uploads/libraries/malmi-library-main.jpg",
+        AltText = "Main exterior view of Malmi Library"
+      },
+      new LibraryImage
+      {
+        Id = 3,
+        LibraryId = 1,
+        ImageType = ImageType.Interior,
+        FileName = "malmi-library-interior.jpg",
+        FilePath = "/uploads/libraries/malmi-library-interior.jpg",
+        AltText = "Interior reading area of Malmi Library"
+      },
+      
+      new LibraryImage
+      {
+        Id = 4,
+        LibraryId = 3,
+        ImageType = ImageType.Main,
+        FileName = "rikhardinkatu-library-main.jpg",
+        FilePath = "/uploads/libraries/rikhardinkatu-library-main.jpg",
+        AltText = "Main exterior view of Rikhardinkatu Library"
+      },
+      
+      new LibraryImage
+      {
+        Id = 5,
+        LibraryId = 4,
+        ImageType = ImageType.Exterior,
+        FileName = "tikkurila-library-interior.jpg",
+        FilePath = "/uploads/libraries/tikkurila-library-interior.jpg",
+        AltText = "Exterior view of Tikkurila Library building"
+      },
+      
+      new LibraryImage
+      {
+        Id = 6,
+        LibraryId = 5,
+        ImageType = ImageType.Main,
+        FileName = "sello-library-main.jpg",
+        FilePath = "/uploads/libraries/sello-library-main.jpg",
+        AltText = "Main entrance of Sello Library in shopping center"
+      }
+    };
+    context.LibraryImages.AddRange(libraryImages);
     
     // Save all changes to the database
     await context.SaveChangesAsync();

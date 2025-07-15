@@ -9,6 +9,7 @@ public class AppDbContext(DbContextOptions options) : DbContext(options)
     public required DbSet<LibraryEmailContactDetail> LibraryEmailContactDetails { get; set; }
     public required DbSet<LibraryPhoneNumberContactDetail> LibraryPhoneNumberContactDetails { get; set; }
     public required DbSet<LibraryMailingAddress> LibraryMailingAddresses { get; set; }
+    public required DbSet<LibraryImage> LibraryImages { get; set; }
     public required DbSet<HolidayWeek> HolidayWeeks { get; set; }
     public required DbSet<OpeningHour> OpeningHours { get; set; }
 
@@ -34,6 +35,20 @@ public class AppDbContext(DbContextOptions options) : DbContext(options)
             .WithOne(m => m.Library)
             .HasForeignKey(m => m.LibraryId)
             .OnDelete(DeleteBehavior.Cascade);
+
+        modelBuilder.Entity<Library>()
+            .HasMany(l => l.LibraryImages)
+            .WithOne(i => i.Library)
+            .HasForeignKey(i => i.LibraryId)
+            .OnDelete(DeleteBehavior.Cascade);
+
+        // Configure LibraryImage entity
+        modelBuilder.Entity<LibraryImage>(builder =>
+        {
+            builder.HasKey(i => i.Id);
+            builder.Property(i => i.FileName).IsRequired();
+            builder.Property(i => i.AltText).IsRequired();
+        });
 
         // Configure OpeningHour entity (independent, not linked to libraries)
         modelBuilder.Entity<OpeningHour>(builder =>

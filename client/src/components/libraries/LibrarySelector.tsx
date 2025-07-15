@@ -25,13 +25,6 @@ export default function LibrarySelector({ libraries, selectedLibraryId, onLibrar
           </MenuItem>
         ))}
       </Select>
-      <Select defaultValue="babycare" size="small">
-        <MenuItem value="babycare">Baby Care room</MenuItem>
-        <MenuItem value="3dprinters">3D Printers</MenuItem>
-        <MenuItem value="artrental">Art rental</MenuItem>
-        <MenuItem value="filmscanner">Film scanner</MenuItem>
-        <MenuItem value="musicalinstruments">Musical Instruments</MenuItem>
-      </Select>
     </Box>
   );
 }

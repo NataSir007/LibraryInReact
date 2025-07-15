@@ -1,7 +1,6 @@
 import { Box, Grid, Typography, useMediaQuery, CircularProgress, Alert } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import { useState } from 'react';
-import library from '../../assets/images/Library - Maunula.jpg';
 import { useLibraries } from '../../hooks/useLibraries';
 import LibrarySelector from './LibrarySelector';
 import LibraryDetails from './LibraryDetails';
@@ -98,7 +97,21 @@ export default function Libraries() {
               <SectionHeader title="Contact details" />
             </Grid>
             <Grid size={3}>
-              <LibraryImage src={library} alt="Library" />
+              {selectedLibrary?.libraryImages && selectedLibrary.libraryImages.length > 0 ? (
+                (() => {
+                  const mainImage = selectedLibrary.libraryImages.find(img => img.imageType === 1); // 1 = Main
+                  return mainImage ? (
+                    <LibraryImage
+                      src={`/src/assets/images/${mainImage.fileName}`}
+                      alt={mainImage.altText}
+                    />
+                  ) : (
+                    <LibraryImage src="/src/assets/images/malmi-library-interior.jpg" alt="Library" />
+                  );
+                })()
+              ) : (
+                <LibraryImage src="/src/assets/images/richardinkatu-library-main.jpg" alt="Library" />
+              )}
             </Grid>
             <Grid size={3}>
               <LibraryOpeningHours />

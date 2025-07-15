@@ -16,6 +16,7 @@ namespace LibraryInReact.API.Controllers
         .Include(l => l.LibraryEmailContactDetails)
         .Include(l => l.LibraryPhoneNumberContactDetails)
         .Include(l => l.LibraryMailingAddresses)
+        .Include(l => l.LibraryImages)
         .ToListAsync();
     }
 
@@ -26,6 +27,7 @@ namespace LibraryInReact.API.Controllers
         .Include(l => l.LibraryEmailContactDetails)
         .Include(l => l.LibraryPhoneNumberContactDetails)
         .Include(l => l.LibraryMailingAddresses)
+        .Include(l => l.LibraryImages)
         .FirstOrDefaultAsync(l => l.Id == id);
 
       if (library == null) return NotFound();

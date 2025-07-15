@@ -15,7 +15,32 @@ export interface Library extends BaseEntity {
   libraryEmailContactDetails: LibraryEmailContactDetail[];
   libraryPhoneNumberContactDetails: LibraryPhoneNumberContactDetail[];
   libraryMailingAddresses: LibraryMailingAddress[];
+  libraryImages: LibraryImage[];
 }
+
+export interface LibraryDetails {
+  id: number;
+  name: string;
+  address: string;
+  homepage: string;
+  facebookUrl: string;
+  notes?: string;
+  libraryEmailContactDetails: LibraryEmailContactDetail[];
+  libraryPhoneNumberContactDetails: LibraryPhoneNumberContactDetail[];
+  libraryMailingAddresses: LibraryMailingAddress[];
+  libraryImages: LibraryImage[];
+}
+
+// Library image interface
+export interface LibraryImage {
+  id: number;
+  libraryId: number;
+  fileName: string;
+  filePath: string;
+  altText: string;
+  imageType: number; // 1 = Main, 2 = Exterior, 3 = Interior, 4 = Thumbnail
+}
+
 
 export interface LibraryEmailContactDetail extends BaseEntity {
   libraryId: number;
@@ -63,6 +88,16 @@ export interface LibraryStatus {
   isOpen: boolean;
   todayHours: string;
   statusText: string;
+}
+
+// Library image interface
+export interface LibraryImage {
+  id: number;
+  libraryId: number;
+  fileName: string;
+  filePath: string;
+  altText: string;
+  imageType: number; // 1 = Main, 2 = Exterior, 3 = Interior, 4 = Thumbnail
 }
 
 /* Library-specific DTOs (Data Transfer Objects)

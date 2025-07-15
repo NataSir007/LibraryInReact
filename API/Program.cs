@@ -33,8 +33,12 @@ var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 
+
 // Use CORS
 app.UseCors("AllowReactApp");
+
+// Enable static file serving
+app.UseStaticFiles();
 
 app.MapControllers();
 
