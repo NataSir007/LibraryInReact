@@ -31,10 +31,7 @@ const Navbar = ({ value, handleChange }: NavbarProps) => {
               </MenuItemLink>
               <MenuItemLink to='/info'>
                   Info
-              </MenuItemLink>
-              <MenuItemLink to='/content'>
-                  Content
-              </MenuItemLink>
+              </MenuItemLink>              
           </Box>
           <LanguageSelector />
           {themes.map((theme) => (

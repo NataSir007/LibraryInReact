@@ -10,7 +10,6 @@ import Welcome from "../layout/Welcome";
 import Libraries from "../../components/libraries/Libraries";
 import Events from "../../components/navbarLinks/Events";
 import Information from "../../components/navbarLinks/Information";
-import Content from "../../components/navbarLinks/Content";
 
 export const router = createBrowserRouter([
     {
@@ -24,7 +23,6 @@ export const router = createBrowserRouter([
           { path: 'libraries', element: <Libraries /> },
           { path: 'events', element: <Events /> },
           { path: 'info', element: <Information /> },
-          { path: 'content', element: <Content /> },
           { path: 'search-history', element: <SearchHistory /> },
           { path: 'search-tips', element: <SearchTips /> },
           { path: 'what-is-library', element: <WhatIsLibrary /> }
