@@ -29,10 +29,10 @@ builder.Services.AddDbContext<AppDbContext>(opt =>
   opt.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
 
+// Register ILibraryService for dependency injection
+builder.Services.AddScoped<ILibraryService, LibraryService>();
+
 var app = builder.Build();
-
-// Configure the HTTP request pipeline.
-
 
 // Use CORS
 app.UseCors("AllowReactApp");

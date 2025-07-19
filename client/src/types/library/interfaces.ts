@@ -64,12 +64,9 @@ export interface LibraryMailingAddress extends BaseEntity {
   locationName: string;
 }
 
-// Opening hours and holiday weeks interfaces
-export interface OpeningHour extends BaseEntity {
-  openingHourType: OpeningHourType;
-  openingTime: string; // Time string in HH:mm:ss format
-  closingTime: string; // Time string in HH:mm:ss format
-  weekType: WeekType;
+export interface LibraryOpeningHours {
+  weekNumber: number;
+  days: OpeningHourType[];
 }
 
 export interface HolidayWeek extends BaseEntity {
@@ -86,7 +83,6 @@ export interface HolidayWeek extends BaseEntity {
 // Library status interface
 export interface LibraryStatus {
   isOpen: boolean;
-  todayHours: string;
   statusText: string;
 }
 

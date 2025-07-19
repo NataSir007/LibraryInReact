@@ -40,11 +40,3 @@ export const WeekType = {
 
 export type WeekType = typeof WeekType[keyof typeof WeekType];
 
-// export const LibraryStatus = {
-//   Open: 'open',
-//   Closed: 'closed',
-//   UnderMaintenance: 'under_maintenance',
-//   TemporarilyClosed: 'temporarily_closed'
-// } as const;
-
-// export type LibraryStatus = typeof LibraryStatus[keyof typeof LibraryStatus];

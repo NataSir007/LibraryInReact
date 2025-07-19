@@ -1,17 +1,15 @@
 import { useState, useEffect } from 'react';
 import { LibraryService } from '../services/libraryService';
-import type { OpeningHour, HolidayWeek } from '../types/library/interfaces';
+import type { LibraryOpeningHours } from '../types/library/interfaces';
 
 interface UseLibraryScheduleResult {
-  openingHours: OpeningHour[];
-  holidayWeeks: HolidayWeek[];
+  openingHours: LibraryOpeningHours | null;
   loading: boolean;
   error: string | null;
 }
 
-export const useLibrarySchedule = (): UseLibraryScheduleResult => {
-  const [openingHours, setOpeningHours] = useState<OpeningHour[]>([]);
-  const [holidayWeeks, setHolidayWeeks] = useState<HolidayWeek[]>([]);
+export const useLibrarySchedule = (weekOffset: number = 0): UseLibraryScheduleResult => {
+  const [openingHours, setOpeningHours] = useState<LibraryOpeningHours | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -20,14 +18,10 @@ export const useLibrarySchedule = (): UseLibraryScheduleResult => {
       try {
         setLoading(true);
         setError(null);
-        
-        const [openingHoursData, holidayWeeksData] = await Promise.all([
-          LibraryService.getOpeningHours(),
-          LibraryService.getHolidayWeeks()
-        ]);
-        
+
+        const openingHoursData = await LibraryService.getOpeningHours(weekOffset);
+
         setOpeningHours(openingHoursData);
-        setHolidayWeeks(holidayWeeksData);
       } catch (err) {
         setError(err instanceof Error ? err.message : 'Failed to fetch library schedule');
       } finally {
@@ -36,11 +30,10 @@ export const useLibrarySchedule = (): UseLibraryScheduleResult => {
     };
 
     fetchScheduleData();
-  }, []);
+  }, [weekOffset]); // Add weekOffset as a dependency
 
   return {
     openingHours,
-    holidayWeeks,
     loading,
     error
   };

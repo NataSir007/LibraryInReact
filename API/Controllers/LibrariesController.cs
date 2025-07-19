@@ -1,50 +1,73 @@
+using System;
 using Domain;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using Persistence;
-using System.Collections.Generic;
 
 namespace LibraryInReact.API.Controllers
 {
-
-  public class LibrariesController(AppDbContext context) : BaseApiController
+  /// <summary>
+  /// API controller for library-related endpoints.
+  /// </summary>
+  public class LibrariesController : BaseApiController
   {
+    private readonly ILibraryService libraryService;
+
+    /// <summary>
+    /// Initializes a new instance of the <see cref="LibrariesController"/> class.
+    /// </summary>
+    /// <param name="libraryService">The library service to use for data access.</param>
+    public LibrariesController(ILibraryService libraryService)
+    {
+      this.libraryService = libraryService;
+    }
+
+    /// <summary>
+    /// Gets a list of all libraries.
+    /// </summary>
+    /// <returns>A list of libraries.</returns>
     [HttpGet]
     public async Task<ActionResult<List<Library>>> GetLibraries()
     {
-      return await context.Libraries
-        .Include(l => l.LibraryEmailContactDetails)
-        .Include(l => l.LibraryPhoneNumberContactDetails)
-        .Include(l => l.LibraryMailingAddresses)
-        .Include(l => l.LibraryImages)
-        .ToListAsync();
+      var libraries = await libraryService.GetLibrariesAsync();
+      return Ok(libraries);
     }
 
+    /// <summary>
+    /// Gets a single library by its ID.
+    /// </summary>
+    /// <param name="id">The ID of the library.</param>
+    /// <returns>The library if found; otherwise, NotFound.</returns>
     [HttpGet("{id}")]
     public async Task<ActionResult<Library>> GetLibrary(int id)
     {
-      var library = await context.Libraries
-        .Include(l => l.LibraryEmailContactDetails)
-        .Include(l => l.LibraryPhoneNumberContactDetails)
-        .Include(l => l.LibraryMailingAddresses)
-        .Include(l => l.LibraryImages)
-        .FirstOrDefaultAsync(l => l.Id == id);
-
+      var library = await libraryService.GetLibraryAsync(id);
       if (library == null) return NotFound();
-
-      return library;
+      return Ok(library);
     }
 
-    [HttpGet("opening-hours")]
-    public async Task<ActionResult<List<OpeningHour>>> GetOpeningHours()
+    /// <summary>
+    /// Gets all opening hours.
+    /// </summary>
+    /// <returns>A list of opening hours.</returns>
+    [HttpGet("opening-hours/{weekOffset}")]
+    public async Task<ActionResult<OpeningHourWeekDto>> GetOpeningHours(int weekOffset)
     {
-      return await context.OpeningHours.ToListAsync();
+      // Fetch opening hours for the current week or specified offset
+      var openingHours = await libraryService.GetOpeningHoursAsync(weekOffset);
+      return openingHours;
     }
 
-    [HttpGet("holiday-weeks")]
-    public async Task<ActionResult<List<HolidayWeek>>> GetHolidayWeeks()
+    /// <summary>
+    /// Gets the library's open status based on current date/time and opening hours.
+    /// If it is closed at the moment, provides information on when it will be open next time.
+    /// </summary>
+    [HttpGet("open-status")]
+    public async Task<ActionResult<LibraryOpenStatusDto>> GetLibraryOpenStatusAsync()
     {
-      return await context.HolidayWeeks.ToListAsync();
+      var status = await libraryService.GetLibraryOpenStatusAsync();
+      if (status == null)
+        return NotFound();
+
+      return Ok(status);
     }
   }
 }

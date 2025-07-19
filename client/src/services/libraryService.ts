@@ -1,5 +1,5 @@
 import { apiService } from './apiService';
-import type { Library, OpeningHour, HolidayWeek } from '../types/library/interfaces';
+import type { Library, LibraryOpeningHours } from '../types/library/interfaces';
 
 // Library-specific API calls
 export class LibraryService {
@@ -15,13 +15,14 @@ export class LibraryService {
   }
 
   // Get opening hours
-  static async getOpeningHours(): Promise<OpeningHour[]> {
-    return apiService.get<OpeningHour[]>('/api/libraries/opening-hours');
+  static async getOpeningHours(weekOffset: number): Promise<LibraryOpeningHours> {
+    return apiService.get<LibraryOpeningHours>(`/api/libraries/opening-hours/${weekOffset}`);
   }
 
-  // Get holiday weeks
-  static async getHolidayWeeks(): Promise<HolidayWeek[]> {
-    return apiService.get<HolidayWeek[]>('/api/libraries/holiday-weeks');
+  // Get library status based on current date/time, opening hours, and holiday weeks.
+  // If it is closed at the moment, give information when it will be open next time.
+  static async getLibraryOpenStatus(): Promise<{ isOpen: boolean; statusText: string }> {
+    return apiService.get<{ isOpen: boolean; statusText: string }>('/api/libraries/open-status');
   }
 
   // Create new library
