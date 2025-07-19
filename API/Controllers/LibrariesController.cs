@@ -53,7 +53,7 @@ namespace LibraryInReact.API.Controllers
     {
       // Fetch opening hours for the current week or specified offset
       var openingHours = await libraryService.GetOpeningHoursAsync(weekOffset);
-      return openingHours;
+      return Ok(openingHours);
     }
 
     /// <summary>
