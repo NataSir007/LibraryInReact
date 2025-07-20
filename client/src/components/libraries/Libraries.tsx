@@ -110,7 +110,7 @@ export default function Libraries() {
                   );
                 })()
               ) : (
-                <LibraryImage src="/src/assets/images/richardinkatu-library-main.jpg" alt="Library" />
+                <LibraryImage src="/src/assets/images/rikhardinkatu-library-main.jpg" alt="Library" />
               )}
             </Grid>
             <Grid size={3}>
