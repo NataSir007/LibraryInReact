@@ -34,6 +34,9 @@ export default function MenuItemInfo() {
         <MenuItem onClick={() => handleMenuClick('/loan-periods-and-fees')}>
           {t('navbar.loanPeriodsAndFees')}
         </MenuItem>
+        <MenuItem onClick={() => handleMenuClick('/search-tips')}>
+          {t('searchTips.title')}
+        </MenuItem>
       </Menu>
     </>
   );

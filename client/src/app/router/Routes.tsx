@@ -8,7 +8,6 @@ import SearchTips from "../../components/informationalPages/SearchTips";
 import WhatIsLibrary from "../../components/informationalPages/WhatIsLibrary";
 import Libraries from "../../components/libraries/Libraries";
 import Events from "../../components/navbarLinks/Events";
-import Information from "../../components/navbarLinks/Information";
 import LibraryCardAndLoans from "../../components/informationalPages/LibraryCardAndLoans";
 import LoanPeriodsAndFees from "../../components/informationalPages/LoanPeriodsAndFees";
 
@@ -22,7 +21,6 @@ export const router = createBrowserRouter([
           { path: 'how-are-materials-selected', element: <HowAreMaterialsSelected /> },
           { path: 'libraries', element: <Libraries /> },
           { path: 'events', element: <Events /> },
-          { path: 'info', element: <Information /> },
           { path: 'search-history', element: <SearchHistory /> },
           { path: 'search-tips', element: <SearchTips /> },
           { path: 'what-is-library', element: <WhatIsLibrary /> },
