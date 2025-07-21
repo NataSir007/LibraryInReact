@@ -105,7 +105,7 @@ export default function LibraryContactDetails({ library }: LibraryContactDetails
           {library.libraryPhoneNumberContactDetails.map((phone) => (
             <Box key={phone.id} sx={{ display: 'flex', alignItems: 'center', mb: 0.5 }}>
               <Typography variant="body2" sx={{ fontWeight: 500, mr: 1 }}>
-                {t(`libraryContactDetails.${serviceNameMap[phone.serviceName] || phone.serviceName}`) || phone.serviceName}
+                {t(`libraryContactDetails.${serviceNameMap[phone.serviceName] || phone.serviceName}`) || phone.serviceName}:
               </Typography>
               <Typography variant="body2">
                 {phone.contactPhoneNumber}
