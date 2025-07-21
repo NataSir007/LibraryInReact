@@ -11,7 +11,7 @@ interface LibrarySelectorProps {
 export default function LibrarySelector({ libraries, selectedLibraryId, onLibraryChange }: LibrarySelectorProps) {
   const { t } = useTranslation();
   return (
-    <Box display="flex" gap={2} mb={2}>
+    <Box display="flex" gap={2}>
       <Select 
         value={selectedLibraryId || 0} // Use 0 for "All libraries"
         onChange={(e) => {

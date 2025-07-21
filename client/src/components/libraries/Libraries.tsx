@@ -82,8 +82,8 @@ export default function Libraries() {
             <Grid size={5}>
               <LibraryDetails library={selectedLibrary} />
             </Grid>
-            <Grid size={7}>
-              <OpenStreetMapLibrariesMap 
+            <Grid size={7} sx={{ mb:2 }}>
+              <OpenStreetMapLibrariesMap
                 libraries={libraries}
                 selectedLibraryId={selectedLibraryId}
                 height="300px"
