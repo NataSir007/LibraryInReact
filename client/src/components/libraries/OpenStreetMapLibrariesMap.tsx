@@ -15,6 +15,7 @@ import {
   type GeocodeResult 
 } from '../../utils/openStreetMapGeocoding';
 import type { Library } from '../../types/library/interfaces';
+import { useTranslation } from 'react-i18next';
 
 interface LibraryMapProps {
   libraries: Library[];
@@ -46,6 +47,7 @@ const OpenStreetMapLibrariesMap = ({
   const [geocodingError, setGeocodingError] = useState<string | null>(null);
   const [mapCenter, setMapCenter] = useState<{ lat: number; lng: number }>(getDefaultMapCenter());
   const [mapZoom, setMapZoom] = useState(10);
+  const { t } = useTranslation();
 
   // Geocode library addresses when libraries change
   useEffect(() => {
@@ -88,7 +90,7 @@ const OpenStreetMapLibrariesMap = ({
         }
       } catch (error) {
         console.error('Error geocoding libraries:', error);
-        setGeocodingError('Failed to geocode some library addresses. Please check your internet connection.');
+        setGeocodingError(t('openStreetMap.librariesMap.geocodingError'));
       } finally {
         setIsGeocoding(false);
       }
@@ -167,7 +169,7 @@ const OpenStreetMapLibrariesMap = ({
   if (libraries.length === 0) {
     return (
       <Alert severity="info">
-        <Typography>No libraries to display on the map.</Typography>
+        <Typography>{t('openStreetMap.librariesMap.noLibraries')}</Typography>
       </Alert>
     );
   }
@@ -186,7 +188,7 @@ const OpenStreetMapLibrariesMap = ({
           <>
             <CircularProgress size={20} />
             <Typography variant="body2">
-              Loading library locations... (This may take a moment for the free geocoding service)
+              {t('openStreetMap.librariesMap.loading')}
             </Typography>
           </>
         )}

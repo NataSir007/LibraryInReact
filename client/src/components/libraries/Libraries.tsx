@@ -9,12 +9,14 @@ import LibraryContactDetails from './LibraryContactDetails';
 import SectionHeader from './SectionHeader';
 import LibraryImage from './LibraryImage';
 import OpenStreetMapLibrariesMap from './OpenStreetMapLibrariesMap';
+import { useTranslation } from 'react-i18next';
 
 export default function Libraries() {
   const theme = useTheme();
   const isLargerThanXs = useMediaQuery(theme.breakpoints.up("sm"));
   const { libraries, loading, error, refetch } = useLibraries();
   const [selectedLibraryId, setSelectedLibraryId] = useState<number | null>(null); // null means "All libraries"
+  const { t } = useTranslation();
 
   // Get the selected library when a specific library is chosen
   const selectedLibrary = selectedLibraryId 
@@ -34,7 +36,7 @@ export default function Libraries() {
   if (error) {
     return (
       <Alert severity="error" action={
-        <button onClick={refetch}>Retry</button>
+        <button onClick={refetch}>{(t('common.retry'))}</button>
       }>
         {error}
       </Alert>
@@ -45,7 +47,7 @@ export default function Libraries() {
   if (libraries.length === 0) {
     return (
       <Box sx={{ p: 4 }}>
-        <Typography variant="h6">No libraries found</Typography>
+        <Typography variant="h6">{t('libraries.noLibrariesFound')}</Typography>
       </Box>
     );
   }
@@ -59,11 +61,11 @@ export default function Libraries() {
       pl: isLargerThanXs ? 20 : 1}}
     >
       <Typography variant="h4" gutterBottom>
-        Libraries and opening hours
+        {t('libraries.librariesAndHours')}
       </Typography>
       <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 4 }} columns={12}>
         <Grid size={12}>
-          <SectionHeader title="Libraries" />
+          <SectionHeader title={t('libraries.libraries')} />
         </Grid>
         <Grid size={12}>
           <LibrarySelector 
@@ -88,13 +90,13 @@ export default function Libraries() {
               />
             </Grid>
             <Grid size={3}>
-              <SectionHeader title="General" />
+              <SectionHeader title={t('libraries.general')} />
             </Grid>
             <Grid size={3}>
-              <SectionHeader title="Opening hours" />
+              <SectionHeader title={t('libraries.openingHours')} />
             </Grid>
             <Grid size={6}>
-              <SectionHeader title="Contact details" />
+              <SectionHeader title={t('libraries.contactDetails')} />
             </Grid>
             <Grid size={3}>
               {selectedLibrary?.libraryImages && selectedLibrary.libraryImages.length > 0 ? (

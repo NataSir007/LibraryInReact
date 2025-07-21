@@ -1,6 +1,7 @@
 import { AppBar, Toolbar, Typography, Button, Box } from '@mui/material';
 import LanguageSelector from '../../components/navbar/LanguageSelector';
 import MenuItemLink from '../shared/components/MenuItemLink';
+import { useTranslation } from 'react-i18next';
 const themes = ["dark", "light", "custom"];
 
 interface NavbarProps {
@@ -13,6 +14,7 @@ const Navbar = ({ value, handleChange }: NavbarProps) => {
   const handleThemeClick = (theme: string) => {
     handleChange(theme);
   };
+  const { t } = useTranslation();
 
   return (
     <>
@@ -20,18 +22,18 @@ const Navbar = ({ value, handleChange }: NavbarProps) => {
         <Toolbar>
           {/* Header Part */}
           <Typography variant="h6" sx={{ flexGrow: 1 }}>
-            LibraryInReact
+            {t("navbar.title")}
           </Typography>
           <Box sx={{ display: 'flex', justifyContent: 'flex-start', flexGrow: 1 }}>
               <MenuItemLink to='/libraries'>
-                  Libraries
+                  {t("navbar.libraries")}
               </MenuItemLink>
               <MenuItemLink to='/events'>
-                  Event
+                  {t("navbar.events")}
               </MenuItemLink>
               <MenuItemLink to='/info'>
-                  Info
-              </MenuItemLink>              
+                  {t("navbar.info")}
+              </MenuItemLink>
           </Box>
           <LanguageSelector />
           {themes.map((theme) => (
@@ -42,7 +44,7 @@ const Navbar = ({ value, handleChange }: NavbarProps) => {
               variant={value === theme ? "outlined" : "text"}
               sx={{ mx: 0.5 }}
             >
-              {theme.charAt(0).toUpperCase() + theme.slice(1)}
+              {t(`navbar.theme${theme.charAt(0).toUpperCase() + theme.slice(1)}`)}
             </Button>
           ))}
         </Toolbar>

@@ -1,4 +1,8 @@
 {
+  "common": {
+    "retry": "Retry",
+    "loading": "Loading..."
+  },
   "cookieSettings": {
     "title": "Cookie Settings",
     "description": "Cookies used on the site are categorized based on their purpose. See below for a description of each category as well as the option to accept or reject it.",
@@ -112,6 +116,58 @@
     "returningParagraph2": "If you return your loan late, you will need to pay a late return fee. The fee is €0.20 per loan per day, and the maximum fee is €6 per loan. The fee will be charged for each calendar day, including days when the library is closed. If you have €30 or more in unpaid fees, you will not be able to borrow or reserve material or renew your loans. Children's and young people's materials or materials borrowed by anyone under 18 years will not incur a late return fee.",
     "returningParagraph3": "Recovery of unreturned loans will be transferred to a recovery agency approximately 60 days after the expiry day. Unreturned children's and young people's material will also be recovered through a recovery agency."
   },
+  "libraries":{
+    "noLibrariesFound": "No libraries found",
+    "librariesAndHours": "Libraries and Opening Hours",
+    "libraries": "Libraries",
+    "general": "General",
+    "openingHours": "Opening Hours",
+    "contactDetails": "Contact Details"
+  },
+  "librariesList":{
+    "title": "Libraries",
+    "contactDetails": "Contact details: ",
+    "emails": " email(s), ",
+    "phones": " phone(s)"
+  },
+  "librariesMapPage":{},
+  "libraryContactDetails":{
+    "email": "Email",
+    "phoneNumbers": "Phone Numbers",
+    "mailingAddress": "Mailing Address",
+    "address": "Address",
+    "customerService": "Customer service",
+    "cooperationWithSchools": "Co-operation with schools",
+    "contactPersonForDaycare": "Contact person for daycare",
+    "exhibitionPremises": "Exhibition premises",
+    "informationServices": "Information services",
+    "chiefLibrarian": "Chief Librarian"
+  },
+  "libraryDetails": {
+    "homepage": "Library's homepage",
+    "facebook": "Facebook",
+    "open": "Open",
+    "closed": "Closed"
+  },
+  "libraryImage": {
+    "errorLoadingImage": "Error loading library image",
+    "noImageAvailable": "No image available for this library"
+  },
+  "libraryOpeningHours": {
+    "loadingOpeningHours": "Loading opening hours...",
+    "errorLoadingOpeningHours": "Error loading opening hours",
+    "noOpeningHours": "No opening hours available.",
+    "week": "Week",
+    "Mon": "Mon",
+    "Tue": "Tue",
+    "Wed": "Wed",
+    "Thu": "Thu",
+    "Fri": "Fri",
+    "Sat": "Sat",
+    "Sun": "Sun",
+    "closed": "Closed"
+  },
+  "librarySelector.allLibraries": "All Libraries",
   "loanPeriodsAndFees": {
     "title": "Laina-ajat ja maksut",
     "loanPeriodsTitle": "Aineiston laina-ajat",
@@ -135,6 +191,39 @@
     "overdueFeeNote": "Alle 18-vuotiaiden tai joustavan asiakkuusmallin asiakkaiden varausten ja lainojen myöhästymismaksuja ei peritä.",
     "maxOutstandingDebtTitle": "Suurin sallittu maksamattomien maksujen määrä",
     "maxOutstandingDebtText": "Lainausoikeus menetetään, jos maksamattomia maksuja on 30 € tai enemmän."
+  },
+    "openStreetMap": {
+    "loadingMap": "Loading map...",
+    "error": "Error loading map",
+    "failedToLoad": "Failed to load the map. Please check your internet connection.",  
+    "benefitsAlerts": {
+      "title": "Benefits and Alerts",
+      "description": "Stay updated with the latest library benefits and alerts. You can subscribe to notifications for new benefits or alerts related to library services.",
+      "subscribe": "Subscribe to Notifications",
+      "unsubscribe": "Unsubscribe from Notifications",
+      "noAlerts": "No current alerts available."
+    },
+    "librariesMap": {
+      "geocodingError": "Failed to geocode some library addresses. Please check your internet connection.",
+      "noLibraries": "No libraries to display on the map.",
+      "loading": "Loading library locations... (This may take a moment for the free geocoding service)"
+    },
+    "LibrariesMapPage": {
+      "error": "Error loading libraries",
+      "title": "Library Locations Map",
+      "subtitle": "OpenStreetMap Integration",
+      "subtitleDescription": "This map uses OpenStreetMap, a free and open-source mapping service. Locations are geocoded using the Nominatim service.",
+      "instructions": "• Click on markers to view library details\n• Use the controls to zoom and pan around the map\n• Map data © OpenStreetMap contributors"      
+    }
+  },
+  "navbar": {
+    "title": "LibraryInReact",
+    "libraries": "Kirjastot",
+    "events": "Tapahtumat",
+    "info": "Info",
+    "themeDark": "Tumma",
+    "themeLight": "Vaalea",
+    "themeCustom": "Mukautettu"
   },
   "searchHistory": {
     "titleSaveSearches": "Saved searches",

@@ -1,5 +1,6 @@
 import { Box, MenuItem, Select } from '@mui/material';
 import type { Library } from '../../types/library/interfaces';
+import { useTranslation } from 'react-i18next';
 
 interface LibrarySelectorProps {
   libraries: Library[];
@@ -8,6 +9,7 @@ interface LibrarySelectorProps {
 }
 
 export default function LibrarySelector({ libraries, selectedLibraryId, onLibraryChange }: LibrarySelectorProps) {
+  const { t } = useTranslation();
   return (
     <Box display="flex" gap={2} mb={2}>
       <Select 
@@ -18,7 +20,7 @@ export default function LibrarySelector({ libraries, selectedLibraryId, onLibrar
         }}
         size="small"
       >
-        <MenuItem value={0}>All libraries</MenuItem>
+        <MenuItem value={0}>{t('librarySelector.allLibraries')}</MenuItem>
         {libraries.map((library) => (
           <MenuItem key={library.id} value={library.id}>
             {library.name}

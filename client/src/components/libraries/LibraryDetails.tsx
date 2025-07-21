@@ -6,6 +6,7 @@ import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import DirectionsIcon from '@mui/icons-material/Directions';
 import type { Library } from '../../types/library/interfaces';
 import { useLibraryOpenStatus } from '../../hooks/useLibraryOpenStatus';
+import { useTranslation } from 'react-i18next';
 
 interface LibraryDetailsProps {
   library: Library;
@@ -13,6 +14,7 @@ interface LibraryDetailsProps {
 
 export default function LibraryDetails({ library }: LibraryDetailsProps) {
 const { libraryStatus } = useLibraryOpenStatus();
+const { t } = useTranslation();
 
   return (
     <Container maxWidth="sm" sx={{ py: 4 }}>
@@ -37,7 +39,7 @@ const { libraryStatus } = useLibraryOpenStatus();
               ? theme.palette.primary.main
               : theme.palette.secondary.main, }} />
         <Link href={library.homepage} target="_blank" rel="noopener noreferrer">
-          Homepage
+          {t('libraryDetails.homepage')}
         </Link>
       </Stack>
       
@@ -60,7 +62,7 @@ const { libraryStatus } = useLibraryOpenStatus();
                 ? theme.palette.primary.main
                 : theme.palette.secondary.main, }} />
           <Link href={library.facebookUrl} target="_blank" rel="noopener noreferrer">
-            Facebook
+            {(t('libraryDetails.facebook'))}
           </Link>
         </Stack>
       )}
@@ -74,7 +76,7 @@ const { libraryStatus } = useLibraryOpenStatus();
               : (theme) => theme.palette.error.dark
           }}
         >
-          {libraryStatus && libraryStatus.isOpen ? 'Open' : 'Closed'}
+          {libraryStatus && libraryStatus.isOpen ? t('libraryDetails.open') : t('libraryDetails.closed')}
         </Typography>
         <Stack direction="row" spacing={1} alignItems="center">
           <AccessTimeIcon sx={{ fontSize: 16, mr: 1, ml: 1, color: (theme) =>

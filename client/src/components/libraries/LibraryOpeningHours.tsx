@@ -4,9 +4,11 @@ import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import { useState } from 'react';
 import { useLibrarySchedule } from '../../hooks/useLibrarySchedule';
+import { useTranslation } from 'react-i18next';
 
 export default function LibraryOpeningHours() {
   const theme = useTheme();
+  const {t} = useTranslation();
   const [weekOffset, setWeekOffset] = useState(0);
 
   // Pass weekOffset to the hook
@@ -15,8 +17,8 @@ export default function LibraryOpeningHours() {
   // If loading, show a loading message
   if (loading) {
     return (
-      <Box sx={{ textAlign: 'center', py: 3 }}>useLibrarySchedule
-        <Typography variant="body1">Loading opening hours...</Typography>
+      <Box sx={{ textAlign: 'center', py: 3 }}>
+        <Typography variant="body1">{t('libraryOpeningHours.loadingOpeningHours')}</Typography>
       </Box>
     );
   }
@@ -25,7 +27,7 @@ export default function LibraryOpeningHours() {
   if (error) {
     return (
       <Box sx={{ textAlign: 'center', py: 3 }}>
-        <Typography color="error">{error}</Typography>
+        <Typography color="error">{t(`libraryOpeningHours.errorLoadingOpeningHours`)}</Typography>
       </Box>
     );
   }
@@ -34,7 +36,7 @@ export default function LibraryOpeningHours() {
   if (!openingHours || !openingHours.days || openingHours.days.length === 0) {
     return (
       <Box sx={{ textAlign: 'center', py: 3 }}>
-        <Typography variant="body1">No opening hours available.</Typography>
+        <Typography variant="body1">{t('libraryOpeningHours.noOpeningHours')}</Typography>
       </Box>
     );
   }
@@ -56,7 +58,7 @@ export default function LibraryOpeningHours() {
           <ArrowBackIosIcon fontSize="small" style={{ fontSize: 13 }} />
         </IconButton>
         <Typography variant="subtitle2" sx={{ mx: 1 }}>
-          Week {openingHours.weekNumber}
+          {t('libraryOpeningHours.week')} {openingHours.weekNumber}
         </Typography>
         <IconButton size="small" onClick={handleNextWeek}>
           <ArrowForwardIosIcon fontSize="small" style={{ fontSize: 13 }} />
@@ -109,13 +111,15 @@ export default function LibraryOpeningHours() {
                       ml: 1
                     }}
                   >
-                    {row.day}
+                    {t(`libraryOpeningHours.${row.day}`)}
                   </Box>
                 </TableCell>
                 <TableCell 
                   align="right"
                 >
-                  {row.openingTime || row.time}
+                  {row.openingTime === "Closed"
+                    ? t('libraryOpeningHours.closed')
+                    : row.openingTime}
                 </TableCell>
               </TableRow>
             ))}

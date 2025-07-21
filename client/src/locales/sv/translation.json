@@ -1,4 +1,8 @@
 {
+  "common": {
+    "retry": "Försök igen",
+    "loading": "Laddar..."
+  },  
   "cookieSettings": {
     "title": "Cookie-inställningar",
     "description": "Cookies som används på webbplatsen är kategoriserade efter deras syfte. Se nedan för en beskrivning av varje kategori samt möjligheten att acceptera eller avvisa den.",
@@ -112,17 +116,69 @@
     "returningParagraph2": "Om du återlämnar ditt lån för sent måste du betala en förseningsavgift. Avgiften är 0,20 € per lån och dag, och den maximala avgiften är 6 € per lån. Avgiften tas ut för varje kalenderdag, även när biblioteket är stängt. Om du har 30 € eller mer i obetalda avgifter kan du inte låna, reservera eller förnya material. Barn- och ungdomsmaterial eller material lånat av personer under 18 år medför ingen förseningsavgift.",
     "returningParagraph3": "Återkrav av ej återlämnade lån överförs till ett inkassoföretag cirka 60 dagar efter förfallodagen. Ej återlämnat barn- och ungdomsmaterial återkrävs också via inkassoföretag."
   },
+  "libraries": {
+    "noLibrariesFound": "Inga bibliotek hittades",
+    "librariesAndHours": "Bibliotek och öppettider",
+    "libraries": "Bibliotek",
+    "general": "Allmänt",
+    "openingHours": "Öppettider",
+    "contactDetails": "Kontaktuppgifter"
+  },
+  "librariesList": {
+    "title": "Bibliotek",
+    "contactDetails": "Kontaktuppgifter: ",
+    "emails": " e-post(er), ",
+    "phones": " telefon(er)"
+  },
+  "librariesMapPage": {},
+  "libraryContactDetails": {
+    "email": "E-post",
+    "phoneNumbers": "Telefonnummer",
+    "mailingAddress": "Postadress",
+    "address": "Adress",
+    "customerService": "Kundservice",
+    "cooperationWithSchools": "Samarbete med skolor",
+    "contactPersonForDaycare": "Kontaktperson för förskola",
+    "exhibitionPremises": "Utställningslokaler",
+    "informationServices": "Informationsservice",
+    "chiefLibrarian": "Bibliotekschef"
+  },
+  "libraryDetails": {
+    "homepage": "Bibliotekets hemsida",
+    "facebook": "Facebook",
+    "open": "Öppet",
+    "closed": "Stängt"
+  },
+  "libraryImage": {
+    "errorLoadingImage": "Fel vid laddning av biblioteksbild",
+    "noImageAvailable": "Ingen bild tillgänglig för detta bibliotek"
+  },
+  "libraryOpeningHours": {
+    "loadingOpeningHours": "Öppettider laddas...",
+    "errorLoadingOpeningHours": "Fel vid laddning av öppettider",
+    "noOpeningHours": "Inga öppettider tillgängliga.",
+    "week": "Vecka",
+    "Mon": "Mån",
+    "Tue": "Tis",
+    "Wed": "Ons",
+    "Thu": "Tors",
+    "Fri": "Fre",
+    "Sat": "Lör",
+    "Sun": "Sön",
+    "closed": "Stängt"
+  },
+  "librarySelector.allLibraries": "Alla bibliotek",
   "loanPeriodsAndFees": {
     "title": "Lånetider och avgifter",
-    "loanPeriodsTitle": "Lånetider",
+    "loanPeriodsTitle": "Materialets lånetider",
     "generalPeriod": "Allmän lånetid 28 dagar",
     "bestsellers": "Bestsellers 14 dagar",
     "musicCDs": "Musik-CD-skivor 14 dagar",
     "dvdsBlurays": "DVD- och Blu-ray-skivor 14 dagar",
     "consoleGames": "Konsolspel 14 dagar",
     "boardGames": "Brädspel 14 dagar",
-    "objects": "Föremål 1–28 dagar (beroende på föremålet)",
-    "ematerials": "E-material 1–28 dagar (beroende på tjänsten)",
+    "objects": "Föremål 1–28 dagar (beroende på föremål)",
+    "ematerials": "E-material 1–28 dagar (beroende på tjänst)",
     "limitsTitle": "Begränsningar för reservationer och lån:",
     "limitsConsoleGames": "Konsolspel 5",
     "limitsOtherMaterials": "Övriga material 100",
@@ -132,9 +188,42 @@
     "overdueFee": "Förseningsavgift/dag/vuxenmaterial/lån 0,20 €",
     "maxOverdueFee": "Maximal förseningsavgift/lån 6,00 €",
     "uncollectedReservationFee": "Avgift för ej avhämtad reservation 1,00 €/reservation",
-    "overdueFeeNote": "Förseningsavgifter tas inte ut för kunder under 18 år eller för flexibla kundmodellen.",
-    "maxOutstandingDebtTitle": "Maximalt tillåten obetald skuld",
+    "overdueFeeNote": "För reservationer och lån av personer under 18 år eller flexibla kundmodeller tas ingen förseningsavgift ut.",
+    "maxOutstandingDebtTitle": "Högsta tillåtna obetalda avgifter",
     "maxOutstandingDebtText": "Lånerätten förloras om obetalda avgifter är 30 € eller mer."
+  },
+  "openStreetMap": {
+    "loadingMap": "Kart laddas...",
+    "error": "Fel vid laddning av kartan",
+    "failedToLoad": "Det gick inte att ladda kartan. Kontrollera din internetanslutning.",
+    "benefitsAlerts": {
+      "title": "Förmåner och aviseringar",
+      "description": "Håll dig uppdaterad med de senaste bibliotekets förmåner och aviseringar. Du kan prenumerera på aviseringar om nya förmåner eller varningar relaterade till bibliotekstjänster.",
+      "subscribe": "Prenumerera på aviseringar",
+      "unsubscribe": "Avsluta aviseringar",
+      "noAlerts": "Inga aktuella aviseringar."
+    },
+    "librariesMap": {
+      "geocodingError": "Det gick inte att geokoda vissa biblioteksadresser. Kontrollera din internetanslutning.",
+      "noLibraries": "Inga bibliotek att visa på kartan.",
+      "loading": "Bibliotekens platser laddas... (Detta kan ta en stund för den kostnadsfria geokodningstjänsten)"
+    },
+    "LibrariesMapPage": {
+      "error": "Fel vid laddning av bibliotek",
+      "title": "Bibliotekens platskarta",
+      "subtitle": "OpenStreetMap-integration",
+      "subtitleDescription": "Denna karta använder OpenStreetMap, en gratis och öppen källkods karttjänst. Platser geokodas med Nominatim-tjänsten.",
+      "instructions": "• Klicka på markörer för att visa biblioteksinformation\n• Använd kontrollerna för att zooma och flytta runt på kartan\n• Kartdata © OpenStreetMap-bidragsgivare"
+    }
+  },
+  "navbar": {
+    "title": "LibraryInReact",
+    "libraries": "Bibliotek",
+    "events": "Evenemang",
+    "info": "Info",
+    "themeDark": "Mörk",
+    "themeLight": "Ljus",
+    "themeCustom": "Anpassad"
   },
   "searchHistory": {
     "titleSaveSearches": "Sparade sökningar",

@@ -1,4 +1,8 @@
 {
+  "common": {
+    "retry": "Yritä uudelleen",
+    "loading": "Ladataan..."
+  },
   "cookieSettings": {
     "title": "Evästeasetukset",
     "description": "Sivustolla käytetyt evästeet on luokiteltu niiden käyttötarkoituksen mukaan. Katso alta kunkin kategorian kuvaus sekä mahdollisuus hyväksyä tai hylätä se.",
@@ -112,6 +116,58 @@
     "returningParagraph2": "Joissakin kirjastoissa on palautusluukku tai -laatikko, johon voit palauttaa aineistoa, kun kirjasto on suljettu. Lainat kuitenkin palautetaan kirjastojärjestelmään vasta, kun kirjasto aukeaa eli siihen asti kertyy sakkomaksuja.",
     "returningParagraph3": "Palautumattomien lainojen perintä siirtyy perintätoimistolle noin 60 vuorokautta eräpäivän jälkeen. Perintä koskee 18 vuotta täyttäneen asiakkaan lainaamaa aineistoa."
   },
+  "libraries": {
+    "noLibrariesFound": "Kirjastoja ei löytynyt",
+    "librariesAndHours": "Kirjastot ja aukioloajat",
+    "libraries": "Kirjastot",
+    "general": "Yleistä",
+    "openingHours": "Aukioloajat",
+    "contactDetails": "Yhteystiedot"
+  },
+  "librariesList": {
+    "title": "Kirjastot",
+    "contactDetails": "Yhteystiedot: ",
+    "emails": " sähköposti(a), ",
+    "phones": " puhelin(t)"
+  },
+  "librariesMapPage": {},
+"libraryContactDetails": {
+  "email": "Sähköposti",
+  "phoneNumbers": "Puhelinnumerot",
+  "mailingAddress": "Postiosoite",
+  "address": "Osoite",
+  "customerService": "Asiakaspalvelu",
+  "cooperationWithSchools": "Yhteistyö koulujen kanssa",
+  "contactPersonForDaycare": "Yhteyshenkilö päiväkodeille",
+  "exhibitionPremises": "Näyttelytilat",
+  "informationServices": "Tietopalvelut",
+  "chiefLibrarian": "Kirjastonjohtaja"
+  },
+  "libraryDetails": {
+    "homepage": "Kirjaston kotisivu",
+    "facebook": "Facebook",
+    "open": "Auki",
+    "closed": "Suljettu"
+  },
+  "libraryImage": {
+    "errorLoadingImage": "Virhe kirjaston kuvan latauksessa",
+    "noImageAvailable": "Kirjastolle ei ole kuvaa saatavilla"
+  },
+  "libraryOpeningHours": {
+    "loadingOpeningHours": "Aukioloaikoja ladataan...",
+    "errorLoadingOpeningHours": "Virhe aukioloaikojen latauksessa",
+    "noOpeningHours": "Aukioloaikoja ei saatavilla.",
+    "week": "Viikko",
+    "Mon": "Ma",
+    "Tue": "Ti",
+    "Wed": "Ke",
+    "Thu": "To",
+    "Fri": "Pe",
+    "Sat": "La",
+    "Sun": "Su",
+    "closed": "Suljettu"
+  },
+  "librarySelector.allLibraries": "Kaikki kirjastot",
   "loanPeriodsAndFees": {
     "title": "Laina-ajat ja maksut",
     "loanPeriodsTitle": "Aineiston laina-ajat",
@@ -135,6 +191,40 @@
     "overdueFeeNote": "Alle 18-vuotiaiden ja joustoasiakkaiden varaamasta ja lainaamasta aineistosta ei mene noutamattoman varauksen maksua eikä myöhästymismaksua.",
     "maxOutstandingDebtTitle": "Velkasaldon enimmäismäärä",
     "maxOutstandingDebtText": "Lainausoikeuden menetät, kun velkasaldosi on 30,00 euroa tai enemmän."
+  },
+  "openStreetMap": {
+    "loadingMap": "Karttaa ladataan...",
+    "error": "Virhe kartan latauksessa",
+    "failedToLoad": "Kartan lataus epäonnistui. Tarkista internet-yhteytesi.",
+    "benefitsAlerts": {
+      "title": "Edut ja ilmoitukset",
+      "description": "Pysy ajan tasalla kirjaston eduista ja ilmoituksista. Voit tilata ilmoitukset uusista eduista tai palveluihin liittyvistä hälytyksistä.",
+      "subscribe": "Tilaa ilmoitukset",
+      "unsubscribe": "Peruuta ilmoitukset",
+      "noAlerts": "Ei voimassa olevia ilmoituksia."
+    },
+    "librariesMap": {
+      "geocodingError": "Kirjastojen osoitteiden geokoodaus epäonnistui. Tarkista internet-yhteytesi.",
+      "noLibraries": "Kartalla ei ole näytettäviä kirjastoja.",
+      "loading": "Kirjastojen sijainteja ladataan... (Tämä voi kestää hetken ilmaisen geokoodauspalvelun vuoksi)"
+    },
+    "LibrariesMapPage": {
+      "retry": "Yritä uudelleen",
+      "error": "Virhe kirjastojen latauksessa",
+      "title": "Kirjastojen sijaintikartta",
+      "subtitle": "OpenStreetMap-integraatio",
+      "subtitleDescription": "Tämä kartta käyttää OpenStreetMap-palvelua, joka on ilmainen ja avoimen lähdekoodin karttapalvelu. Sijainnit geokoodataan Nominatim-palvelulla.",
+      "instructions": "• Klikkaa merkkejä nähdäksesi kirjaston tiedot\n• Käytä säätimiä zoomaukseen ja kartan siirtämiseen\n• Karttatiedot © OpenStreetMapin tekijät"
+    }
+  },
+  "navbar": {
+    "title": "LibraryInReact",
+    "libraries": "Kirjastot",
+    "events": "Tapahtumat",
+    "info": "Info",
+    "themeDark": "Tumma",
+    "themeLight": "Vaalea",
+    "themeCustom": "Mukautettu"
   },
   "searchHistory": {
     "titleSaveSearches": "Tallennetut haut",

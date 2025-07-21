@@ -1,8 +1,53 @@
 import { Box, Alert, Typography, Chip } from '@mui/material';
 import { CheckCircle, Map, Public, Security } from '@mui/icons-material';
 import { type ReactElement } from 'react';
+import { useTranslation } from 'react-i18next';
 
 const OpenStreetMapBenefitsAlert = (): ReactElement => {
+  const { t } = useTranslation();
+  return (
+    <Box sx={{ mb: 2 }}>
+      <Alert 
+        severity="success" 
+        icon={<Map />}
+        sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}
+      >
+        <Typography variant="h6" gutterBottom>
+          {t("openStreetMap.benefitsAlerts.title")}
+        </Typography>
+        
+        <Box display="flex" flexWrap="wrap" gap={1} mt={1}>
+          <Chip 
+            icon={<CheckCircle />} 
+            label={t("openStreetMap.benefitsAlerts.noApiKeysRequired")} 
+            color="success" 
+            size="small" 
+          />
+          <Chip 
+            icon={<Public />} 
+            label={t("openStreetMap.benefitsAlerts.openSource")} 
+            color="success" 
+            size="small" 
+          />
+          <Chip 
+            icon={<Security />} 
+            label={t("openStreetMap.benefitsAlerts.privacyFriendly")} 
+            color="success" 
+            size="small" 
+          />
+          <Chip 
+            label={t("openStreetMap.benefitsAlerts.zeroCost")} 
+            color="success" 
+            size="small" 
+          />
+        </Box>
+        
+        <Typography variant="body2" sx={{ mt: 1 }}>
+          {t("openStreetMap.benefitsAlerts.description")}
+        </Typography>
+      </Alert>
+    </Box>
+  );
   return (
     <Alert 
       severity="success" 

@@ -4,12 +4,13 @@ import { type ReactElement } from 'react';
 import { useLibraries } from '../../hooks/useLibraries';
 import OpenStreetMapLibrariesMap from './OpenStreetMapLibrariesMap';
 import SectionHeader from './SectionHeader';
+import { useTranslation } from 'react-i18next';
 
 const OpenStreetMapLibrariesMapPage = (): ReactElement => {
   const theme = useTheme();
   const isLargerThanXs = useMediaQuery(theme.breakpoints.up("sm"));
   const { libraries, loading, error, refetch } = useLibraries();
-
+  const { t } = useTranslation();
   // Loading state
   if (loading) {
     return (
@@ -23,9 +24,9 @@ const OpenStreetMapLibrariesMapPage = (): ReactElement => {
   if (error) {
     return (
       <Alert severity="error" action={
-        <button onClick={refetch}>Retry</button>
+        <button onClick={refetch}>{t('common.retry')}</button>
       }>
-        {error}
+        {t('openStreetMap.LibrariesMapPage.error')}
       </Alert>
     );
   }
@@ -38,13 +39,12 @@ const OpenStreetMapLibrariesMapPage = (): ReactElement => {
       pl: isLargerThanXs ? 20 : 1}}
     >
       <Typography variant="h4" gutterBottom>
-        Library Locations Map
+        {t('openStreetMap.LibrariesMapPage.title')}
       </Typography>
       <Box sx={{ mb: 3 }}>
-        <SectionHeader title="OpenStreetMap Integration" />
+        <SectionHeader title={t('openStreetMap.LibrariesMapPage.subtitle')} />
         <Typography variant="body1" color="text.secondary" sx={{ mb: 2 }}>
-          This map uses OpenStreetMap, a free and open-source mapping service. 
-          Locations are geocoded using the Nominatim service.
+          {t('openStreetMap.LibrariesMapPage.subtitleDescription')}
         </Typography>
       </Box>
       
@@ -57,9 +57,7 @@ const OpenStreetMapLibrariesMapPage = (): ReactElement => {
       
       <Box sx={{ mt: 3 }}>
         <Typography variant="body2" color="text.secondary">
-          • Click on markers to view library details
-          • Use the controls to zoom and pan around the map
-          • Map data © OpenStreetMap contributors
+          {t('openStreetMap.LibrariesMapPage.instructions')}
         </Typography>
       </Box>
     </Box>

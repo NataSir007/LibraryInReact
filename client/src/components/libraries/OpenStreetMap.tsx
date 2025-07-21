@@ -3,6 +3,7 @@ import { Box, Typography, Alert } from '@mui/material';
 import { useEffect, useState, type ReactElement } from 'react';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
+import { useTranslation } from 'react-i18next';
 
 // Fix for default markers in React-Leaflet
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -58,6 +59,8 @@ const OpenStreetMap = ({
   height = '400px',
   width = '100%'
 }: OpenStreetMapProps): ReactElement => {
+  const { t } = useTranslation();
+
   const [mapReady, setMapReady] = useState(false);
 
   // Validate and sanitize props
@@ -139,7 +142,7 @@ const OpenStreetMap = ({
               borderRadius: '8px',
             }}
           >
-            <Typography>Loading map...</Typography>
+            <Typography>{t('openStreetMap.loadingMap')}</Typography>
           </Box>
         )}
       </Box>
@@ -148,9 +151,9 @@ const OpenStreetMap = ({
     console.error('Error rendering OpenStreetMap:', error);
     return (
       <Alert severity="error">
-        <Typography variant="h6">Map Loading Error</Typography>
+        <Typography variant="h6">{t('openStreetMap.error')}</Typography>
         <Typography>
-          Failed to load the map. Please check your internet connection.
+          {t('openStreetMap.failedToLoad')}
         </Typography>
       </Alert>
     );
