@@ -156,12 +156,8 @@ public class LibraryService : ILibraryService
     }
 
     bool isWithinHours = IsCurrentTimeWithinHours(openingHour.OpeningTime, openingHour.ClosingTime, localNow);
-    if (!isWithinHours)
-    {
-      return new LibraryOpenStatusDto { IsOpen = false, StatusText = $"Today {openingTime} – {closingTime}" };
-    }
-
-    return new LibraryOpenStatusDto { IsOpen = true, StatusText = $"Open today {openingTime} – {closingTime}" };
+    
+    return new LibraryOpenStatusDto { IsOpen = isWithinHours, StatusText = $" {openingTime} – {closingTime}" };
   }
 
 

@@ -16,7 +16,7 @@ export default function LibraryDetails({ library }: LibraryDetailsProps) {
 const { libraryStatus } = useLibraryOpenStatus();
 const { t } = useTranslation();
 
-  return (
+  return (    
     <Container maxWidth="sm" sx={{ py: 4 }}>
       <Typography variant="h6" gutterBottom>
         {library.name}
@@ -84,16 +84,10 @@ const { t } = useTranslation();
               ? theme.palette.primary.main
               : theme.palette.secondary.main, }} />
           <Typography variant="body1">
-            {libraryStatus ? libraryStatus.statusText : ''}
+            {libraryStatus?.isOpen ? libraryStatus.statusText : ''}
           </Typography>
         </Stack>
-      </Box>
-
-      {library.notes && (
-        <Typography variant="body2" sx={{ mt: 4 }}>
-          {library.notes}
-        </Typography>
-      )}
-    </Container>
+      </Box>    
+      </Container>
   );
 }
