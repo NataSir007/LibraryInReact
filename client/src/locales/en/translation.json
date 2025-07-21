@@ -223,7 +223,9 @@
     "info": "Info",
     "themeDark": "Tumma",
     "themeLight": "Vaalea",
-    "themeCustom": "Mukautettu"
+    "themeCustom": "Mukautettu",
+    "libraryCardAndLoans": "LibraryCardAndLoans",
+    "loanPeriodsAndFees": "Loan Periods And Fees"
   },
   "searchHistory": {
     "titleSaveSearches": "Saved searches",

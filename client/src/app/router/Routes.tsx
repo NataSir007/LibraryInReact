@@ -6,17 +6,17 @@ import HowAreMaterialsSelected from "../../components/informationalPages/HowAreM
 import SearchHistory from "../../components/informationalPages/SearchHistory";
 import SearchTips from "../../components/informationalPages/SearchTips";
 import WhatIsLibrary from "../../components/informationalPages/WhatIsLibrary";
-import Welcome from "../layout/Welcome";
 import Libraries from "../../components/libraries/Libraries";
 import Events from "../../components/navbarLinks/Events";
 import Information from "../../components/navbarLinks/Information";
+import LibraryCardAndLoans from "../../components/informationalPages/LibraryCardAndLoans";
+import LoanPeriodsAndFees from "../../components/informationalPages/LoanPeriodsAndFees";
 
 export const router = createBrowserRouter([
     {
         path: '/',
         element: <App />,
         children: [
-          { path: 'welcome', element: <Welcome /> },
           { path: 'cookie-settings', element: <CookieSettings /> },
           { path: 'feedback', element: <Feedback /> },
           { path: 'how-are-materials-selected', element: <HowAreMaterialsSelected /> },
@@ -25,7 +25,9 @@ export const router = createBrowserRouter([
           { path: 'info', element: <Information /> },
           { path: 'search-history', element: <SearchHistory /> },
           { path: 'search-tips', element: <SearchTips /> },
-          { path: 'what-is-library', element: <WhatIsLibrary /> }
+          { path: 'what-is-library', element: <WhatIsLibrary /> },
+          { path: 'library-card-and-loans', element: <LibraryCardAndLoans /> },
+          { path: 'loan-periods-and-fees', element: <LoanPeriodsAndFees /> }
     ],
   }
 ])

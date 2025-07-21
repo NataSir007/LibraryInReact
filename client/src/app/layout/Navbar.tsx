@@ -2,6 +2,7 @@ import { AppBar, Toolbar, Typography, Button, Box } from '@mui/material';
 import LanguageSelector from '../../components/navbar/LanguageSelector';
 import MenuItemLink from '../shared/components/MenuItemLink';
 import { useTranslation } from 'react-i18next';
+import MenuItemInfo from './MenuItemInfo';
 const themes = ["dark", "light", "custom"];
 
 interface NavbarProps {
@@ -31,9 +32,7 @@ const Navbar = ({ value, handleChange }: NavbarProps) => {
               <MenuItemLink to='/events'>
                   {t("navbar.events")}
               </MenuItemLink>
-              <MenuItemLink to='/info'>
-                  {t("navbar.info")}
-              </MenuItemLink>
+              <MenuItemInfo />
           </Box>
           <LanguageSelector />
           {themes.map((theme) => (

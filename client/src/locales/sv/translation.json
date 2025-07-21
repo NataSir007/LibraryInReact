@@ -223,7 +223,9 @@
     "info": "Info",
     "themeDark": "Mörk",
     "themeLight": "Ljus",
-    "themeCustom": "Anpassad"
+    "themeCustom": "Anpassat tema",
+    "libraryCardAndLoans": "Bibliotekskort och lån",
+    "loanPeriodsAndFees": "Lånetider och avgifter"
   },
   "searchHistory": {
     "titleSaveSearches": "Sparade sökningar",
