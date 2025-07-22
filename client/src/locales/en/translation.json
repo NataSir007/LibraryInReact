@@ -218,12 +218,12 @@
   },
   "navbar": {
     "title": "LibraryInReact",
-    "libraries": "Kirjastot",
-    "events": "Tapahtumat",
+    "libraries": "Libraries",
+    "events": "Events",
     "info": "Info",
-    "themeDark": "Tumma",
-    "themeLight": "Vaalea",
-    "themeCustom": "Mukautettu",
+    "themeDark": "Dark",
+    "themeLight": "Light",
+    "themeCustom": "Custom",
     "libraryCardAndLoans": "Library Card And Loans",
     "loanPeriodsAndFees": "Loan Periods And Fees"
   },
