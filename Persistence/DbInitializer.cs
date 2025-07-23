@@ -9,8 +9,6 @@ public static class DbInitializer
 {
   public static async Task SeedData(AppDbContext context)
   {
-    // Database has already been seeded
-    if (context.Libraries.Any()) return;
 
     // Seed Library entities for 5 libraries
     var allLibraries = new List<Library>
@@ -22,8 +20,7 @@ public static class DbInitializer
           Name = "Malmi Library",
           Address = "Ylä-Malmin tori 3, 00700 Helsinki",
           Homepage = "https://www.hel.fi/kirjastot/malmi",
-          FacebookUrl = "https://www.facebook.com/malmi-kirjasto",
-          Notes = "Malmi Library serves the northeastern part of Helsinki with a strong focus on local community needs and cultural activities."
+          FacebookUrl = "https://www.facebook.com/malmi-kirjasto"
       },
       // Maunula Library (Id = 2)
       new Library
@@ -32,8 +29,7 @@ public static class DbInitializer
           Name = "Maunula Library",
           Address = "Metsäpurontie 16, 00630 Helsinki",
           Homepage = "https://www.hel.fi/kirjastot/maunula",
-          FacebookUrl = "https://www.facebook.com/maunula-kirjasto",
-          Notes = "Maunula Library serves the northern districts of Helsinki with a focus on community engagement and family-friendly services."
+          FacebookUrl = "https://www.facebook.com/maunula-kirjasto"
       },
       // Rikhardinkatu Library (Id = 3)
       new Library
@@ -42,8 +38,7 @@ public static class DbInitializer
           Name = "Rikhardinkatu Library",
           Address = "Rikhardinkatu 3, 00130 Helsinki",
           Homepage = "https://www.hel.fi/kirjastot/rikhardinkatu",
-          FacebookUrl = "https://www.facebook.com/rikhardinkatu-kirjasto",
-          Notes = "Rikhardinkatu Library is centrally located in Helsinki, offering comprehensive library services in the city center."
+          FacebookUrl = "https://www.facebook.com/rikhardinkatu-kirjasto"
       },
       // Tikkurila Library (Id = 4)
       new Library
@@ -52,8 +47,7 @@ public static class DbInitializer
           Name = "Tikkurila Library",
           Address = "Ratatie 11, 01300 Vantaa",
           Homepage = "https://www.vantaa.fi/kirjastot/tikkurila",
-          FacebookUrl = "https://www.facebook.com/tikkurila-kirjasto",
-          Notes = "Tikkurila Library is a modern library located in the heart of Tikkurila, serving the local community with extensive book collections and digital services."
+          FacebookUrl = "https://www.facebook.com/tikkurila-kirjasto"
       },
       // Sello Library (Id = 5)
       new Library
@@ -62,13 +56,42 @@ public static class DbInitializer
           Name = "Sello Library",
           Address = "Leppävaarankatu 9, 02600 Espoo",
           Homepage = "https://www.espoo.fi/kirjastot/sello",
-          FacebookUrl = "https://www.facebook.com/sello-kirjasto",
-          Notes = "Sello Library is located in the popular Sello shopping center, offering convenient access to library services for shoppers and residents."
+          FacebookUrl = "https://www.facebook.com/sello-kirjasto"
       }
     };
 
     context.Libraries.AddRange(allLibraries);
+
+    // Seed LibraryNoteTranslations for 5 libraries
+    var libraryNotes = new List<LibraryNoteTranslation>
+    {
+      // Malmi Library (Id = 1)
+      new LibraryNoteTranslation { LibraryId = 1, Language = "en", Note = "Malmi Library serves the northeastern part of Helsinki with a strong focus on local community needs and cultural activities." },
+      new LibraryNoteTranslation { LibraryId = 1, Language = "fi", Note = "Malmin kirjasto palvelee Koillis-Helsingin aluetta painottaen paikallisyhteisön tarpeita ja kulttuuritoimintaa." },
+      new LibraryNoteTranslation { LibraryId = 1, Language = "sv", Note = "Malmi bibliotek betjänar nordöstra Helsingfors med fokus på lokalsamhällets behov och kulturverksamhet." },
+
+      // Maunula Library (Id = 2)
+      new LibraryNoteTranslation { LibraryId = 2, Language = "en", Note = "Maunula Library serves the northern districts of Helsinki with a focus on community engagement and family-friendly services." },
+      new LibraryNoteTranslation { LibraryId = 2, Language = "fi", Note = "Maunulan kirjasto palvelee Helsingin pohjoisia kaupunginosia keskittyen yhteisöllisyyteen ja perheystävällisiin palveluihin." },
+      new LibraryNoteTranslation { LibraryId = 2, Language = "sv", Note = "Maunula bibliotek betjänar norra Helsingfors med fokus på gemenskap och familjevänliga tjänster." },
+
+      // Rikhardinkatu Library (Id = 3)
+      new LibraryNoteTranslation { LibraryId = 3, Language = "en", Note = "Rikhardinkatu Library is centrally located in Helsinki, offering comprehensive library services in the city center." },
+      new LibraryNoteTranslation { LibraryId = 3, Language = "fi", Note = "Rikhardinkadun kirjasto sijaitsee Helsingin keskustassa tarjoten monipuolisia kirjastopalveluja." },
+      new LibraryNoteTranslation { LibraryId = 3, Language = "sv", Note = "Rikhardinkatu bibliotek ligger centralt i Helsingfors och erbjuder omfattande bibliotekstjänster." },
+
+      // Tikkurila Library (Id = 4)
+      new LibraryNoteTranslation { LibraryId = 4, Language = "en", Note = "Tikkurila Library is a modern library located in the heart of Tikkurila, serving the local community with extensive book collections and digital services." },
+      new LibraryNoteTranslation { LibraryId = 4, Language = "fi", Note = "Tikkurilan kirjasto on moderni kirjasto Tikkurilan sydämessä, tarjoten laajat kirjavalikoimat ja digitaalisia palveluja." },
+      new LibraryNoteTranslation { LibraryId = 4, Language = "sv", Note = "Tikkurila bibliotek är ett modernt bibliotek i hjärtat av Tikkurila med ett stort bokutbud och digitala tjänster." },
+
+      // Sello Library (Id = 5)
+      new LibraryNoteTranslation { LibraryId = 5, Language = "en", Note = "Sello Library is located in the popular Sello shopping center, offering convenient access to library services for shoppers and residents." },
+      new LibraryNoteTranslation { LibraryId = 5, Language = "fi", Note = "Sellon kirjasto sijaitsee suositussa Sellon kauppakeskuksessa, tarjoten kätevän pääsyn kirjastopalveluihin." },
+      new LibraryNoteTranslation { LibraryId = 5, Language = "sv", Note = "Sello bibliotek ligger i det populära köpcentret Sello och erbjuder enkel tillgång till bibliotekstjänster." }
+    };
     
+    context.LibraryNoteTranslations.AddRange(libraryNotes);
 
     // Seed LibraryPhoneNumberContactDetail for 5 libraries
     var phoneContacts = new List<LibraryPhoneNumberContactDetail>

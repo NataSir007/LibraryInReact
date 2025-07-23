@@ -20,12 +20,10 @@ public class Library
 
 
     [MaxLength(256)]
-    public required string FacebookUrl { get; set; }
+    public required string FacebookUrl { get; set; }    
 
-    [MaxLength(1024)]
-    public string? Notes { get; set; }
-    
     // navigation properties
+    public ICollection<LibraryNoteTranslation> NoteTranslations { get; set; } = new List<LibraryNoteTranslation>();
     public ICollection<LibraryEmailContactDetail> LibraryEmailContactDetails { get; set; } = new List<LibraryEmailContactDetail>();
     public ICollection<LibraryPhoneNumberContactDetail> LibraryPhoneNumberContactDetails { get; set; } = new List<LibraryPhoneNumberContactDetail>();
     public ICollection<LibraryMailingAddress> LibraryMailingAddresses { get; set; } = new List<LibraryMailingAddress>();

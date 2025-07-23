@@ -7,6 +7,7 @@ public class AppDbContext(DbContextOptions options) : DbContext(options)
 {
     public required DbSet<Library> Libraries { get; set; }
     public required DbSet<LibraryEmailContactDetail> LibraryEmailContactDetails { get; set; }
+    public required DbSet<LibraryNoteTranslation> LibraryNoteTranslations { get; set; }
     public required DbSet<LibraryPhoneNumberContactDetail> LibraryPhoneNumberContactDetails { get; set; }
     public required DbSet<LibraryMailingAddress> LibraryMailingAddresses { get; set; }
     public required DbSet<LibraryImage> LibraryImages { get; set; }
@@ -23,6 +24,11 @@ public class AppDbContext(DbContextOptions options) : DbContext(options)
             .WithOne(e => e.Library)
             .HasForeignKey(e => e.LibraryId)
             .OnDelete(DeleteBehavior.Cascade);
+
+        modelBuilder.Entity<Library>()
+        .HasMany(l => l.NoteTranslations)
+        .WithOne(nt => nt.Library)
+        .HasForeignKey(nt => nt.LibraryId);
 
         modelBuilder.Entity<Library>()
             .HasMany(l => l.LibraryPhoneNumberContactDetails)
