@@ -4,9 +4,10 @@ import EmailIcon from '@mui/icons-material/Email';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import DirectionsIcon from '@mui/icons-material/Directions';
-import type { Library } from '../../types/library/interfaces';
+import type { Library, LibraryNoteTranslation } from '../../types/library/interfaces';
 import { useLibraryOpenStatus } from '../../hooks/useLibraryOpenStatus';
 import { useTranslation } from 'react-i18next';
+import i18n from '../../utils/i18n';
 
 interface LibraryDetailsProps {
   library: Library;
@@ -15,6 +16,13 @@ interface LibraryDetailsProps {
 export default function LibraryDetails({ library }: LibraryDetailsProps) {
 const { libraryStatus } = useLibraryOpenStatus();
 const { t } = useTranslation();
+
+// Helper to get the note in the current language
+  const getNoteForLanguage = (translations: LibraryNoteTranslation[], lang: string) => {
+    return translations.find(tr => tr.language === lang)?.note || '';
+  };
+
+  const note = getNoteForLanguage(library.noteTranslations, i18n.language);
 
   return (    
     <Container maxWidth="sm" sx={{ py: 4 }}>
@@ -87,7 +95,13 @@ const { t } = useTranslation();
             {libraryStatus?.isOpen ? libraryStatus.statusText : ''}
           </Typography>
         </Stack>
-      </Box>    
-      </Container>
+      </Box>
+
+      {note && (
+        <Typography variant="body2" sx={{ mt: 4 }}>
+          {note}
+        </Typography>
+      )}
+    </Container>
   );
 }

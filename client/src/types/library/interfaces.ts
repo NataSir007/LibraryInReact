@@ -1,4 +1,4 @@
-import type { LocationType, OpeningHourType, WeekType } from './enums';
+import type { LocationType, OpeningHourType } from './enums';
 
 // Base entity interface
 export interface BaseEntity {
@@ -6,12 +6,12 @@ export interface BaseEntity {
 }
 
 // Library domain interfaces
-export interface Library extends BaseEntity {
+export interface Library extends BaseEntity {  
   name: string;
   address: string;
   homepage: string;
   facebookUrl: string;
-  notes?: string;
+  noteTranslations: LibraryNoteTranslation[];
   libraryEmailContactDetails: LibraryEmailContactDetail[];
   libraryPhoneNumberContactDetails: LibraryPhoneNumberContactDetail[];
   libraryMailingAddresses: LibraryMailingAddress[];
@@ -24,7 +24,7 @@ export interface LibraryDetails {
   address: string;
   homepage: string;
   facebookUrl: string;
-  notes?: string;
+  noteTranslations: LibraryNoteTranslation[];
   libraryEmailContactDetails: LibraryEmailContactDetail[];
   libraryPhoneNumberContactDetails: LibraryPhoneNumberContactDetail[];
   libraryMailingAddresses: LibraryMailingAddress[];
@@ -47,6 +47,11 @@ export interface LibraryEmailContactDetail extends BaseEntity {
   serviceName: string;
   contactName?: string;
   contactEmail: string;
+}
+
+export interface LibraryNoteTranslation {
+  language: string;
+  note: string;
 }
 
 export interface LibraryPhoneNumberContactDetail extends BaseEntity {

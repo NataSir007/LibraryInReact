@@ -23,17 +23,19 @@ public class LibraryService : ILibraryService
   public async Task<List<Library>> GetLibrariesAsync()
   {
     return await _context.Libraries
-        .Include(l => l.LibraryEmailContactDetails)
-        .Include(l => l.LibraryPhoneNumberContactDetails)
-        .Include(l => l.LibraryMailingAddresses)
-        .Include(l => l.LibraryImages)
-        .ToListAsync();
+      .Include(l => l.NoteTranslations)
+      .Include(l => l.LibraryEmailContactDetails)
+      .Include(l => l.LibraryPhoneNumberContactDetails)
+      .Include(l => l.LibraryMailingAddresses)
+      .Include(l => l.LibraryImages)
+      .ToListAsync();
   }
 
   /// <inheritdoc />
   public async Task<Library?> GetLibraryAsync(int id)
   {
     return await _context.Libraries
+        .Include(l => l.NoteTranslations)
         .Include(l => l.LibraryEmailContactDetails)
         .Include(l => l.LibraryPhoneNumberContactDetails)
         .Include(l => l.LibraryMailingAddresses)
