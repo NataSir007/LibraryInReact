@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
 import LibraryService from '../services/libraryService';
-import type { Library } from '../types/library/interfaces';
+import type { Library, LibraryNameAddress } from '../types/library/interfaces';
 
 // Custom hook for managing libraries
 export const useLibraries = () => {
-  const [libraries, setLibraries] = useState<Library[]>([]);
+  const [libraries, setLibraries] = useState<LibraryNameAddress[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 

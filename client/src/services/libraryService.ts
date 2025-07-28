@@ -1,12 +1,12 @@
 import { apiService } from './apiService';
-import type { Library, LibraryOpeningHours } from '../types/library/interfaces';
+import type { Library, LibraryOpeningHours, LibraryNameAddress } from '../types/library/interfaces';
 
 // Library-specific API calls
 export class LibraryService {
   
-  // Get all libraries
-  static async getAllLibraries(): Promise<Library[]> {
-    return apiService.get<Library[]>('/api/libraries');
+  // Get all libraries (id, title, address)
+  static async getAllLibraries(): Promise<LibraryNameAddress[]> {
+    return apiService.get<LibraryNameAddress[]>('/api/libraries');
   }
 
   // Get single library by ID

@@ -25,7 +25,7 @@ namespace LibraryInReact.API.Controllers
     /// </summary>
     /// <returns>A list of libraries.</returns>
     [HttpGet]
-    public async Task<ActionResult<List<Library>>> GetLibraries()
+    public async Task<ActionResult<List<LibraryNameAddressDto>>> GetLibraries()
     {
       var libraries = await libraryService.GetLibrariesAsync();
       return Ok(libraries);

@@ -19,7 +19,7 @@ const LibraryCard: React.FC<{ library: Library }> = ({ library }) => {
       <Card>
         <CardContent>
           <Typography variant="h6" component="h2">
-            {library.name}
+            {library.title}
           </Typography>
           <Typography color="textSecondary" gutterBottom>
             {library.address}

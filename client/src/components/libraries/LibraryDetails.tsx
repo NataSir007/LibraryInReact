@@ -18,7 +18,8 @@ const { libraryStatus } = useLibraryOpenStatus();
 const { t } = useTranslation();
 
 // Helper to get the note in the current language
-  const getNoteForLanguage = (translations: LibraryNoteTranslation[], lang: string) => {
+  const getNoteForLanguage = (translations: LibraryNoteTranslation[] | undefined, lang: string) => {
+    if (!translations) return '';
     return translations.find(tr => tr.language === lang)?.note || '';
   };
 
@@ -27,7 +28,7 @@ const { t } = useTranslation();
   return (    
     <Container maxWidth="sm" sx={{ py: 4 }}>
       <Typography variant="h6" gutterBottom>
-        {library.name}
+        {library.title}
       </Typography>
 
       <Typography variant="body1" gutterBottom>

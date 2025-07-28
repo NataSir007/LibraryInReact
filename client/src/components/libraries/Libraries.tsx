@@ -1,7 +1,9 @@
 import { Box, Grid, Typography, useMediaQuery, CircularProgress, Alert } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useLibraries } from '../../hooks/useLibraries';
+import type { Library } from '../../types/library/interfaces';
+import LibraryService from '../../services/libraryService';
 import LibrarySelector from './LibrarySelector';
 import LibraryDetails from './LibraryDetails';
 import LibraryOpeningHours from './LibraryOpeningHours';
@@ -16,12 +18,18 @@ export default function Libraries() {
   const isLargerThanXs = useMediaQuery(theme.breakpoints.up("sm"));
   const { libraries, loading, error, refetch } = useLibraries();
   const [selectedLibraryId, setSelectedLibraryId] = useState<number | null>(null); // null means "All libraries"
+  const [selectedLibrary, setSelectedLibrary] = useState<Library | null>(null);
   const { t } = useTranslation();
 
-  // Get the selected library when a specific library is chosen
-  const selectedLibrary = selectedLibraryId 
-    ? libraries.find(lib => lib.id === selectedLibraryId) 
-    : null;
+
+  // Fetch full library details when a library is selected
+  useEffect(() => {
+    if (selectedLibraryId) {
+      LibraryService.getLibrary(selectedLibraryId).then(setSelectedLibrary);
+    } else {
+      setSelectedLibrary(null);
+    }
+  }, [selectedLibraryId]);
 
   // Loading state
   if (loading) {
@@ -83,11 +91,11 @@ export default function Libraries() {
               <LibraryDetails library={selectedLibrary} />
             </Grid>
             <Grid size={7} sx={{ mb:2 }}>
-              <OpenStreetMapLibrariesMap
-                libraries={libraries}
-                selectedLibraryId={selectedLibraryId}
-                height="300px"
-              />
+            <OpenStreetMapLibrariesMap
+              libraries={selectedLibrary ? [selectedLibrary] : []}
+              selectedLibraryId={selectedLibraryId}
+              height="300px"
+            />
             </Grid>
             <Grid size={3}>
               <SectionHeader title={t('libraries.general')} />
@@ -126,7 +134,7 @@ export default function Libraries() {
           /* When "All libraries" selected: show only full-width map */
           <Grid size={12}>
             <OpenStreetMapLibrariesMap 
-              libraries={libraries}
+              libraries={libraries as unknown as Library[]}
               selectedLibraryId={selectedLibraryId}
               height="400px"
             />

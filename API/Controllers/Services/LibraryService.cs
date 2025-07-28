@@ -20,14 +20,15 @@ public class LibraryService : ILibraryService
   }
 
   /// <inheritdoc />
-  public async Task<List<Library>> GetLibrariesAsync()
+  public async Task<List<LibraryNameAddressDto>> GetLibrariesAsync()
   {
     return await _context.Libraries
-      .Include(l => l.NoteTranslations)
-      .Include(l => l.LibraryEmailContactDetails)
-      .Include(l => l.LibraryPhoneNumberContactDetails)
-      .Include(l => l.LibraryMailingAddresses)
-      .Include(l => l.LibraryImages)
+      .Select(l => new LibraryNameAddressDto
+      {
+        Id = l.Id,
+        Title = l.Title, // Assuming 'Title' is the property in Library entity
+        Address = l.Address
+      })
       .ToListAsync();
   }
 

@@ -6,10 +6,10 @@ using Domain;
 public interface ILibraryService
 {
     /// <summary>
-    /// Retrieves a list of all libraries.
+    /// Retrieves a list of all libraries (id and title only).
     /// </summary>
-    /// <returns>A list of <see cref="Library"/> objects.</returns>
-    Task<List<Library>> GetLibrariesAsync();
+    /// <returns>A list of <see cref="LibraryNameAddress"/> objects.</returns>
+    Task<List<LibraryNameAddressDto>> GetLibrariesAsync();
 
     /// <summary>
     /// Retrieves a single library by its ID.

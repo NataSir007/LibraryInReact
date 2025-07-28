@@ -6,6 +6,7 @@ namespace Persistence;
 public class AppDbContext(DbContextOptions options) : DbContext(options)
 {
     public required DbSet<Event> Events { get; set; }
+    public required DbSet<EventImage> EventImages { get; set; }
     public required DbSet<EventTag> EventTags { get; set; }
     public required DbSet<EventTranslation> EventTranslations { get; set; }
     public required DbSet<Library> Libraries { get; set; }
@@ -21,7 +22,19 @@ public class AppDbContext(DbContextOptions options) : DbContext(options)
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
-        // Configure Event entity
+        // Configure EventImage entity for one-to-one relationship with Event
+        modelBuilder.Entity<EventImage>(builder =>
+        {
+            builder.HasKey(ei => ei.Id);
+            builder.Property(ei => ei.FileName).IsRequired();
+            builder.Property(ei => ei.AltText).IsRequired();
+            builder.Property(ei => ei.FilePath).IsRequired();
+            builder.HasOne(ei => ei.Event)
+                .WithOne(e => e.EventImage)
+                .HasForeignKey<EventImage>(ei => ei.EventId)
+                .OnDelete(DeleteBehavior.Cascade);
+        });
+
         modelBuilder.Entity<EventTag>()
             .HasKey(et => new { et.EventId, et.TagId });
 

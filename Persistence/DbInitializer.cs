@@ -19,7 +19,7 @@ public static class DbInitializer
         new Library
         {
             Id = 1,
-            Name = "Malmi Library",
+            Title = "Malmi Library",
             Address = "Ylä-Malmin tori 3, 00700 Helsinki",
             Homepage = "https://www.hel.fi/kirjastot/malmi",
             FacebookUrl = "https://www.facebook.com/malmi-kirjasto"
@@ -28,7 +28,7 @@ public static class DbInitializer
         new Library
         {
             Id = 2,
-            Name = "Maunula Library",
+            Title = "Maunula Library",
             Address = "Metsäpurontie 16, 00630 Helsinki",
             Homepage = "https://www.hel.fi/kirjastot/maunula",
             FacebookUrl = "https://www.facebook.com/maunula-kirjasto"
@@ -37,7 +37,7 @@ public static class DbInitializer
         new Library
         {
             Id = 3,
-            Name = "Rikhardinkatu Library",
+            Title = "Rikhardinkatu Library",
             Address = "Rikhardinkatu 3, 00130 Helsinki",
             Homepage = "https://www.hel.fi/kirjastot/rikhardinkatu",
             FacebookUrl = "https://www.facebook.com/rikhardinkatu-kirjasto"
@@ -46,7 +46,7 @@ public static class DbInitializer
         new Library
         {
             Id = 4,
-            Name = "Tikkurila Library",
+            Title = "Tikkurila Library",
             Address = "Ratatie 11, 01300 Vantaa",
             Homepage = "https://www.vantaa.fi/kirjastot/tikkurila",
             FacebookUrl = "https://www.facebook.com/tikkurila-kirjasto"
@@ -55,7 +55,7 @@ public static class DbInitializer
         new Library
         {
             Id = 5,
-            Name = "Sello Library",
+            Title = "Sello Library",
             Address = "Leppävaarankatu 9, 02600 Espoo",
             Homepage = "https://www.espoo.fi/kirjastot/sello",
             FacebookUrl = "https://www.facebook.com/sello-kirjasto"
@@ -437,6 +437,267 @@ public static class DbInitializer
         }
       };
       context.LibraryImages.AddRange(libraryImages);
+      await context.SaveChangesAsync();
+    }
+
+    // Seed EventTags (if not present)
+    if (!context.Tags.Any())
+    {
+      var tags = new List<Tag>
+      {
+        new Tag { Name = "Language Cafés and discussion groups" },
+        new Tag { Name = "Literature" },
+        new Tag { Name = "Music" },
+        new Tag { Name = "Exhibitions" },
+        new Tag { Name = "Training and courses" },
+        new Tag { Name = "For senior citizens" },
+        new Tag { Name = "For children and families" },
+        new Tag { Name = "Other events" }
+      };
+      context.Tags.AddRange(tags);
+      await context.SaveChangesAsync();
+    }
+
+    // Seed Events (if not present)
+    if (!context.Events.Any())
+    {
+      var events = new List<Event>
+      {
+        new Event {
+          Id = 1,
+          LibraryId = libraries[0].Id, // Malmi Library
+          StartTime = new DateTime(2024, 8, 15, 18, 0, 0),
+          EndTime = new DateTime(2024, 8, 15, 20, 0, 0),
+          CreatedAt = new DateTime(2024, 7, 25, 12, 0, 0),
+          MeetingUrl = null,
+          EventSeriesId = null
+        },
+        new Event {
+          Id = 2,
+          LibraryId = libraries[1].Id, // Maunula Library
+          StartTime = new DateTime(2024, 8, 1, 10, 0, 0),
+          EndTime = new DateTime(2024, 8, 1, 13, 0, 0),
+          CreatedAt = new DateTime(2024, 7, 25, 12, 0, 0),
+          MeetingUrl = null,
+          EventSeriesId = null
+        },
+        new Event {
+          Id = 3,
+          LibraryId = libraries[2].Id, // Rikhardinkatu Library
+          StartTime = new DateTime(2024, 8, 5, 9, 0, 0),
+          EndTime = new DateTime(2024, 10, 4, 16, 0, 0),
+          CreatedAt = new DateTime(2024, 7, 25, 12, 0, 0),
+          MeetingUrl = null,
+          EventSeriesId = null
+        },
+        new Event {
+          Id = 4,
+          LibraryId = libraries[3].Id, // Tikkurila Library
+          StartTime = new DateTime(2024, 8, 11, 14, 0, 0),
+          EndTime = new DateTime(2024, 8, 11, 16, 0, 0),
+          CreatedAt = new DateTime(2024, 7, 25, 12, 0, 0),
+          MeetingUrl = null,
+          EventSeriesId = null
+        },
+        new Event {
+          Id = 5,
+          LibraryId = libraries[4].Id, // Sello Library
+          StartTime = new DateTime(2024, 8, 20, 10, 0, 0),
+          EndTime = new DateTime(2024, 8, 20, 15, 0, 0),
+          CreatedAt = new DateTime(2024, 7, 25, 12, 0, 0),
+          MeetingUrl = null,
+          EventSeriesId = null
+        },
+        new Event {
+          Id = 6,
+          LibraryId = libraries[3].Id, // Tikkurila Library
+          StartTime = new DateTime(2024, 8, 11, 17, 0, 0),
+          EndTime = new DateTime(2024, 8, 11, 19, 0, 0),
+          CreatedAt = new DateTime(2024, 7, 25, 12, 0, 0),
+          MeetingUrl = null,
+          EventSeriesId = null
+        },
+        new Event {
+          Id = 7,
+          LibraryId = libraries[3].Id, // Tikkurila Library
+          StartTime = new DateTime(2024, 8, 12, 17, 0, 0),
+          EndTime = new DateTime(2024, 8, 12, 19, 0, 0),
+          CreatedAt = new DateTime(2024, 7, 25, 12, 0, 0),
+          MeetingUrl = null,
+          EventSeriesId = null
+        },
+        new Event {
+          Id = 8,
+          LibraryId = libraries[4].Id, // Sello Library
+          StartTime = new DateTime(2024, 8, 22, 11, 0, 0),
+          EndTime = new DateTime(2024, 8, 22, 13, 0, 0),
+          CreatedAt = new DateTime(2024, 7, 25, 12, 0, 0),
+          MeetingUrl = null,
+          EventSeriesId = null
+        },
+        new Event {
+          Id = 9,
+          LibraryId = libraries[0].Id, // Malmi Library
+          StartTime = new DateTime(2024, 8, 18, 15, 0, 0),
+          EndTime = new DateTime(2024, 8, 18, 17, 0, 0),
+          CreatedAt = new DateTime(2024, 7, 25, 12, 0, 0),
+          MeetingUrl = null,
+          EventSeriesId = null
+        },
+        new Event {
+          Id = 10,
+          LibraryId = libraries[0].Id, // Malmi Library
+          StartTime = new DateTime(2024, 8, 18, 15, 0, 0),
+          EndTime = new DateTime(2024, 8, 18, 17, 0, 0),
+          CreatedAt = new DateTime(2024, 7, 25, 12, 0, 0),
+          MeetingUrl = null,
+          EventSeriesId = null
+        },
+        new Event {
+          Id = 11,
+          LibraryId = libraries[2].Id, // Rikhardinkatu Library
+          StartTime = new DateTime(2024, 8, 6, 15, 0, 0),
+          EndTime = new DateTime(2024, 8, 6, 17, 0, 0),
+          CreatedAt = new DateTime(2024, 7, 25, 12, 0, 0),
+          MeetingUrl = null,
+          EventSeriesId = null
+        }
+      };
+      context.Events.AddRange(events);
+      await context.SaveChangesAsync();
+    }
+
+    // Seed EventImages for each Event (if not present)
+    if (!context.EventImages.Any())
+    {
+      var eventImages = new List<EventImage>
+      {
+        new EventImage { Id = 1, EventId = 1, FileName = "Storytime Under the Star.jpg", FilePath = "/uploads/events/Storytime Under the Star.jpg", AltText = "Image for event: Storytime Under the Stars" },
+        new EventImage { Id = 2, EventId = 2, FileName = "Creative Bookmarks Workshop.jpg", FilePath = "/uploads/events/Creative Bookmarks Workshop.jpg", AltText = "Image for event: Creative Bookmarks Workshop" },
+        new EventImage { Id = 3, EventId = 3, FileName = "Art Exhibition.jpg", FilePath = "/uploads/events/Art Exhibition.jpg", AltText = "Image for event: Art Exhibition" },
+        new EventImage { Id = 4, EventId = 4, FileName = "Digital Skills for Seniors.jpg", FilePath = "/uploads/events/Digital Skills for Seniors.jpg", AltText = "Image for event: Digital Skills for Seniors" },
+        new EventImage { Id = 5, EventId = 5, FileName = "Family Fan Day.jpg", FilePath = "/uploads/events/Family Fan Day.jpg", AltText = "Image for event: Family Fun Day" },
+        new EventImage { Id = 6, EventId = 6, FileName = "Language Cafe Finnish for Beginners.jpg", FilePath = "/uploads/events/Language Cafe Finnish for Beginners.jpg", AltText = "Image for event: Language Café: Finnish for Beginners" },
+        new EventImage { Id = 7, EventId = 7, FileName = "Language Cafe Italian for Beginners.jpg", FilePath = "/uploads/events/Language Cafe Italian for Beginners.jpg", AltText = "Image for event: Language Café: Italian for Beginners" },
+        new EventImage { Id = 8, EventId = 8, FileName = "Travel Through Books.jpg", FilePath = "/uploads/events/Travel Through Books.jpg", AltText = "Image for event: Travel Through Books" },
+        new EventImage { Id = 9, EventId = 9, FileName = "Literary Escape Room.jpg", FilePath = "/uploads/events/Literary Escape Room.jpg", AltText = "Image for event: Literary Escape Room" },
+        new EventImage { Id = 10, EventId = 10, FileName = "Poetry and Performance Night.jpg", FilePath = "/uploads/events/Poetry and Performance Night.jpg", AltText = "Image for event: Poetry and Performance Night" },
+        new EventImage { Id = 11, EventId = 11, FileName = "Lets play and practice chess.jpg", FilePath = "/uploads/events/Lets play and practice chess.jpg", AltText = "Image for event: Let's play and practice chess" }
+      };
+      context.EventImages.AddRange(eventImages);
+      await context.SaveChangesAsync();
+    }
+
+    // Seed EventTranslations (if not present)
+    if (!context.EventTranslations.Any())
+    {
+      var eventTranslations = new List<EventTranslation>
+      {
+        // Event 1: Storytime Under the Stars
+        new EventTranslation { Id = 1, EventId = 1, Language = "en", Title = "Storytime Under the Stars", Admission = "Free", Description = "Join us for a magical evening of stories under the stars. Bring your family and enjoy tales from around the world in a cozy outdoor setting." },
+        new EventTranslation { Id = 2, EventId = 1, Language = "fi", Title = "Tähtien alla satuhetki", Admission = "Vapaa pääsy", Description = "Tule mukaan taianomaiseen iltaan tähtien alla. Tuo perheesi ja nauti tarinoista eri puolilta maailmaa viihtyisässä ulkoilmassa." },
+        new EventTranslation { Id = 3, EventId = 1, Language = "sv", Title = "Sagostund under stjärnorna", Admission = "Gratis", Description = "Följ med på en magisk kväll med sagor under stjärnorna. Ta med familjen och njut av berättelser från hela världen i en mysig utomhusmiljö." },
+
+        // Event 2: Creative Bookmarks Workshop
+        new EventTranslation { Id = 4, EventId = 2, Language = "en", Title = "Creative Bookmarks Workshop", Admission = "Free", Description = "Get creative and design your own unique bookmarks! All materials provided. Suitable for all ages." },
+        new EventTranslation { Id = 5, EventId = 2, Language = "fi", Title = "Luovat kirjanmerkit -työpaja", Admission = "Vapaa pääsy", Description = "Tule askartelemaan omat uniikit kirjanmerkit! Kaikki tarvikkeet saatavilla. Sopii kaikenikäisille." },
+        new EventTranslation { Id = 6, EventId = 2, Language = "sv", Title = "Kreativa bokmärken workshop", Admission = "Gratis", Description = "Kom och skapa dina egna unika bokmärken! Alla material finns på plats. Passar alla åldrar." },
+
+        // Event 3: Art Exhibition
+        new EventTranslation { Id = 7, EventId = 3, Language = "en", Title = "Art Exhibition", Admission = "Free", Description = "Explore a diverse art exhibition featuring local artists. Discover paintings, sculptures, and more throughout the library." },
+        new EventTranslation { Id = 8, EventId = 3, Language = "fi", Title = "Taidenäyttely", Admission = "Vapaa pääsy", Description = "Tutustu monipuoliseen taidenäyttelyyn, jossa esillä paikallisten taiteilijoiden töitä. Löydä maalauksia, veistoksia ja paljon muuta kirjaston tiloissa." },
+        new EventTranslation { Id = 9, EventId = 3, Language = "sv", Title = "Konstutställning", Admission = "Gratis", Description = "Upptäck en mångsidig konstutställning med lokala konstnärer. Se målningar, skulpturer och mycket mer i biblioteket." },
+
+        // Event 4: Digital Skills for Seniors
+        new EventTranslation { Id = 10, EventId = 4, Language = "en", Title = "Digital Skills for Seniors", Admission = "Free", Description = "A hands-on workshop for seniors to learn digital skills. Bring your device or use one of ours. Friendly guidance provided." },
+        new EventTranslation { Id = 11, EventId = 4, Language = "fi", Title = "Seniorien digitaitotyöpaja", Admission = "Vapaa pääsy", Description = "Käytännön työpaja senioreille digitaidoista. Tuo oma laitteesi tai käytä kirjaston laitteita. Ystävällistä ohjausta tarjolla." },
+        new EventTranslation { Id = 12, EventId = 4, Language = "sv", Title = "Digitala färdigheter för seniorer", Admission = "Gratis", Description = "Praktisk verkstad för seniorer om digitala färdigheter. Ta med din egen enhet eller använd bibliotekets. Vänlig handledning ges." },
+
+        // Event 5: Family Fun Day
+        new EventTranslation { Id = 13, EventId = 5, Language = "en", Title = "Family Fun Day", Admission = "Free", Description = "A day full of fun activities for the whole family! Games, crafts, and stories await. No registration needed." },
+        new EventTranslation { Id = 14, EventId = 5, Language = "fi", Title = "Perheiden hauska päivä", Admission = "Vapaa pääsy", Description = "Koko perheen hauska tapahtumapäivä! Luvassa pelejä, askartelua ja tarinoita. Ei ennakkoilmoittautumista." },
+        new EventTranslation { Id = 15, EventId = 5, Language = "sv", Title = "Familjens roliga dag", Admission = "Gratis", Description = "En dag fylld med roliga aktiviteter för hela familjen! Spel, pyssel och sagor väntar. Ingen föranmälan behövs." },
+
+        // Event 6: Language Café: Finnish for Beginners
+        new EventTranslation { Id = 16, EventId = 6, Language = "en", Title = "Language Café: Finnish for Beginners", Admission = "Free", Description = "Practice Finnish in a relaxed setting with other beginners. All are welcome, no prior knowledge required." },
+        new EventTranslation { Id = 17, EventId = 6, Language = "fi", Title = "Kielikahvila: suomi aloittelijoille", Admission = "Vapaa pääsy", Description = "Harjoittele suomea rennossa ilmapiirissä muiden aloittelijoiden kanssa. Kaikki ovat tervetulleita, aiempaa osaamista ei tarvita." },
+        new EventTranslation { Id = 18, EventId = 6, Language = "sv", Title = "Språkcafé: finska för nybörjare", Admission = "Gratis", Description = "Öva finska i en avslappnad miljö med andra nybörjare. Alla är välkomna, ingen förkunskap krävs." },
+
+        // Event 7: Language Café: Italian for Beginners
+        new EventTranslation { Id = 19, EventId = 7, Language = "en", Title = "Language Café: Italian for Beginners", Admission = "Free", Description = "Learn basic Italian phrases and practice conversation in a friendly group. Suitable for all levels." },
+        new EventTranslation { Id = 20, EventId = 7, Language = "fi", Title = "Kielikahvila: italia aloittelijoille", Admission = "Vapaa pääsy", Description = "Opi italian alkeita ja harjoittele keskustelua rennossa ryhmässä. Sopii kaikille tasoille." },
+        new EventTranslation { Id = 21, EventId = 7, Language = "sv", Title = "Språkcafé: italienska för nybörjare", Admission = "Gratis", Description = "Lär dig italienska grunder och öva samtal i en vänlig grupp. Passar alla nivåer." },
+
+        // Event 8: Travel Through Books
+        new EventTranslation { Id = 22, EventId = 8, Language = "en", Title = "Travel Through Books", Admission = "Free", Description = "Travel the world through books! Discover new cultures and stories in this interactive reading event." },
+        new EventTranslation { Id = 23, EventId = 8, Language = "fi", Title = "Kirjojen matkassa maailmalle", Admission = "Vapaa pääsy", Description = "Matkusta kirjojen avulla maailman ympäri! Tutustu uusiin kulttuureihin ja tarinoihin tässä vuorovaikutteisessa lukutapahtumassa." },
+        new EventTranslation { Id = 24, EventId = 8, Language = "sv", Title = "Resa genom böcker", Admission = "Gratis", Description = "Res jorden runt med böcker! Upptäck nya kulturer och berättelser på detta interaktiva läsevenemang." },
+
+        // Event 9: Literary Escape Room
+        new EventTranslation { Id = 25, EventId = 9, Language = "en", Title = "Literary Escape Room", Admission = "Free", Description = "Solve puzzles and riddles in our literary escape room. Work as a team to unlock the story!" },
+        new EventTranslation { Id = 26, EventId = 9, Language = "fi", Title = "Kirjallinen pakohuone", Admission = "Vapaa pääsy", Description = "Ratkaise arvoituksia ja pulmia kirjallisessa pakohuoneessamme. Toimi tiiminä ja avaa tarina!" },
+        new EventTranslation { Id = 27, EventId = 9, Language = "sv", Title = "Litterärt escape room", Admission = "Gratis", Description = "Lös gåtor och pussel i vårt litterära escape room. Samarbeta för att låsa upp berättelsen!" },
+
+        // Event 10: Poetry and Performance Night
+        new EventTranslation { Id = 28, EventId = 10, Language = "en", Title = "Poetry and Performance Night", Admission = "Free", Description = "An evening of poetry readings and live performances. Share your own work or just enjoy the show!" },
+        new EventTranslation { Id = 29, EventId = 10, Language = "fi", Title = "Runo- ja esitysilta", Admission = "Vapaa pääsy", Description = "Runonlausuntaa ja esityksiä illan hämärtyessä. Voit esiintyä itse tai tulla vain nauttimaan!" },
+        new EventTranslation { Id = 30, EventId = 10, Language = "sv", Title = "Poesi- och föreställningskväll", Admission = "Gratis", Description = "En kväll med poesiuppläsningar och liveframträdanden. Dela ditt eget verk eller njut av föreställningen!" },
+
+        // Event 11: Let's play and practice chess
+        new EventTranslation { Id = 31, EventId = 11, Language = "fi", Title = "Shakkipaja: pelataan ja harjoitellaan", Admission = "Vapaa pääsy", Description = "Shakkipaja kirjastolla – tule mukaan pelaamaan ja oppimaan! \n\nTervetuloa mukaan maksuttomaan shakkipajaan! Pajassa pääset harjoittelemaan shakin alkeita tai hiomaan pelitaitojasi kokeneemmassa porukassa. Käymme läpi pelin perussäännöt, erilaisia avauksia ja taktisia oivalluksia. Pelaamme myös yhdessä leikkimielisiä pelejä ja ratkaistaan hauskoja shakkitehtäviä.\n\nPaja sopii kaikentasoisille pelaajille – olitpa sitten vasta-alkaja tai jo kokenut nappuloiden liikuttelija. Tule yksin tai kaverin kanssa, paikalle voi tulla myös vain seuraamaan peliä ja oppimaan uutta!" },
+        new EventTranslation { Id = 32, EventId = 11, Language = "sv", Title = "Schackverkstad: spela och öva", Admission = "Gratis", Description = "Schackverkstad på biblioteket – kom och spela och lär dig!\n\nVälkommen till en kostnadsfri schackverkstad! Här får du öva på schackets grunder eller finslipa dina spelkunskaper i ett mer erfaret sällskap. Vi går igenom spelets grundregler, olika öppningar och taktiska knep. Vi spelar också tillsammans vänskapliga partier och löser roliga schackproblem.\n\nVerkstaden passar spelare på alla nivåer – oavsett om du är nybörjare eller redan van att flytta pjäser. Kom ensam eller med en vän, du kan också bara komma för att titta på spelet och lära dig något nytt!" },
+        new EventTranslation { Id = 33, EventId = 11, Language = "en", Title = "Let's play and practice chess", Admission = "Free", Description = "Chess workshop at the library – come play and learn!\n\nWelcome to a free chess workshop! Here you can practice the basics of chess or hone your skills with more experienced players. We will go through the basic rules of the game, different openings, and tactical ideas. We will also play friendly games together and solve fun chess puzzles.\n\nThe workshop is suitable for players of all levels – whether you are a beginner or already experienced. Come alone or with a friend, or just drop by to watch and learn something new!" }
+      };
+      context.EventTranslations.AddRange(eventTranslations);
+      await context.SaveChangesAsync();
+    }
+
+    // Seed Tags (if not present)
+    if (!context.Tags.Any())
+    {
+      var tags = new List<Tag>
+      {
+        new Tag { Name = "Language Cafés and discussion groups" },
+        new Tag { Name = "Literature" },
+        new Tag { Name = "Music" },
+        new Tag { Name = "Exhibitions" },
+        new Tag { Name = "Training and courses" },
+        new Tag { Name = "For senior citizens" },
+        new Tag { Name = "For children and families" },
+        new Tag { Name = "Other events" }
+      };
+      context.Tags.AddRange(tags);
+      await context.SaveChangesAsync();
+    }
+
+    // Seed EventTags (if not present)
+    if (!context.EventTags.Any())
+    {
+      var eventTags = new List<EventTag>
+      {
+        new EventTag { EventId = 1, TagId = 7 },  // Storytime Under the Stars
+        new EventTag { EventId = 2, TagId = 7 },  // Creative Bookmarks Workshop
+        new EventTag { EventId = 3, TagId = 4 },  // Art Exhibition
+        new EventTag { EventId = 3, TagId = 6 },  // Art Exhibition (For senior citizens)
+        new EventTag { EventId = 3, TagId = 7 },  // Art Exhibition (For children and families)
+        new EventTag { EventId = 4, TagId = 6 },  // Digital Skills for Seniors
+        new EventTag { EventId = 5, TagId = 7 },  // Family Fun Day
+        new EventTag { EventId = 6, TagId = 6 },  // Language Café: Finnish for Beginners
+        new EventTag { EventId = 7, TagId = 6 },  // Language Café: Italian for Beginners
+        new EventTag { EventId = 8, TagId = 7 },  // Travel Through Books
+        new EventTag { EventId = 8, TagId = 2 },  // Travel Through Books (Literature)
+        new EventTag { EventId = 9, TagId = 2 },  // Literary Escape Room (Literature)
+        new EventTag { EventId = 10, TagId = 2 }, // Poetry and Performance Night (Literature)
+        new EventTag { EventId = 10, TagId = 3 }, // Poetry and Performance Night (Music)
+        new EventTag { EventId = 11, TagId = 6 }  // Let's play and practice chess (Other events)
+      };
+      foreach (var et in eventTags)
+      {
+        if (!context.EventTags.Any(x => x.EventId == et.EventId && x.TagId == et.TagId))
+        {
+          context.EventTags.Add(et);
+        }
+      }
       await context.SaveChangesAsync();
     }
   }

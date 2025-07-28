@@ -7,7 +7,7 @@ public class Library
     public int Id { get; set; }
 
     [MaxLength(128)]
-    public required string Name { get; set; }
+    public required string Title { get; set; }
 
     // Address contains street name, building number, postal code and city
 

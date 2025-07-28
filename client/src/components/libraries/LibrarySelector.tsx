@@ -1,9 +1,9 @@
 import { Box, MenuItem, Select } from '@mui/material';
-import type { Library } from '../../types/library/interfaces';
+import type { LibraryNameAddress } from '../../types/library/interfaces';
 import { useTranslation } from 'react-i18next';
 
 interface LibrarySelectorProps {
-  libraries: Library[];
+  libraries: LibraryNameAddress[];
   selectedLibraryId: number | null; // Allow null for "All libraries"
   onLibraryChange: (libraryId: number | null) => void; // Allow null for "All libraries"
 }
@@ -23,7 +23,7 @@ export default function LibrarySelector({ libraries, selectedLibraryId, onLibrar
         <MenuItem value={0}>{t('librarySelector.allLibraries')}</MenuItem>
         {libraries.map((library) => (
           <MenuItem key={library.id} value={library.id}>
-            {library.name}
+            {library.title}
           </MenuItem>
         ))}
       </Select>

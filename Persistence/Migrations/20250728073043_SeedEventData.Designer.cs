@@ -11,8 +11,8 @@ using Persistence;
 namespace Persistence.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250723185300_AddCreatedAtToEvent")]
-    partial class AddCreatedAtToEvent
+    [Migration("20250728073043_SeedEventData")]
+    partial class SeedEventData
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -41,35 +41,14 @@ namespace Persistence.Migrations
                     b.Property<string>("MeetingUrl")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
                     b.Property<DateTime>("StartTime")
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("EventSeriesId");
-
                     b.HasIndex("LibraryId");
 
                     b.ToTable("Events");
-                });
-
-            modelBuilder.Entity("Domain.EventSeries", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("EventSeries");
                 });
 
             modelBuilder.Entity("Domain.EventTag", b =>
@@ -93,9 +72,14 @@ namespace Persistence.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
+                    b.Property<string>("Admission")
+                        .IsRequired()
+                        .HasMaxLength(256)
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("Description")
                         .IsRequired()
-                        .HasMaxLength(1024)
+                        .HasMaxLength(2048)
                         .HasColumnType("TEXT");
 
                     b.Property<int>("EventId")
@@ -174,7 +158,7 @@ namespace Persistence.Migrations
                         .HasMaxLength(256)
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Name")
+                    b.Property<string>("Title")
                         .IsRequired()
                         .HasMaxLength(128)
                         .HasColumnType("TEXT");
@@ -351,6 +335,38 @@ namespace Persistence.Migrations
                     b.ToTable("Tags");
                 });
 
+            modelBuilder.Entity("EventImage", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("AltText")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("EventId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("FileName")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("FilePath")
+                        .IsRequired()
+                        .HasMaxLength(500)
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("EventId")
+                        .IsUnique();
+
+                    b.ToTable("EventImages");
+                });
+
             modelBuilder.Entity("LibraryNoteTranslation", b =>
                 {
                     b.Property<int>("Id")
@@ -377,17 +393,11 @@ namespace Persistence.Migrations
 
             modelBuilder.Entity("Domain.Event", b =>
                 {
-                    b.HasOne("Domain.EventSeries", "EventSeries")
-                        .WithMany("Events")
-                        .HasForeignKey("EventSeriesId");
-
                     b.HasOne("Domain.Library", "Library")
                         .WithMany()
                         .HasForeignKey("LibraryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("EventSeries");
 
                     b.Navigation("Library");
                 });
@@ -466,6 +476,17 @@ namespace Persistence.Migrations
                     b.Navigation("Library");
                 });
 
+            modelBuilder.Entity("EventImage", b =>
+                {
+                    b.HasOne("Domain.Event", "Event")
+                        .WithOne("EventImage")
+                        .HasForeignKey("EventImage", "EventId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Event");
+                });
+
             modelBuilder.Entity("LibraryNoteTranslation", b =>
                 {
                     b.HasOne("Domain.Library", "Library")
@@ -479,14 +500,11 @@ namespace Persistence.Migrations
 
             modelBuilder.Entity("Domain.Event", b =>
                 {
+                    b.Navigation("EventImage");
+
                     b.Navigation("EventTags");
 
                     b.Navigation("Translations");
-                });
-
-            modelBuilder.Entity("Domain.EventSeries", b =>
-                {
-                    b.Navigation("Events");
                 });
 
             modelBuilder.Entity("Domain.Library", b =>

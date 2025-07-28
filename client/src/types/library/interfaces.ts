@@ -1,3 +1,9 @@
+// Library name/address DTO for minimal library lists
+export interface LibraryNameAddress {
+  id: number;
+  title: string;
+  address: string;
+}
 import type { LocationType, OpeningHourType } from './enums';
 
 // Base entity interface
@@ -6,8 +12,8 @@ export interface BaseEntity {
 }
 
 // Library domain interfaces
-export interface Library extends BaseEntity {  
-  name: string;
+export interface Library extends BaseEntity {
+  title: string;
   address: string;
   homepage: string;
   facebookUrl: string;
@@ -20,7 +26,7 @@ export interface Library extends BaseEntity {
 
 export interface LibraryDetails {
   id: number;
-  name: string;
+  title: string;
   address: string;
   homepage: string;
   facebookUrl: string;
@@ -103,7 +109,7 @@ export interface LibraryImage {
 
 /* Library-specific DTOs (Data Transfer Objects)
 export interface CreateLibraryRequest {
-  name: string;
+  title: string;
   address: string;
   homepage: string;
   facebookUrl: string;
@@ -115,7 +121,7 @@ export interface UpdateLibraryRequest extends Partial<CreateLibraryRequest> {
 }
 
 export interface LibrarySearchParams {
-  name?: string;
+  title?: string;
   address?: string;
   page?: number;
   pageSize?: number;

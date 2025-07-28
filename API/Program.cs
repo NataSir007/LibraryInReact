@@ -1,3 +1,4 @@
+using LibraryInReact.API.Controllers.Services;
 using Microsoft.EntityFrameworkCore;
 using Persistence;
 
@@ -31,6 +32,7 @@ builder.Services.AddDbContext<AppDbContext>(opt =>
 
 // Register ILibraryService for dependency injection
 builder.Services.AddScoped<ILibraryService, LibraryService>();
+builder.Services.AddScoped<IEventService, EventService>();
 
 var app = builder.Build();
 
