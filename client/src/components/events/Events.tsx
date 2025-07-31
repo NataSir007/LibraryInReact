@@ -119,7 +119,7 @@ export default function EventsPage() {
 
         <Stack direction="row" spacing={2} sx={{ mb: 3 }}>
           <TextField
-            label="Event title or location"
+            label="Event title or library name"
             value={search}
             onChange={e => setSearch(e.target.value)}
             InputProps={{
@@ -136,11 +136,14 @@ export default function EventsPage() {
             label="Start date"
             value={startDate}
             onChange={(newValue: Dayjs | null) => setStartDate(newValue)}
+            shouldDisableDate={date => date.isBefore(dayjs().startOf('day'))}
           />
           <DatePicker
             label="End date"
             value={endDate}
             onChange={(newValue: Dayjs | null) => setEndDate(newValue)}
+            shouldDisableDate={date => date.isBefore(dayjs().startOf('day'))}
+            minDate={startDate || dayjs().startOf('day')}
           />
           <Button
             variant="outlined"
