@@ -7,6 +7,7 @@ namespace LibraryInReact.API.Controllers
   /// <summary>
   /// API controller for library-related endpoints.
   /// </summary>
+  [Route("api/libraries")]
   public class LibrariesController : BaseApiController
   {
     private readonly ILibraryService libraryService;
@@ -24,7 +25,7 @@ namespace LibraryInReact.API.Controllers
     /// Gets a list of all libraries.
     /// </summary>
     /// <returns>A list of libraries.</returns>
-    [HttpGet]
+    [HttpGet] // GET: api/libraries
     public async Task<ActionResult<List<LibraryNameAddressDto>>> GetLibraries()
     {
       var libraries = await libraryService.GetLibrariesAsync();
@@ -36,7 +37,7 @@ namespace LibraryInReact.API.Controllers
     /// </summary>
     /// <param name="id">The ID of the library.</param>
     /// <returns>The library if found; otherwise, NotFound.</returns>
-    [HttpGet("{id}")]
+    [HttpGet("{id}")] // GET: api/libraries/{id}
     public async Task<ActionResult<Library>> GetLibrary(int id)
     {
       var library = await libraryService.GetLibraryAsync(id);
@@ -48,7 +49,7 @@ namespace LibraryInReact.API.Controllers
     /// Gets all opening hours.
     /// </summary>
     /// <returns>A list of opening hours.</returns>
-    [HttpGet("opening-hours/{weekOffset}")]
+    [HttpGet("opening-hours/{weekOffset}")] // GET: api/libraries/opening-hours/{weekOffset}
     public async Task<ActionResult<OpeningHourWeekDto>> GetOpeningHours(int weekOffset)
     {
       // Fetch opening hours for the current week or specified offset
@@ -60,7 +61,7 @@ namespace LibraryInReact.API.Controllers
     /// Gets the library's open status based on current date/time and opening hours.
     /// If it is closed at the moment, provides information on when it will be open next time.
     /// </summary>
-    [HttpGet("open-status")]
+    [HttpGet("open-status")]  // GET: api/libraries/open-status
     public async Task<ActionResult<LibraryOpenStatusDto>> GetLibraryOpenStatusAsync()
     {
       var status = await libraryService.GetLibraryOpenStatusAsync();

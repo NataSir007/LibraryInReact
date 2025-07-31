@@ -22,7 +22,23 @@ export class EventService {
 
   // Get all tags
   static async getAllTags(): Promise<string[]> {
-    return apiService.get<string[]>('/api/tags');
+    return apiService.get<string[]>('/api/events/tags');
+  }
+
+  // Get filtered events
+  static async getFilteredEvents(
+    search?: string,
+    startDate?: string,
+    endDate?: string,
+    languageCode: string = 'fi'
+  ): Promise<EventSummary[]> {
+    const params = new URLSearchParams();
+    if (search) params.append('search', search);
+    if (startDate) params.append('startDate', startDate);
+    if (endDate) params.append('endDate', endDate);
+    params.append('languageCode', languageCode);
+    //console.log('Fetching filtered events with params:', params.toString());
+    return apiService.get<EventSummary[]>(`/api/events/filter?${params.toString()}`);
   }
 }
 

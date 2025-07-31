@@ -11,6 +11,7 @@ namespace LibraryInReact.API.Controllers
     /// <summary>
     /// API controller for event-related endpoints.
     /// </summary>
+    [Route("api/events")]
     public class EventsController : BaseApiController
     {
         private readonly IEventService eventService;
@@ -25,10 +26,10 @@ namespace LibraryInReact.API.Controllers
         }
 
         /// <summary>
-        /// Gets a list of all events.
+        /// Returns all events for a given language (unfiltered).
         /// </summary>
-        /// <returns>A list of events.</returns>
-        [HttpGet]
+        /// <param name="languageCode">Language code (e.g., "fi")</param>
+        [HttpGet]   // GET: api/events?languageCode=fi  
         public async Task<ActionResult<List<EventSummaryDto>>> GetEvents(string languageCode = "fi")
         {
             var events = await eventService.GetEventsAsync(languageCode);
@@ -40,7 +41,7 @@ namespace LibraryInReact.API.Controllers
         /// </summary>
         /// <param name="id">The ID of the event.</param>
         /// <returns>The event if found; otherwise, NotFound.</returns>
-        [HttpGet("{id}")]
+        [HttpGet("{id}")]   // GET: api/events/{id}
         public async Task<ActionResult<Event>> GetEvent(int id)
         {
             var ev = await eventService.GetEventAsync(id);
@@ -51,11 +52,31 @@ namespace LibraryInReact.API.Controllers
         /// Gets all tag names for events.
         /// </summary>
         /// <returns>List of tag names as strings.</returns>
-        [HttpGet("/api/tags")]
+        [HttpGet("tags")]   // GET: api/events/tags
         public async Task<ActionResult<List<string>>> GetTags()
         {
             var tags = await eventService.GetAllTagNamesAsync();
             return Ok(tags);
+        }
+
+        /// <summary>
+        /// Returns filtered events by search (event title or library), startDate, and endDate. All parameters are optional and can be null.
+        /// </summary>
+        /// <param name="search">Event title or library name (nullable)</param>
+        /// <param name="startDate">Start date in ISO 8601 format (nullable)</param>
+        /// <param name="endDate">End date in ISO 8601 format (nullable)</param>
+        /// <param name="languageCode">Language code (default: fi)</param>
+        /// <returns>List of filtered events as EventSummaryDto.</returns>
+        [HttpGet("filter")] // GET: api/events/filter?search=...&startDate=...&endDate=...&languageCode=fi
+        public async Task<ActionResult<List<EventSummaryDto>>> FilterEvents(
+            [FromQuery] string? search = null,
+            [FromQuery] string? startDate = null,
+            [FromQuery] string? endDate = null,
+            [FromQuery] string languageCode = "fi")
+        {
+            // Calls EventService to filter events based on provided parameters
+            var events = await eventService.FilterEventsAsync(search, startDate, endDate, languageCode);
+            return Ok(events ?? new List<EventSummaryDto>());
         }
     }
 }

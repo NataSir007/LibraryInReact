@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import {
   Box,
   Button,
@@ -23,34 +23,61 @@ import 'dayjs/locale/fi';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import type { Dayjs } from 'dayjs';
 
-
 import EventService from '../../services/eventService';
 import type { EventSummary } from '../../services/eventService';
 
 export default function EventsPage() {
+  const [languageCode, setLanguageCode] = useState('fi');
   const [tags, setTags] = useState<string[]>([]);
   const [events, setEvents] = useState<EventSummary[]>([]);
-  const [selectedTags, setSelectedTags] = useState<string[]>([]); // multi-tag
+  const [selectedTags, setSelectedTags] = useState<string[]>([]);
   const [search, setSearch] = useState('');
   const [startDate, setStartDate] = useState<Dayjs | null>(null);
   const [endDate, setEndDate] = useState<Dayjs | null>(null);
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
+  // Fetch tags on mount
   useEffect(() => {
-    EventService.getAllEvents('fi').then(setEvents);
+    EventService.getAllEvents(languageCode).then(setEvents);
     EventService.getAllTags().then(setTags);
-  }, []);
+    fetchFilteredEvents();
+    // eslint-disable-next-line
+  }, [languageCode]);
 
+  // Fetch events when filters change (optional: you can also only fetch on button click)
+  // useEffect(() => {
+  //   fetchFilteredEvents();
+  // }, [search, startDate, endDate]);
 
+  const fetchFilteredEvents = async () => {
+  setLoading(true);
+  try {
+    const result = await EventService.getFilteredEvents(
+      search,
+      startDate ? startDate.toISOString() : undefined,
+      endDate ? endDate.toISOString() : undefined,
+      languageCode
+    );
+    
+    setEvents(result);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  // Filter events by selected tags (client-side)
+  const filteredEvents = selectedTags.length === 0
+    ? events
+    : events.filter(event => event.tags && event.tags.some(tag => selectedTags.includes(tag)));
 
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
-      <Box sx={{ 
-        justifyContent: "center", 
+      <Box sx={{
+        justifyContent: "center",
         width: 1050,
         p: 2,
-      }}
-      >   
+      }}>
         <Typography variant="h4" gutterBottom sx={{ mb: 2 }}>
           Events
         </Typography>
@@ -90,7 +117,6 @@ export default function EventsPage() {
           })}
         </Stack>
 
-        {/* Temporally commented out search and date pickers
         <Stack direction="row" spacing={2} sx={{ mb: 3 }}>
           <TextField
             label="Event title or location"
@@ -103,11 +129,11 @@ export default function EventsPage() {
                 </InputAdornment>
               ),
             }}
-            sx={{ minWidth: 250, flex:1 }}
+            sx={{ minWidth: 250, flex: 1 }}
           />
 
-          <DatePicker 
-            label="Start date" 
+          <DatePicker
+            label="Start date"
             value={startDate}
             onChange={(newValue: Dayjs | null) => setStartDate(newValue)}
           />
@@ -119,6 +145,7 @@ export default function EventsPage() {
           <Button
             variant="outlined"
             color="inherit"
+            onClick={fetchFilteredEvents}
             sx={{
               height: 56,
               borderColor: theme => theme.palette.mode === 'dark' ? theme.palette.grey[700] : theme.palette.grey[300],
@@ -129,26 +156,24 @@ export default function EventsPage() {
                 backgroundColor: theme => theme.palette.action.hover,
               },
             }}
+            disabled={loading}
           >
             Find
           </Button>
-        </Stack> */}
+        </Stack>
         <Divider sx={{ my: 2 }} />
 
         <Grid container spacing={2} alignItems="stretch">
-          {events.length === 0 ? (
+          {filteredEvents.length === 0 ? (
             <Grid size={12} sx={{ width: '100%' }}>
               <Typography variant="body1" color="text.secondary" align="center">
                 No events found.
               </Typography>
             </Grid>
           ) : (
-            (selectedTags.length === 0
-              ? events
-              : events.filter(event => event.tags && event.tags.some(tag => selectedTags.includes(tag)))
-            ).map(event => (
+            filteredEvents.map(event => (
               <Grid size={4} key={event.id} sx={{ display: 'flex' }}>
-                <Paper elevation={2} sx={{ p: 1.5, display: 'flex', gap: 1.5, minHeight: 120, height: '100%', width: '100%', bgcolor: 'transparent', boxShadow: 3 }} 
+                <Paper elevation={2} sx={{ p: 1.5, display: 'flex', gap: 1.5, minHeight: 120, height: '100%', width: '100%', bgcolor: 'transparent', boxShadow: 3 }}
                   onClick={() => navigate(`/events/${event.id}`)} style={{ cursor: 'pointer' }}>
                   <Box sx={{ width: 100, height: 150, flexShrink: 0, border: 1, borderColor: 'divider', borderRadius: 1, overflow: 'hidden', bgcolor: 'transparent' }}>
                     <img
@@ -170,7 +195,6 @@ export default function EventsPage() {
                     </Typography>
                     {/* Add empty row if title is short to equalize card height */}
                     {event.eventName.length < 30 && <Box sx={{ height: 24 }} />}
-
 
                     <Stack direction="row" spacing={1} alignItems="center" sx={{ mt: 0.5, flexGrow: 0 }}>
                       {(() => {

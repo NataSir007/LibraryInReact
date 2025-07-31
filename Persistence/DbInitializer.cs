@@ -466,99 +466,99 @@ public static class DbInitializer
         new Event {
           Id = 1,
           LibraryId = libraries[0].Id, // Malmi Library
-          StartTime = new DateTime(2024, 8, 15, 18, 0, 0),
-          EndTime = new DateTime(2024, 8, 15, 20, 0, 0),
-          CreatedAt = new DateTime(2024, 7, 25, 12, 0, 0),
+          StartTime = new DateTime(2025, 8, 15, 18, 0, 0),
+          EndTime = new DateTime(2025, 8, 15, 20, 0, 0),
+          CreatedAt = new DateTime(2025, 7, 25, 12, 0, 0),
           MeetingUrl = null,
           EventSeriesId = null
         },
         new Event {
           Id = 2,
           LibraryId = libraries[1].Id, // Maunula Library
-          StartTime = new DateTime(2024, 8, 1, 10, 0, 0),
-          EndTime = new DateTime(2024, 8, 1, 13, 0, 0),
-          CreatedAt = new DateTime(2024, 7, 25, 12, 0, 0),
+          StartTime = new DateTime(2025, 8, 1, 10, 0, 0),
+          EndTime = new DateTime(2025, 8, 1, 13, 0, 0),
+          CreatedAt = new DateTime(2025, 7, 25, 12, 0, 0),
           MeetingUrl = null,
           EventSeriesId = null
         },
         new Event {
           Id = 3,
           LibraryId = libraries[2].Id, // Rikhardinkatu Library
-          StartTime = new DateTime(2024, 8, 5, 9, 0, 0),
-          EndTime = new DateTime(2024, 10, 4, 16, 0, 0),
-          CreatedAt = new DateTime(2024, 7, 25, 12, 0, 0),
+          StartTime = new DateTime(2025, 8, 5, 9, 0, 0),
+          EndTime = new DateTime(2025, 10, 4, 16, 0, 0),
+          CreatedAt = new DateTime(2025, 7, 25, 12, 0, 0),
           MeetingUrl = null,
           EventSeriesId = null
         },
         new Event {
           Id = 4,
           LibraryId = libraries[3].Id, // Tikkurila Library
-          StartTime = new DateTime(2024, 8, 11, 14, 0, 0),
-          EndTime = new DateTime(2024, 8, 11, 16, 0, 0),
-          CreatedAt = new DateTime(2024, 7, 25, 12, 0, 0),
+          StartTime = new DateTime(2025, 8, 11, 14, 0, 0),
+          EndTime = new DateTime(2025, 8, 11, 16, 0, 0),
+          CreatedAt = new DateTime(2025, 7, 25, 12, 0, 0),
           MeetingUrl = null,
           EventSeriesId = null
         },
         new Event {
           Id = 5,
           LibraryId = libraries[4].Id, // Sello Library
-          StartTime = new DateTime(2024, 8, 20, 10, 0, 0),
-          EndTime = new DateTime(2024, 8, 20, 15, 0, 0),
-          CreatedAt = new DateTime(2024, 7, 25, 12, 0, 0),
+          StartTime = new DateTime(2025, 8, 20, 10, 0, 0),
+          EndTime = new DateTime(2025, 8, 20, 15, 0, 0),
+          CreatedAt = new DateTime(2025, 7, 25, 12, 0, 0),
           MeetingUrl = null,
           EventSeriesId = null
         },
         new Event {
           Id = 6,
           LibraryId = libraries[3].Id, // Tikkurila Library
-          StartTime = new DateTime(2024, 8, 11, 17, 0, 0),
-          EndTime = new DateTime(2024, 8, 11, 19, 0, 0),
-          CreatedAt = new DateTime(2024, 7, 25, 12, 0, 0),
+          StartTime = new DateTime(2025, 8, 11, 17, 0, 0),
+          EndTime = new DateTime(2025, 8, 11, 19, 0, 0),
+          CreatedAt = new DateTime(2025, 7, 25, 12, 0, 0),
           MeetingUrl = null,
           EventSeriesId = null
         },
         new Event {
           Id = 7,
           LibraryId = libraries[3].Id, // Tikkurila Library
-          StartTime = new DateTime(2024, 8, 12, 17, 0, 0),
-          EndTime = new DateTime(2024, 8, 12, 19, 0, 0),
-          CreatedAt = new DateTime(2024, 7, 25, 12, 0, 0),
+          StartTime = new DateTime(2025, 8, 12, 17, 0, 0),
+          EndTime = new DateTime(2025, 8, 12, 19, 0, 0),
+          CreatedAt = new DateTime(2025, 7, 25, 12, 0, 0),
           MeetingUrl = null,
           EventSeriesId = null
         },
         new Event {
           Id = 8,
           LibraryId = libraries[4].Id, // Sello Library
-          StartTime = new DateTime(2024, 8, 22, 11, 0, 0),
-          EndTime = new DateTime(2024, 8, 22, 13, 0, 0),
-          CreatedAt = new DateTime(2024, 7, 25, 12, 0, 0),
+          StartTime = new DateTime(2025, 8, 22, 11, 0, 0),
+          EndTime = new DateTime(2025, 8, 22, 13, 0, 0),
+          CreatedAt = new DateTime(2025, 7, 25, 12, 0, 0),
           MeetingUrl = null,
           EventSeriesId = null
         },
         new Event {
           Id = 9,
           LibraryId = libraries[0].Id, // Malmi Library
-          StartTime = new DateTime(2024, 8, 18, 15, 0, 0),
-          EndTime = new DateTime(2024, 8, 18, 17, 0, 0),
-          CreatedAt = new DateTime(2024, 7, 25, 12, 0, 0),
+          StartTime = new DateTime(2025, 8, 18, 15, 0, 0),
+          EndTime = new DateTime(2025, 8, 18, 17, 0, 0),
+          CreatedAt = new DateTime(2025, 7, 25, 12, 0, 0),
           MeetingUrl = null,
           EventSeriesId = null
         },
         new Event {
           Id = 10,
           LibraryId = libraries[0].Id, // Malmi Library
-          StartTime = new DateTime(2024, 8, 18, 15, 0, 0),
-          EndTime = new DateTime(2024, 8, 18, 17, 0, 0),
-          CreatedAt = new DateTime(2024, 7, 25, 12, 0, 0),
+          StartTime = new DateTime(2025, 8, 18, 15, 0, 0),
+          EndTime = new DateTime(2025, 8, 18, 17, 0, 0),
+          CreatedAt = new DateTime(2025, 7, 25, 12, 0, 0),
           MeetingUrl = null,
           EventSeriesId = null
         },
         new Event {
           Id = 11,
           LibraryId = libraries[2].Id, // Rikhardinkatu Library
-          StartTime = new DateTime(2024, 8, 6, 15, 0, 0),
-          EndTime = new DateTime(2024, 8, 6, 17, 0, 0),
-          CreatedAt = new DateTime(2024, 7, 25, 12, 0, 0),
+          StartTime = new DateTime(2025, 8, 6, 15, 0, 0),
+          EndTime = new DateTime(2025, 8, 6, 17, 0, 0),
+          CreatedAt = new DateTime(2025, 7, 25, 12, 0, 0),
           MeetingUrl = null,
           EventSeriesId = null
         }
