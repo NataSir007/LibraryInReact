@@ -16,18 +16,19 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import SearchIcon from '@mui/icons-material/Search';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
-import EventIcon from '@mui/icons-material/Event';
-import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import dayjs from 'dayjs';
 import 'dayjs/locale/fi';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import type { Dayjs } from 'dayjs';
-
 import EventService from '../../services/eventService';
-import type { EventSummary } from '../../services/eventService';
+import { useTranslation } from 'react-i18next';
+import type { EventSummary } from '../../types/library/interfaces';
+import EventDateTimeInfo from './EventDateTimeInfo';
+
 
 export default function EventsPage() {
-  const [languageCode, setLanguageCode] = useState('fi');
+  const { i18n, t } = useTranslation();
+  const languageCode = i18n.language;
   const [tags, setTags] = useState<string[]>([]);
   const [events, setEvents] = useState<EventSummary[]>([]);
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
@@ -37,6 +38,17 @@ export default function EventsPage() {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
+  const handleTagNames: Record<string, string> = {
+    "Language Cafés and discussion groups" : "languageCafe",
+    "Literature": "literature",
+    "Music": "music",
+    "Exhibitions": "exhibition",
+    "Training and courses": "trainingCourses",
+    "For senior citizens": "seniorCitizens",
+    "For children and families": "childrenFamilies",
+    "Other events": "other"
+  };
+  
   // Fetch tags on mount
   useEffect(() => {
     EventService.getAllEvents(languageCode).then(setEvents);
@@ -55,8 +67,8 @@ export default function EventsPage() {
   try {
     const result = await EventService.getFilteredEvents(
       search,
-      startDate ? startDate.toISOString() : undefined,
-      endDate ? endDate.toISOString() : undefined,
+      startDate ? startDate.format('YYYY-MM-DD') : undefined,
+      endDate ? endDate.format('YYYY-MM-DD') : undefined,
       languageCode
     );
     
@@ -79,12 +91,12 @@ export default function EventsPage() {
         p: 2,
       }}>
         <Typography variant="h4" gutterBottom sx={{ mb: 2 }}>
-          Events
+          {t('navbar.events')}
         </Typography>
         {/* tags */}
         <Stack direction="row" spacing={1} sx={{ flexWrap: 'wrap', mb: 2, rowGap: 1.5 }}>
           <Chip
-            label="All events"
+            label={t('events.allEvents')}
             color={selectedTags.length === 0 ? 'primary' : 'default'}
             onClick={() => setSelectedTags([])}
             sx={selectedTags.length === 0 ? (theme => ({
@@ -95,10 +107,11 @@ export default function EventsPage() {
           />
           {tags.map(tag => {
             const selected = selectedTags.includes(tag);
+            const translationKey = handleTagNames[tag]; // Get the translation key
             return (
               <Chip
                 key={tag}
-                label={tag}
+                label={t(`events.tags.${translationKey ?? tag}`, { defaultValue: tag })}// Use the mapped key
                 color={selected ? 'primary' : 'default'}
                 onClick={() => {
                   setSelectedTags(prev =>
@@ -119,7 +132,7 @@ export default function EventsPage() {
 
         <Stack direction="row" spacing={2} sx={{ mb: 3 }}>
           <TextField
-            label="Event title or library name"
+            label={t('events.eventTitleOrLibrary')}
             value={search}
             onChange={e => setSearch(e.target.value)}
             InputProps={{
@@ -133,13 +146,13 @@ export default function EventsPage() {
           />
 
           <DatePicker
-            label="Start date"
+            label={t('events.startDate')}
             value={startDate}
             onChange={(newValue: Dayjs | null) => setStartDate(newValue)}
             shouldDisableDate={date => date.isBefore(dayjs().startOf('day'))}
           />
           <DatePicker
-            label="End date"
+            label={t('events.endDate')}
             value={endDate}
             onChange={(newValue: Dayjs | null) => setEndDate(newValue)}
             shouldDisableDate={date => date.isBefore(dayjs().startOf('day'))}
@@ -161,7 +174,7 @@ export default function EventsPage() {
             }}
             disabled={loading}
           >
-            Find
+            {t('events.find')}
           </Button>
         </Stack>
         <Divider sx={{ my: 2 }} />
@@ -170,7 +183,7 @@ export default function EventsPage() {
           {filteredEvents.length === 0 ? (
             <Grid size={12} sx={{ width: '100%' }}>
               <Typography variant="body1" color="text.secondary" align="center">
-                No events found.
+                {t('events.noEventsFound')}
               </Typography>
             </Grid>
           ) : (
@@ -198,26 +211,16 @@ export default function EventsPage() {
                     </Typography>
                     {/* Add empty row if title is short to equalize card height */}
                     {event.eventName.length < 30 && <Box sx={{ height: 24 }} />}
-
-                    <Stack direction="row" spacing={1} alignItems="center" sx={{ mt: 0.5, flexGrow: 0 }}>
-                      {(() => {
-                        const start = dayjs(event.startTime).locale('fi');
-                        const end = dayjs(event.endTime).locale('fi');
-                        if (start.isSame(end, 'day')) {
-                          return <>
-                            <EventIcon sx={{ fontSize: 14 }} />
-                            <Typography variant="caption">{start.format('D.M.YYYY')}</Typography>
-                            <AccessTimeIcon sx={{ fontSize: 14 }} />
-                            <Typography variant="caption">{start.format('HH:mm')} – {end.format('HH:mm')}</Typography>
-                          </>;
-                        } else {
-                          return <>
-                            <EventIcon sx={{ fontSize: 14 }} />
-                            <Typography variant="caption">{start.format('D.M.YYYY')} – {end.format('D.M.YYYY')}</Typography>
-                          </>;
-                        }
-                      })()}
-                    </Stack>
+                    <EventDateTimeInfo
+                      startTime={event.startTime}
+                      endTime={event.endTime}
+                      locale={i18n.language}
+                      fontSize={13}
+                      spacing={1}
+                      mb={0}
+                      mt={0.5}
+                      flexGrow={0}
+                    />
                     <Stack direction="row" spacing={1} alignItems="center" sx={{ mt: 0.5, flexGrow: 0 }}>
                       <LocationOnIcon sx={{ fontSize: 14 }} />
                       <Typography variant="caption">{event.libraryTitle}{event.libraryAddress ? `, ${event.libraryAddress}` : ''}</Typography>

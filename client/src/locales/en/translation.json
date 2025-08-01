@@ -25,7 +25,31 @@
       "analytics": "Analytics cookies help us understand how visitors interact with the website."
     }
   },
-   "feedback": {
+  "events": {
+    "title": "Events",
+    "allEvents": "All events",
+    "eventTitleOrLibrary": "Event title or library name",
+    "startDate": "Start date",
+    "endDate": "End date",
+    "find": "Find",
+    "noEventsFound": "No events found.", 
+    "tags": {
+      "languageCafe": "Language Cafés and discussion groups",
+      "literature": "Literature",
+      "music": "Music",
+      "exhibition": "Exhibitions",
+      "trainingCourses": "Training and Courses",
+      "seniorCitizens": "For Senior Citizens",
+      "childrenFamilies": "For Children and Families",
+      "other": "Other Events"      
+    },
+    "questions":{
+      "when": "When?",
+      "where": "Where?",
+      "admission": "Admission"
+    }
+  },
+  "feedback": {
     "title": "Feedback",
     "subject": "Subject",
     "subjects": {
@@ -390,7 +414,7 @@
     },
     "subtitleSaved": "Saved searches and alert schedule",    
     "subtitleSavedParagraph": "You'll find information about saved searches and alert schedule on Using the services of the Kirjasto online library page."
-  },
+  },  
   "whatIsLibrary": {
     "title": "What is Kirjasto?",
     "whatKirjastoOffers": "What Kirjasto libraries offer",

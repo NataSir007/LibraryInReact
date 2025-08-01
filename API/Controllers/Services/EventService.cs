@@ -1,5 +1,4 @@
 using API.DTO;
-using Domain;
 using Microsoft.EntityFrameworkCore;
 using Persistence;
 
@@ -54,15 +53,37 @@ namespace LibraryInReact.API.Controllers.Services
         /// Returns a single event by its ID.
         /// </summary>
         /// <param name="id">Event ID</param>
-        public async Task<Event?> GetEventAsync(int id)
+        /// /// <param name="languageCode">Language code (e.g., "fi")</param>
+        public async Task<DetailedEventDto?> GetEventAsync(int id, string languageCode)
         {
-            return await _context.Events
-                .Include(e => e.Library)
-                .Include(e => e.EventImage)
-                .Include(e => e.Translations)
-                .Include(e => e.EventTags)
-                    .ThenInclude(et => et.Tag)
-                .FirstOrDefaultAsync(e => e.Id == id);
+            var selectedEvent = await _context.Events
+                .Include(ev => ev.Library)
+                .Include(ev => ev.EventImage)
+                .Include(ev => ev.Translations)
+                .Include(ev => ev.EventTags).ThenInclude(et => et.Tag)
+                .FirstOrDefaultAsync(ev => ev.Id == id);
+
+            if (selectedEvent == null) return null;
+
+            var translation = selectedEvent.Translations.FirstOrDefault(t => t.Language == languageCode);
+
+            return new DetailedEventDto
+            {
+                Id = selectedEvent.Id,
+                LibraryId = selectedEvent.LibraryId,
+                LibraryTitle = selectedEvent.Library.Title,
+                LibraryAddress = selectedEvent.Library.Address,
+                EventName = translation != null ? translation.Title : string.Empty,
+                Description = translation != null ? translation.Description : string.Empty,
+                Admission = translation != null ? translation.Admission : string.Empty,
+                StartTime = selectedEvent.StartTime,
+                EndTime = selectedEvent.EndTime,
+                FileName = selectedEvent.EventImage != null ? selectedEvent.EventImage.FileName : string.Empty,
+                FilePath = selectedEvent.EventImage != null ? selectedEvent.EventImage.FilePath : string.Empty,
+                AltText = selectedEvent.EventImage != null ? selectedEvent.EventImage.AltText : string.Empty,
+                ImageId = selectedEvent.EventImage != null ? selectedEvent.EventImage.Id : 0,
+                Tags = selectedEvent.EventTags.Select(et => et.Tag.Name).ToList()
+            };
         }
 
         /// <summary>
@@ -84,7 +105,7 @@ namespace LibraryInReact.API.Controllers.Services
         public async Task<List<EventSummaryDto>> FilterEventsAsync(string? search, string? startDate, string? endDate, string languageCode)
         {
             DateTime? start = null, end = null;
-            if (startDate == null) startDate = DateTime.UtcNow.Date.ToString("yyyy-MM-ddTHH:mm:ssZ", System.Globalization.CultureInfo.InvariantCulture);
+            if (startDate == null) startDate = DateTime.UtcNow.Date.ToString("yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture);
 
             var query =  _context.Events
                 .Include(e => e.Library)
@@ -93,10 +114,10 @@ namespace LibraryInReact.API.Controllers.Services
                 .Include(e => e.EventTags).ThenInclude(et => et.Tag)
                 .AsQueryable();
 
-            if (!string.IsNullOrEmpty(startDate) && DateTime.TryParse(startDate, null, System.Globalization.DateTimeStyles.AdjustToUniversal, out var parsedStart))
-                start = parsedStart;
-            if (!string.IsNullOrEmpty(endDate) && DateTime.TryParse(endDate, null, System.Globalization.DateTimeStyles.AdjustToUniversal, out var parsedEnd))
-                end = parsedEnd;
+            if (!string.IsNullOrEmpty(startDate) && DateTime.TryParse(startDate, out var parsedStart))
+                start = parsedStart.Date;
+            if (!string.IsNullOrEmpty(endDate) && DateTime.TryParse(endDate, out var parsedEnd))
+                end = parsedEnd.Date;
 
             // Search filtering (event name or library)
             if (!string.IsNullOrWhiteSpace(search))
@@ -125,12 +146,17 @@ namespace LibraryInReact.API.Controllers.Services
             // Date filtering: events that overlap the given range
             if (start.HasValue && end.HasValue)
             {
-                query = query.Where(e => e.StartTime >= start.Value && e.EndTime <= end.Value);
+                Console.WriteLine($"Filtering with start: {start.Value.Date}, end: {end.Value.Date}");
+                query = query.Where(e => e.StartTime.Date >= start.Value.Date && e.EndTime <= end.Value.Date);
             }
             else if (start.HasValue)
             {
-                query = query.Where(e => e.StartTime >= start.Value);
+                Console.WriteLine($"Filtering with start only: {start.Value.Date}");
+                query = query.Where(e => e.StartTime.Date >= start.Value.Date);
             }
+
+            var filteredCount = query.Count();
+            Console.WriteLine($"Events after filtering: {filteredCount}");
 
             var events = await query.ToListAsync();
             return events.Select(e => {
@@ -152,5 +178,6 @@ namespace LibraryInReact.API.Controllers.Services
                 };
             }).ToList();
         }
-    }
+
+  }
 }

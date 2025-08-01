@@ -19,4 +19,11 @@ namespace API.DTO
         // Description and Admission removed
         public required List<string> Tags { get; set; }
     }
+
+    public class DetailedEventDto : EventSummaryDto
+    {
+        public required string Description { get; set; }
+        public required string Admission { get; set; }
+    }
+
 }

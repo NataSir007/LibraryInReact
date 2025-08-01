@@ -17,7 +17,8 @@ namespace LibraryInReact.API.Controllers.Services
         /// Returns a single event by its ID.
         /// </summary>
         /// <param name="id">Event ID</param>
-        Task<Event?> GetEventAsync(int id);
+        /// <param name="languageCode">Language code (e.g., "fi")</param>
+        Task<DetailedEventDto?> GetEventAsync(int id, string languageCode);
 
         /// <summary>
         /// Returns all tag names for events.

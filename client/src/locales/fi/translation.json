@@ -25,7 +25,31 @@
       "analytics": "Analytiikkaevästeet auttavat meitä ymmärtämään, miten kävijät käyttävät sivustoa."
     }
   },
-   "feedback": {
+  "events": {
+    "title": "Tapahtumat",
+    "allEvents": "Kaikki tapahtumat",
+    "eventTitleOrLibrary": "Tapahtuman otsikko tai kirjaston nimi",
+    "startDate": "Alkamispäivämäärä",
+    "endDate": "Päättymispäivämäärä",
+    "find": "Etsi",
+    "noEventsFound": "Ei tapahtumia löytynyt.",  
+    "tags": {
+      "languageCafe": "Kielikahvilat ja keskusteluryhmät",
+      "literature": "Kirjallisuus",
+      "music": "Musiikki",
+      "exhibition": "Näyttely",
+      "trainingCourses": "Koulutukset ja kurssit",
+      "seniorCitizens": "Seniorit",
+      "childrenFamilies": "Lapset ja perheet",
+      "other": "Muut tapahtumat"      
+    },
+    "questions":{
+      "when": "Milloin?",
+      "where": "Missä?",
+      "admission": "Pääsy"
+    }
+  },
+  "feedback": {
     "title": "Palaute",
     "subject": "Aihe",
     "subjects": {
@@ -391,7 +415,7 @@
     },
     "subtitleSaved": "Saved searches and alert schedule",    
     "subtitleSavedParagraph": "You'll find information about saved searches and alert schedule on Using the services of the Kirjasto online library page."
-  },
+  }, 
   "whatIsLibrary": {
     "title": "Mikä Kirjasto on?",
     "whatKirjastoOffers": "Yhteisiä Kirjasto-kirjastossa",

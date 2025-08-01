@@ -25,6 +25,30 @@
       "analytics": "Analyscookies hjälper oss att förstå hur besökare använder webbplatsen."
     }
   },
+  "events": {
+    "title": "Evenemang",
+    "allEvents": "Alla evenemang",
+    "eventTitleOrLibrary": "Evenemangets titel eller bibliotekets namn",
+    "startDate": "Startdatum",
+    "endDate": "Slutdatum",
+    "find": "Sök",
+    "noEventsFound": "Inga evenemang hittades.",
+    "tags": {
+      "languageCafe": "Språk Caféer och diskussionsgrupper",
+      "literature": "Litteratur",
+      "music": "Musik",
+      "exhibition": "Utställning",
+      "trainingCourses": "Utbildningar och kurser",
+      "seniorCitizens": "För seniorer",
+      "childrenFamilies": "För barn och familjer",
+      "other": "Övriga evenemang"      
+    },
+    "questions":{
+      "when": "När?",
+      "where": "Var?",
+      "admission": "Entré"
+    }
+  },
   "feedback": {
     "title": "Respons",
     "subject": "Ämne",

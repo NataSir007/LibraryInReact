@@ -1,3 +1,24 @@
+// EventSummary interface for listing events in proper language
+export interface EventSummary {
+  id: number;
+  libraryId: number;
+  libraryTitle: string;
+  libraryAddress: string;
+  eventName: string;
+  startTime: string;
+  endTime: string;
+  fileName: string;
+  filePath: string;
+  altText: string;
+  tags: string[];
+}
+
+// DetailedEvent interface for full event details in proper language
+export interface DetailedEvent extends EventSummary {
+  description: string;
+  admission: string;
+}
+
 // Library name/address DTO for minimal library lists
 export interface LibraryNameAddress {
   id: number;

@@ -2,7 +2,6 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import EventService from '../../services/eventService';
-import type { EventSummary } from '../../services/eventService';
 import { Box, Grid, Typography, Stack, CircularProgress, Chip } from '@mui/material';
 import dayjs from 'dayjs';
 import 'dayjs/locale/fi';
@@ -11,27 +10,42 @@ import { geocodeAddress } from '../../utils/openStreetMapGeocoding';
 import EventIcon from '@mui/icons-material/Event';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
+import { useTranslation } from 'react-i18next';
+import type { DetailedEvent } from '../../types/library/interfaces';
+import EventDateTimeInfo from './EventDateTimeInfo';
 
 export default function EventsDetails() {
+  const { i18n, t } = useTranslation();
+  const languageCode = i18n.language;
   const { eventId } = useParams<{ eventId: string }>();
-  const [event, setEvent] = useState<EventSummary | null>(null);
+  const [event, setEvent] = useState<DetailedEvent | null>(null);
   const [coords, setCoords] = useState<{ lat: number; lng: number } | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+
+  const handleTagNames: Record<string, string> = {
+    "Language Cafés and discussion groups" : "languageCafe",
+    "Literature": "literature",
+    "Music": "music",
+    "Exhibitions": "exhibition",
+    "Training and courses": "trainingCourses",
+    "For senior citizens": "seniorCitizens",
+    "For children and families": "childrenFamilies",
+    "Other events": "other"
+  };
 
   useEffect(() => {
     if (!eventId) return;
     setLoading(true);
     setError(null);
-    EventService.getAllEvents('fi')
-      .then(events => {
-        const found = events.find(e => e.id === Number(eventId));
-        if (found) setEvent(found);
+    EventService.GetEvent(languageCode, eventId)
+      .then(event => {
+        if (event) setEvent(event);
         else setError('Event not found');
       })
       .catch(() => setError('Failed to fetch event'))
       .finally(() => setLoading(false));
-  }, [eventId]);
+  }, [eventId, languageCode]);
 
   useEffect(() => {
     if (event && event.libraryAddress) {
@@ -63,33 +77,24 @@ export default function EventsDetails() {
               {event.tags.map(tag => (
                 <Chip
                   key={tag}
-                  label={tag}
+                  label={t(`events.tags.${handleTagNames[tag] ?? tag}`, { defaultValue: tag })}
                   size="small"
                   sx={{ bgcolor: theme => theme.palette.mode === 'dark' ? theme.palette.info.main : theme.palette.primary.main, color: 'white', fontWeight: 600 }}
                 />
               ))}
             </Stack>
           )}
-          <Stack direction="row" spacing={2} alignItems="center" sx={{ mb: 2 }}>
-            {(() => {
-              const start = dayjs(event.startTime).locale('fi');
-              const end = dayjs(event.endTime).locale('fi');
-              if (start.isSame(end, 'day')) {
-                return <>
-                  <EventIcon sx={{ fontSize: 18 }} />
-                  <Typography variant="body2">{start.format('D.M.YYYY')}</Typography>
-                  <AccessTimeIcon sx={{ fontSize: 18 }} />
-                  <Typography variant="body2">{start.format('HH:mm')} – {end.format('HH:mm')}</Typography>
-                </>;
-              } else {
-                return <>
-                  <EventIcon sx={{ fontSize: 18 }} />
-                  <Typography variant="body2">{start.format('D.M.YYYY')} – {end.format('D.M.YYYY')}</Typography>
-                </>;
-              }
-            })()}
-          </Stack>
-          <Box sx={{ mb: 2, display: 'flex', justifyContent: 'start' }}>
+          <EventDateTimeInfo
+            startTime={event.startTime}
+            endTime={event.endTime}
+            locale={i18n.language}
+            fontSize={18}
+            spacing={2}
+            mb={2}
+            mt={0}
+            flexGrow={0}
+          />
+          <Box sx={{ mb: 2, mt: 2, display: 'flex', justifyContent: 'start' }}>
             <img
               src={event.fileName ? `/src/assets/images/${event.fileName}` : '/src/assets/images/placeholder.jpg'}
               alt={event.altText || event.eventName}
@@ -106,11 +111,64 @@ export default function EventsDetails() {
               }}
             />
           </Box>
-          {/* You can add event.description or other fields here if available 
-          <Typography variant="body1" sx={{ mb: 2 }}>            
-            {event.libraryTitle}{event.libraryAddress ? `, ${event.libraryAddress}` : ''}
+          <Typography variant="body1" sx={{ mb: 2 }}>
+            {event.description}
           </Typography>
-          */}
+          {/* Custom info rows */}
+          <Box sx={{ mb: 2 }}>
+            <Stack spacing={1}>
+              {/* When */}
+              <Stack direction="row" spacing={1} alignItems="center">
+                <Typography
+                  variant="subtitle2"
+                  sx={{
+                    fontWeight: 600,
+                    color: theme => theme.palette.mode === 'dark' ? theme.palette.info.main : theme.palette.primary.main
+                  }}>
+                  {t('events.questions.when', 'When?')}
+                </Typography>
+                <EventDateTimeInfo
+                  startTime={event.startTime}
+                  endTime={event.endTime}
+                  locale={i18n.language}
+                  fontSize={14}
+                  spacing={1}
+                  mb={0}
+                  mt={0.5}
+                  flexGrow={0}
+                />
+              </Stack>
+              {/* Where */}
+              <Stack direction="row" spacing={1} alignItems="center">
+                <Typography
+                variant="subtitle2"
+                sx={{
+                  fontWeight: 600,
+                  color: theme => theme.palette.mode === 'dark' ? theme.palette.info.main : theme.palette.primary.main
+                }}>
+                  {t('events.questions.where', 'Where?')}
+                </Typography>
+                <Typography variant="body2">
+                  {event.libraryTitle}
+                </Typography>
+              </Stack>              
+              {/* Admission */}
+              <Stack direction="row" spacing={1} alignItems="center">
+                <Typography
+                  variant="subtitle2"
+                  sx={{
+                    fontWeight: 600,
+                    color: theme => theme.palette.mode === 'dark' ? theme.palette.info.main : theme.palette.primary.main
+                  }}>
+                  {t('events.questions.admission', 'Admission')}
+                </Typography>
+                <Typography variant="body2">
+                  {event.admission || t('events.questions.unknown', 'See details')}
+                </Typography>
+              </Stack>
+            </Stack>
+          </Box>  
+         
         </Grid>
         <Grid size={4}>
           {coords && (
@@ -119,7 +177,7 @@ export default function EventsDetails() {
                 center={coords}
                 zoom={15}
                 markers={[{
-                  id: event.id,
+                  id: event.id, 
                   lat: coords.lat,
                   lng: coords.lng,
                   title: event.libraryTitle,
