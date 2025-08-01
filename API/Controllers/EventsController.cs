@@ -41,10 +41,11 @@ namespace LibraryInReact.API.Controllers
         /// </summary>
         /// <param name="id">The ID of the event.</param>
         /// <returns>The event if found; otherwise, NotFound.</returns>
-        [HttpGet("{id}")]   // GET: api/events/{id}
-        public async Task<ActionResult<Event>> GetEvent(int id)
+        /// <param name="languageCode">Language code (e.g., "fi")</param>
+        [HttpGet("{id}")]   // GET: api/events/{id}?languageCode=fi 
+        public async Task<ActionResult<DetailedEventDto>> GetEvent(int id, string languageCode = "fi")
         {
-            var ev = await eventService.GetEventAsync(id);
+            var ev = await eventService.GetEventAsync(id, languageCode);
             if (ev == null) return NotFound();
             return Ok(ev);
         }
