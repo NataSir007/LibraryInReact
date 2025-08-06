@@ -470,7 +470,7 @@ public static class DbInitializer
           EndTime = new DateTime(2025, 8, 15, 20, 0, 0),
           CreatedAt = new DateTime(2025, 7, 25, 12, 0, 0),
           MeetingUrl = null,
-          EventSeriesId = null
+          ParentEventId = null
         },
         new Event {
           Id = 2,
@@ -479,7 +479,7 @@ public static class DbInitializer
           EndTime = new DateTime(2025, 8, 1, 13, 0, 0),
           CreatedAt = new DateTime(2025, 7, 25, 12, 0, 0),
           MeetingUrl = null,
-          EventSeriesId = null
+          ParentEventId = null
         },
         new Event {
           Id = 3,
@@ -488,7 +488,7 @@ public static class DbInitializer
           EndTime = new DateTime(2025, 10, 4, 16, 0, 0),
           CreatedAt = new DateTime(2025, 7, 25, 12, 0, 0),
           MeetingUrl = null,
-          EventSeriesId = null
+          ParentEventId = null
         },
         new Event {
           Id = 4,
@@ -497,7 +497,7 @@ public static class DbInitializer
           EndTime = new DateTime(2025, 8, 11, 16, 0, 0),
           CreatedAt = new DateTime(2025, 7, 25, 12, 0, 0),
           MeetingUrl = null,
-          EventSeriesId = null
+          ParentEventId = null
         },
         new Event {
           Id = 5,
@@ -506,7 +506,7 @@ public static class DbInitializer
           EndTime = new DateTime(2025, 8, 20, 15, 0, 0),
           CreatedAt = new DateTime(2025, 7, 25, 12, 0, 0),
           MeetingUrl = null,
-          EventSeriesId = null
+          ParentEventId = null
         },
         new Event {
           Id = 6,
@@ -515,7 +515,7 @@ public static class DbInitializer
           EndTime = new DateTime(2025, 8, 11, 19, 0, 0),
           CreatedAt = new DateTime(2025, 7, 25, 12, 0, 0),
           MeetingUrl = null,
-          EventSeriesId = null
+          ParentEventId = null
         },
         new Event {
           Id = 7,
@@ -524,7 +524,7 @@ public static class DbInitializer
           EndTime = new DateTime(2025, 8, 12, 19, 0, 0),
           CreatedAt = new DateTime(2025, 7, 25, 12, 0, 0),
           MeetingUrl = null,
-          EventSeriesId = null
+          ParentEventId = null
         },
         new Event {
           Id = 8,
@@ -533,7 +533,7 @@ public static class DbInitializer
           EndTime = new DateTime(2025, 8, 22, 13, 0, 0),
           CreatedAt = new DateTime(2025, 7, 25, 12, 0, 0),
           MeetingUrl = null,
-          EventSeriesId = null
+          ParentEventId = null
         },
         new Event {
           Id = 9,
@@ -542,7 +542,7 @@ public static class DbInitializer
           EndTime = new DateTime(2025, 8, 18, 17, 0, 0),
           CreatedAt = new DateTime(2025, 7, 25, 12, 0, 0),
           MeetingUrl = null,
-          EventSeriesId = null
+          ParentEventId = null
         },
         new Event {
           Id = 10,
@@ -551,7 +551,7 @@ public static class DbInitializer
           EndTime = new DateTime(2025, 8, 18, 17, 0, 0),
           CreatedAt = new DateTime(2025, 7, 25, 12, 0, 0),
           MeetingUrl = null,
-          EventSeriesId = null
+          ParentEventId = null
         },
         new Event {
           Id = 11,
@@ -560,8 +560,72 @@ public static class DbInitializer
           EndTime = new DateTime(2025, 8, 6, 17, 0, 0),
           CreatedAt = new DateTime(2025, 7, 25, 12, 0, 0),
           MeetingUrl = null,
-          EventSeriesId = null
+          ParentEventId = null
+        },
+        new Event {
+          Id = 12,
+          LibraryId = libraries[2].Id, // Rikhardinkatu Library
+          StartTime = new DateTime(2025, 8, 20, 15, 0, 0),
+          EndTime = new DateTime(2025, 8, 20, 17, 0, 0),
+          CreatedAt = new DateTime(2025, 7, 25, 12, 0, 0),
+          MeetingUrl = null,
+          ParentEventId = 11
+        },
+        new Event {
+          Id = 13,
+          LibraryId = libraries[2].Id,
+          StartTime = new DateTime(2025, 9, 3, 15, 0, 0),
+          EndTime = new DateTime(2025, 9, 3, 17, 0, 0),
+          CreatedAt = new DateTime(2025, 7, 25, 12, 0, 0),
+          MeetingUrl = null,
+          ParentEventId = 11
+        },
+        new Event {
+          Id = 14,
+          LibraryId = libraries[2].Id,
+          StartTime = new DateTime(2025, 9, 17, 15, 0, 0),
+          EndTime = new DateTime(2025, 9, 17, 17, 0, 0),
+          CreatedAt = new DateTime(2025, 7, 25, 12, 0, 0),
+          MeetingUrl = null,
+          ParentEventId = 11
+        },
+        new Event {
+          Id = 15,
+          LibraryId = libraries[2].Id,
+          StartTime = new DateTime(2025, 10, 1, 15, 0, 0),
+          EndTime = new DateTime(2025, 10, 1, 17, 0, 0),
+          CreatedAt = new DateTime(2025, 7, 25, 12, 0, 0),
+          MeetingUrl = null,
+          ParentEventId = 11
+        },
+        new Event {
+          Id = 16,
+          LibraryId = libraries[2].Id,
+          StartTime = new DateTime(2025, 10, 15, 15, 0, 0),
+          EndTime = new DateTime(2025, 10, 15, 17, 0, 0),
+          CreatedAt = new DateTime(2025, 7, 25, 12, 0, 0),
+          MeetingUrl = null,
+          ParentEventId = 11
+        },
+        new Event {
+          Id = 17,
+          LibraryId = libraries[2].Id,
+          StartTime = new DateTime(2025, 10, 29, 15, 0, 0),
+          EndTime = new DateTime(2025, 10, 29, 17, 0, 0),
+          CreatedAt = new DateTime(2025, 7, 25, 12, 0, 0),
+          MeetingUrl = null,
+          ParentEventId = 11
+        },
+        new Event {
+          Id = 18,
+          LibraryId = libraries[2].Id, // Rikhardinkatu Library
+          StartTime = new DateTime(2025, 11, 12, 15, 0, 0),
+          EndTime = new DateTime(2025, 11, 12, 17, 0, 0),
+          CreatedAt = new DateTime(2025, 7, 25, 12, 0, 0),
+          MeetingUrl = null,
+          ParentEventId = 11
         }
+
       };
       context.Events.AddRange(events);
       await context.SaveChangesAsync();

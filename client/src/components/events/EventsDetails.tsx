@@ -1,15 +1,15 @@
-
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import EventService from '../../services/eventService';
-import { Box, Grid, Typography, Stack, CircularProgress, Chip } from '@mui/material';
+import { Box, Grid, Typography, Stack, CircularProgress, Chip, Divider } from '@mui/material';
 import 'dayjs/locale/fi';
 import OpenStreetMap from '../libraries/OpenStreetMap';
 import { geocodeAddress } from '../../utils/openStreetMapGeocoding';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import { useTranslation } from 'react-i18next';
-import type { DetailedEvent } from '../../types/library/interfaces';
+import type { DetailedEvent, EventSummary } from '../../types/library/interfaces';
 import EventDateTimeInfo from './EventDateTimeInfo';
+import EventCard from './EventCard';
 
 export default function EventsDetails() {
   const { i18n, t } = useTranslation();
@@ -19,9 +19,10 @@ export default function EventsDetails() {
   const [coords, setCoords] = useState<{ lat: number; lng: number } | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [seriesEvents, setSeriesEvents] = useState<EventSummary[]>([]);
 
   const handleTagNames: Record<string, string> = {
-    "Language Cafés and discussion groups" : "languageCafe",
+    "Language Cafés and discussion groups": "languageCafe",
     "Literature": "literature",
     "Music": "music",
     "Exhibitions": "exhibition",
@@ -42,6 +43,15 @@ export default function EventsDetails() {
       })
       .catch(() => setError('Failed to fetch event'))
       .finally(() => setLoading(false));
+  }, [eventId, languageCode]);
+
+  // Fetch future events in the same series
+  useEffect(() => {
+    if (!eventId) return;
+
+    EventService.getEventSeries(languageCode, eventId)
+      .then(events => setSeriesEvents(events || []))
+      .catch(() => setSeriesEvents([]));
   }, [eventId, languageCode]);
 
   useEffect(() => {
@@ -68,6 +78,7 @@ export default function EventsDetails() {
           >
             {event.eventName}
           </Typography>
+          
           {/* Tags as blue chips, aligned right */}
           {event.tags && event.tags.length > 0 && (
             <Stack direction="row" spacing={1} sx={{ mb: 2, flexWrap: 'wrap', justifyContent: 'flex-end' }}>
@@ -76,11 +87,16 @@ export default function EventsDetails() {
                   key={tag}
                   label={t(`events.tags.${handleTagNames[tag] ?? tag}`, { defaultValue: tag })}
                   size="small"
-                  sx={{ bgcolor: theme => theme.palette.mode === 'dark' ? theme.palette.info.main : theme.palette.primary.main, color: 'white', fontWeight: 600 }}
+                  sx={{ 
+                    bgcolor: theme => theme.palette.mode === 'dark' ? theme.palette.info.main : theme.palette.primary.main, 
+                    color: 'white', 
+                    fontWeight: 600 
+                  }}
                 />
               ))}
             </Stack>
           )}
+          
           <EventDateTimeInfo
             startTime={event.startTime}
             endTime={event.endTime}
@@ -91,6 +107,7 @@ export default function EventsDetails() {
             mt={0}
             flexGrow={0}
           />
+          
           <Box sx={{ mb: 2, mt: 2, display: 'flex', justifyContent: 'start' }}>
             <img
               src={event.fileName ? `/src/assets/images/${event.fileName}` : '/src/assets/images/placeholder.jpg'}
@@ -108,9 +125,11 @@ export default function EventsDetails() {
               }}
             />
           </Box>
+          
           <Typography variant="body1" sx={{ mb: 2 }}>
             {event.description}
           </Typography>
+          
           {/* Custom info rows */}
           <Box sx={{ mb: 2 }}>
             <Stack spacing={1}>
@@ -135,20 +154,22 @@ export default function EventsDetails() {
                   flexGrow={0}
                 />
               </Stack>
+              
               {/* Where */}
               <Stack direction="row" spacing={1} alignItems="center">
                 <Typography
-                variant="subtitle2"
-                sx={{
-                  fontWeight: 600,
-                  color: theme => theme.palette.mode === 'dark' ? theme.palette.info.main : theme.palette.primary.main
-                }}>
+                  variant="subtitle2"
+                  sx={{
+                    fontWeight: 600,
+                    color: theme => theme.palette.mode === 'dark' ? theme.palette.info.main : theme.palette.primary.main
+                  }}>
                   {t('events.questions.where', 'Where?')}
                 </Typography>
                 <Typography variant="body2">
                   {event.libraryTitle}
                 </Typography>
-              </Stack>              
+              </Stack>
+              
               {/* Admission */}
               <Stack direction="row" spacing={1} alignItems="center">
                 <Typography
@@ -164,9 +185,9 @@ export default function EventsDetails() {
                 </Typography>
               </Stack>
             </Stack>
-          </Box>  
-         
+          </Box>
         </Grid>
+        
         <Grid size={4}>
           {coords && (
             <Box sx={{ mt: 2 }}>
@@ -174,7 +195,7 @@ export default function EventsDetails() {
                 center={coords}
                 zoom={15}
                 markers={[{
-                  id: event.id, 
+                  id: event.id,
                   lat: coords.lat,
                   lng: coords.lng,
                   title: event.libraryTitle,
@@ -192,6 +213,22 @@ export default function EventsDetails() {
             <LocationOnIcon sx={{ fontSize: 18 }} />
             <Typography variant="body2">{event.libraryAddress}</Typography>
           </Stack>
+          
+          <Divider sx={{ my: 2 }} />
+
+          {/* Upcoming events in this series */}
+          {seriesEvents.length > 0 && (
+            <>
+              <Typography variant="subtitle1" sx={{ mb: 2, fontWeight: 600 }}>
+                {t('events.upcomingInSeries', 'Upcoming in this series')}
+              </Typography>
+              <Stack spacing={2}>
+                {seriesEvents.map(ev => (
+                  <EventCard key={ev.id} event={ev} locale={languageCode} />
+                ))}
+              </Stack>
+            </>
+          )}
         </Grid>
       </Grid>
     </Box>

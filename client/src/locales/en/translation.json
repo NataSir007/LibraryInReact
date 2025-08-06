@@ -47,7 +47,8 @@
       "when": "When?",
       "where": "Where?",
       "admission": "Admission"
-    }
+    },
+    "upcomingInSeries": "Upcoming in this series"
   },
   "feedback": {
     "title": "Feedback",

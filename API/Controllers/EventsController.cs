@@ -79,5 +79,17 @@ namespace LibraryInReact.API.Controllers
             var events = await eventService.FilterEventsAsync(search, startDate, endDate, languageCode);
             return Ok(events ?? new List<EventSummaryDto>());
         }
+
+        /// <summary>
+        /// Returns all future events in a series (i.e., with the same ParentEventId).
+        /// </summary>
+        /// <param name="eventId">Event ID to find the series</param>
+        /// <param name="languageCode">Language code (e.g., "fi")</param>
+        /// <returns>List of EventSummaryDto representing the series events.</returns>
+        [HttpGet("series/{eventId}")] // GET: api/events/series/{eventId}?languageCode=fi
+        public async Task<List<EventSummaryDto>> GetEventSeriesAsync(int eventId, string languageCode = "fi")
+        {
+            return await eventService.GetEventSeriesAsync(eventId, languageCode);
+        }
     }
 }

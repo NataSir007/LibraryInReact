@@ -34,10 +34,12 @@ export default function EventDateTimeInfo({
         direction="row"
         spacing={spacing}
         alignItems="center"
-        sx={{ mt, mb, flexGrow }}
+        sx={{ mt, mb, flexGrow, whiteSpace: 'nowrap' }}
       >
         <EventIcon sx={{ fontSize, ml: 0.5 }} />
-        <Typography variant="body2" sx={{ fontSize }}>{start.format('D.M.YYYY')}</Typography>
+        <Typography variant="body2" sx={{ fontSize }}>
+          {start.format('D.M.YYYY')}
+        </Typography>
         <AccessTimeIcon sx={{ fontSize, ml: 0.5 }} />
         <Typography variant="body2" sx={{ fontSize }}>
           {start.format('HH:mm')} – {end.format('HH:mm')}
@@ -50,7 +52,7 @@ export default function EventDateTimeInfo({
         direction="row"
         spacing={spacing}
         alignItems="center"
-        sx={{ mt, mb, flexGrow }}
+        sx={{ mt, mb, flexGrow, whiteSpace: 'nowrap' }}
       >
         <EventIcon sx={{ fontSize, ml: 0.5 }} />
         <Typography variant="body2" sx={{ fontSize }}>

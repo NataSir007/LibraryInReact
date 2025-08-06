@@ -14,6 +14,11 @@ export class EventService {
     return apiService.get<DetailedEvent>(`/api/events/${eventId}?languageCode=${languageCode}`);
   }
 
+  // Get all future events in a series (i.e., with the same ParentEventId).
+  static async getEventSeries(languageCode: string, eventId: string): Promise<EventSummary[]> {
+    return apiService.get<EventSummary[]>(`/api/events/series/${eventId}?languageCode=${languageCode}`);
+  }
+
   // Get all tags
   static async getAllTags(): Promise<string[]> {
     return apiService.get<string[]>('/api/events/tags');

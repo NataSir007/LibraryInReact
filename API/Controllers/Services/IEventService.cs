@@ -24,7 +24,7 @@ namespace LibraryInReact.API.Controllers.Services
         /// Returns all tag names for events.
         /// </summary>
         Task<List<string>> GetAllTagNamesAsync();
-        
+
         /// <summary>
         /// Returns filtered events by search (event title or library), startDate, and endDate. All parameters are optional and can be null.
         /// </summary>
@@ -33,5 +33,13 @@ namespace LibraryInReact.API.Controllers.Services
         /// <param name="endDate">End date in ISO 8601 format (nullable)</param>
         /// <param name="languageCode">Language code (default: fi)</param>
         Task<List<EventSummaryDto>> FilterEventsAsync(string? search, string? startDate, string? endDate, string languageCode);
+
+        /// <summary>
+        /// Returns all future events in a series (i.e., with the same ParentEventId).
+        /// </summary>
+        /// <param name="eventId">Event ID to find the series</param>
+        /// <param name="languageCode">Language code (e.g., "fi")</param>
+        /// <returns>List of EventSummaryDto representing the series events.</returns>
+        Task<List<EventSummaryDto>> GetEventSeriesAsync(int eventId, string languageCode);
     }
 }

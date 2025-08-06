@@ -11,7 +11,7 @@ public class Event
     public DateTime EndTime { get; set; }
     public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
     public string? MeetingUrl { get; set; } = null;
-    public int? EventSeriesId { get; set; }
+    public int? ParentEventId { get; set; }
     public EventImage? EventImage { get; set; } = null;
 
     public ICollection<EventTranslation> Translations { get; set; } = new List<EventTranslation>();

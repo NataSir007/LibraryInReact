@@ -29,8 +29,23 @@ namespace LibraryInReact.API.Controllers.Services
                 .Include(e => e.EventTags).ThenInclude(et => et.Tag)
                 .ToListAsync();
 
-            return events.Select(e => {
-                var translation = e.Translations.FirstOrDefault(t => t.Language == languageCode);
+            // Preload all parent events for efficiency
+            var parentIds = events.Where(e => e.ParentEventId != null).Select(e => e.ParentEventId!.Value).Distinct().ToList();
+            var parentEvents = await _context.Events
+                .Where(e => parentIds.Contains(e.Id))
+                .Include(e => e.EventImage)
+                .Include(e => e.Translations)
+                .Include(e => e.EventTags).ThenInclude(et => et.Tag)
+                .ToListAsync();
+
+            return events.Select(e =>
+            {
+                var sourceEvent = e.ParentEventId != null
+                    ? parentEvents.FirstOrDefault(pe => pe.Id == e.ParentEventId)
+                    : e;
+
+                var translation = sourceEvent?.Translations.FirstOrDefault(t => t.Language == languageCode);
+
                 return new EventSummaryDto
                 {
                     Id = e.Id,
@@ -40,11 +55,11 @@ namespace LibraryInReact.API.Controllers.Services
                     EventName = translation != null ? translation.Title : string.Empty,
                     StartTime = e.StartTime,
                     EndTime = e.EndTime,
-                    FileName = e.EventImage != null ? e.EventImage.FileName : string.Empty,
-                    FilePath = e.EventImage != null ? e.EventImage.FilePath : string.Empty,
-                    AltText = e.EventImage != null ? e.EventImage.AltText : string.Empty,
-                    ImageId = e.EventImage != null ? e.EventImage.Id : 0,
-                    Tags = e.EventTags.Select(et => et.Tag.Name).ToList()
+                    FileName = sourceEvent?.EventImage != null ? sourceEvent.EventImage.FileName : string.Empty,
+                    FilePath = sourceEvent?.EventImage != null ? sourceEvent.EventImage.FilePath : string.Empty,
+                    AltText = sourceEvent?.EventImage != null ? sourceEvent.EventImage.AltText : string.Empty,
+                    ImageId = sourceEvent?.EventImage != null ? sourceEvent.EventImage.Id : 0,
+                    Tags = (e.ParentEventId != null ? sourceEvent?.EventTags : e.EventTags)?.Select(et => et.Tag.Name).ToList() ?? new List<string>()
                 };
             }).ToList();
         }
@@ -65,7 +80,16 @@ namespace LibraryInReact.API.Controllers.Services
 
             if (selectedEvent == null) return null;
 
-            var translation = selectedEvent.Translations.FirstOrDefault(t => t.Language == languageCode);
+            // If this event has a parent, use parent's image, translations, and tags
+            var sourceEvent = selectedEvent.ParentEventId != null
+                ? await _context.Events
+                    .Include(ev => ev.EventImage)
+                    .Include(ev => ev.Translations)
+                    .Include(ev => ev.EventTags).ThenInclude(et => et.Tag)
+                    .FirstOrDefaultAsync(ev => ev.Id == selectedEvent.ParentEventId)
+                : selectedEvent;
+
+            var translation = sourceEvent?.Translations.FirstOrDefault(t => t.Language == languageCode);
 
             return new DetailedEventDto
             {
@@ -78,11 +102,11 @@ namespace LibraryInReact.API.Controllers.Services
                 Admission = translation != null ? translation.Admission : string.Empty,
                 StartTime = selectedEvent.StartTime,
                 EndTime = selectedEvent.EndTime,
-                FileName = selectedEvent.EventImage != null ? selectedEvent.EventImage.FileName : string.Empty,
-                FilePath = selectedEvent.EventImage != null ? selectedEvent.EventImage.FilePath : string.Empty,
-                AltText = selectedEvent.EventImage != null ? selectedEvent.EventImage.AltText : string.Empty,
-                ImageId = selectedEvent.EventImage != null ? selectedEvent.EventImage.Id : 0,
-                Tags = selectedEvent.EventTags.Select(et => et.Tag.Name).ToList()
+                FileName = sourceEvent?.EventImage != null ? sourceEvent.EventImage.FileName : string.Empty,
+                FilePath = sourceEvent?.EventImage != null ? sourceEvent.EventImage.FilePath : string.Empty,
+                AltText = sourceEvent?.EventImage != null ? sourceEvent.EventImage.AltText : string.Empty,
+                ImageId = sourceEvent?.EventImage != null ? sourceEvent.EventImage.Id : 0,
+                Tags = (selectedEvent.ParentEventId != null ? sourceEvent?.EventTags : selectedEvent.EventTags)?.Select(et => et.Tag.Name).ToList() ?? new List<string>()
             };
         }
 
@@ -107,7 +131,7 @@ namespace LibraryInReact.API.Controllers.Services
             DateTime? start = null, end = null;
             if (startDate == null) startDate = DateTime.UtcNow.Date.ToString("yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture);
 
-            var query =  _context.Events
+            var query = _context.Events
                 .Include(e => e.Library)
                 .Include(e => e.EventImage)
                 .Include(e => e.Translations)
@@ -159,7 +183,8 @@ namespace LibraryInReact.API.Controllers.Services
             Console.WriteLine($"Events after filtering: {filteredCount}");
 
             var events = await query.ToListAsync();
-            return events.Select(e => {
+            return events.Select(e =>
+            {
                 var translation = e.Translations.FirstOrDefault(t => t.Language == languageCode);
                 return new EventSummaryDto
                 {
@@ -179,5 +204,66 @@ namespace LibraryInReact.API.Controllers.Services
             }).ToList();
         }
 
-  }
+
+        /// <summary>
+        /// Returns all futureevents in a series (i.e., with the same ParentEventId).
+        /// </summary>
+        /// <param name="eventId">Event ID to find the series</param>
+        /// <param name="languageCode">Language code (e.g., "fi")</param>
+        /// <returns>List of EventSummaryDto representing the series events.</returns>
+        public async Task<List<EventSummaryDto>> GetEventSeriesAsync(int eventId, string languageCode)
+        {
+            // Find the event by id
+            var selectedEvent = await _context.Events
+                .FirstOrDefaultAsync(e => e.Id == eventId);
+
+            // If event not found or it does not have a ParentEventId, return empty list
+            if (selectedEvent == null || selectedEvent.ParentEventId == null)
+                return new List<EventSummaryDto>();
+
+            int parentId = selectedEvent.ParentEventId.Value;
+
+            // Get all events with the same ParentEventId (i.e., siblings in the series)
+            var now = DateTime.UtcNow.Date;
+
+            var seriesEvents = await _context.Events
+                .Include(e => e.Library)
+                .Include(e => e.EventImage)
+                .Include(e => e.Translations)
+                .Include(e => e.EventTags).ThenInclude(et => et.Tag)
+                .Where(e => e.ParentEventId == parentId && e.StartTime.Date >= now)
+                .OrderBy(e => e.StartTime)
+                .ToListAsync();
+
+            // Load parent event for image and translations
+            var parentEvent = await _context.Events
+                .Include(e => e.EventImage)
+                .Include(e => e.Translations)
+                .Include(e => e.EventTags).ThenInclude(et => et.Tag)
+                .FirstOrDefaultAsync(e => e.Id == parentId);
+
+            return seriesEvents.Select(e =>
+            {
+                // Use parent event for title, image, and tags
+                var sourceEvent = parentEvent ?? e;
+                var translation = sourceEvent.Translations.FirstOrDefault(t => t.Language == languageCode);
+
+                return new EventSummaryDto
+                {
+                    Id = e.Id,
+                    LibraryId = e.LibraryId,
+                    LibraryTitle = e.Library.Title,
+                    LibraryAddress = e.Library.Address,
+                    EventName = translation != null ? translation.Title : string.Empty,
+                    StartTime = e.StartTime,
+                    EndTime = e.EndTime,
+                    FileName = sourceEvent.EventImage != null ? sourceEvent.EventImage.FileName : string.Empty,
+                    FilePath = sourceEvent.EventImage != null ? sourceEvent.EventImage.FilePath : string.Empty,
+                    AltText = sourceEvent.EventImage != null ? sourceEvent.EventImage.AltText : string.Empty,
+                    ImageId = sourceEvent.EventImage != null ? sourceEvent.EventImage.Id : 0,
+                    Tags = sourceEvent.EventTags.Select(et => et.Tag.Name).ToList()
+                };
+            }).ToList();
+        }
+    }    
 }

@@ -47,7 +47,8 @@
       "when": "Milloin?",
       "where": "Missä?",
       "admission": "Pääsy"
-    }
+    },
+    "upcomingInSeries": "Tulevat tapahtumat tässä sarjassa"
   },
   "feedback": {
     "title": "Palaute",

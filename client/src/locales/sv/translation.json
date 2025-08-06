@@ -47,7 +47,8 @@
       "when": "När?",
       "where": "Var?",
       "admission": "Entré"
-    }
+    },
+    "upcomingInSeries": "Kommande i denna serie"
   },
   "feedback": {
     "title": "Respons",
