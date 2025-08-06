@@ -9,13 +9,11 @@ import {
   TextField,
   Typography,
   InputAdornment,
-  Paper,
   Divider,
 } from '@mui/material';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import SearchIcon from '@mui/icons-material/Search';
-import LocationOnIcon from '@mui/icons-material/LocationOn';
 import dayjs from 'dayjs';
 import 'dayjs/locale/fi';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
@@ -23,7 +21,7 @@ import type { Dayjs } from 'dayjs';
 import EventService from '../../services/eventService';
 import { useTranslation } from 'react-i18next';
 import type { EventSummary } from '../../types/library/interfaces';
-import EventDateTimeInfo from './EventDateTimeInfo';
+import EventCard from './EventCard';
 
 
 export default function EventsPage() {
@@ -36,7 +34,6 @@ export default function EventsPage() {
   const [startDate, setStartDate] = useState<Dayjs | null>(null);
   const [endDate, setEndDate] = useState<Dayjs | null>(null);
   const [loading, setLoading] = useState(false);
-  const navigate = useNavigate();
 
   const handleTagNames: Record<string, string> = {
     "Language Cafés and discussion groups" : "languageCafe",
@@ -189,44 +186,7 @@ export default function EventsPage() {
           ) : (
             filteredEvents.map(event => (
               <Grid size={4} key={event.id} sx={{ display: 'flex' }}>
-                <Paper elevation={2} sx={{ p: 1.5, display: 'flex', gap: 1.5, minHeight: 120, height: '100%', width: '100%', bgcolor: 'transparent', boxShadow: 3 }}
-                  onClick={() => navigate(`/events/${event.id}`)} style={{ cursor: 'pointer' }}>
-                  <Box sx={{ width: 100, height: 150, flexShrink: 0, border: 1, borderColor: 'divider', borderRadius: 1, overflow: 'hidden', bgcolor: 'transparent' }}>
-                    <img
-                      src={event.fileName ? `/src/assets/images/${event.fileName}` : '/src/assets/images/placeholder.jpg'}
-                      alt={event.altText || event.eventName}
-                      style={{ width: '100%', height: '100%', objectFit: 'cover', background: 'transparent', display: 'block' }}
-                    />
-                  </Box>
-                  <Box sx={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
-                    <Typography
-                      variant="subtitle2"
-                      fontWeight={700}
-                      sx={{
-                        pb: 1.5,
-                        color: theme => theme.palette.mode === 'dark' ? theme.palette.info.main : theme.palette.primary.main
-                      }}
-                    >
-                      {event.eventName}
-                    </Typography>
-                    {/* Add empty row if title is short to equalize card height */}
-                    {event.eventName.length < 30 && <Box sx={{ height: 24 }} />}
-                    <EventDateTimeInfo
-                      startTime={event.startTime}
-                      endTime={event.endTime}
-                      locale={i18n.language}
-                      fontSize={13}
-                      spacing={1}
-                      mb={0}
-                      mt={0.5}
-                      flexGrow={0}
-                    />
-                    <Stack direction="row" spacing={1} alignItems="center" sx={{ mt: 0.5, flexGrow: 0 }}>
-                      <LocationOnIcon sx={{ fontSize: 14 }} />
-                      <Typography variant="caption">{event.libraryTitle}{event.libraryAddress ? `, ${event.libraryAddress}` : ''}</Typography>
-                    </Stack>
-                  </Box>
-                </Paper>
+                <EventCard event={event} locale={languageCode} />
               </Grid>
             ))
           )}
