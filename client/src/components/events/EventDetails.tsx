@@ -11,7 +11,7 @@ import type { DetailedEvent, EventSummary } from '../../types/library/interfaces
 import EventDateTimeInfo from './EventDateTimeInfo';
 import EventCard from './EventCard';
 
-export default function EventsDetails() {
+export default function EventDetails() {
   const { i18n, t } = useTranslation();
   const languageCode = i18n.language;
   const { eventId } = useParams<{ eventId: string }>();
@@ -36,7 +36,7 @@ export default function EventsDetails() {
     if (!eventId) return;
     setLoading(true);
     setError(null);
-    EventService.GetEvent(languageCode, eventId)
+    EventService.getEvent(languageCode, eventId)
       .then(event => {
         if (event) setEvent(event);
         else setError('Event not found');

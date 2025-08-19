@@ -1,5 +1,4 @@
-import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useEffect, useState, useMemo } from 'react';
 import {
   Box,
   Button,
@@ -24,7 +23,7 @@ import type { EventSummary } from '../../types/library/interfaces';
 import EventCard from './EventCard';
 
 
-export default function EventsPage() {
+export default function Events() {
   const { i18n, t } = useTranslation();
   const languageCode = i18n.language;
   const [tags, setTags] = useState<string[]>([]);
@@ -45,6 +44,13 @@ export default function EventsPage() {
     "For children and families": "childrenFamilies",
     "Other events": "other"
   };
+
+  // Check if Find button should be enabled
+  const isFindButtonEnabled = useMemo(() => {
+    return search.trim() !== '' || 
+           startDate !== null || 
+           endDate !== null;
+  }, [search, startDate, endDate]);
   
   // Fetch tags on mount
   useEffect(() => {
@@ -169,7 +175,7 @@ export default function EventsPage() {
                 backgroundColor: theme => theme.palette.action.hover,
               },
             }}
-            disabled={loading}
+            disabled={loading || !isFindButtonEnabled}
           >
             {t('events.find')}
           </Button>

@@ -10,7 +10,7 @@ export class EventService {
   }
 
     // Get all events for a given language
-  static async GetEvent(languageCode: string, eventId: string): Promise<DetailedEvent> {
+  static async getEvent(languageCode: string, eventId: string): Promise<DetailedEvent> {
     return apiService.get<DetailedEvent>(`/api/events/${eventId}?languageCode=${languageCode}`);
   }
 

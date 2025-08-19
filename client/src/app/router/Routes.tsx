@@ -10,7 +10,7 @@ import Libraries from "../../components/libraries/Libraries";
 import Events from "../../components/events/Events";
 import LibraryCardAndLoans from "../../components/informationalPages/LibraryCardAndLoans";
 import LoanPeriodsAndFees from "../../components/informationalPages/LoanPeriodsAndFees";
-import EventDetails from "../../components/events/EventsDetails";
+import EventDetails from "../../components/events/EventDetails";
 
 export const router = createBrowserRouter([
     {
