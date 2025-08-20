@@ -33,7 +33,7 @@ public class LibraryService : ILibraryService
   }
 
   /// <inheritdoc />
-  public async Task<Library?> GetLibraryAsync(int id)
+  public async Task<Library?> GetLibraryByIdAsync(int id)
   {
     return await _context.Libraries
         .Include(l => l.NoteTranslations)

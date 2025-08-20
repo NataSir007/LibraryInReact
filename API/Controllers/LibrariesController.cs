@@ -40,7 +40,7 @@ namespace LibraryInReact.API.Controllers
     [HttpGet("{id}")] // GET: api/libraries/{id}
     public async Task<ActionResult<Library>> GetLibrary(int id)
     {
-      var library = await libraryService.GetLibraryAsync(id);
+      var library = await libraryService.GetLibraryByIdAsync(id);
       if (library == null) return NotFound();
       return Ok(library);
     }

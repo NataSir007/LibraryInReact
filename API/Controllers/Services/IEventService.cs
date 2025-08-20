@@ -1,7 +1,4 @@
-using System.Collections.Generic;
-using System.Threading.Tasks;
 using API.DTO;
-using Domain;
 
 namespace LibraryInReact.API.Controllers.Services
 {
@@ -11,14 +8,14 @@ namespace LibraryInReact.API.Controllers.Services
         /// Returns all events for a given language (unfiltered).
         /// </summary>
         /// <param name="languageCode">Language code (e.g., "fi")</param>
-        Task<List<EventSummaryDto>> GetEventsAsync(string languageCode);
+        Task<List<EventSummaryDto>> GetAllEventsAsync(string languageCode);
 
         /// <summary>
         /// Returns a single event by its ID.
         /// </summary>
         /// <param name="id">Event ID</param>
         /// <param name="languageCode">Language code (e.g., "fi")</param>
-        Task<DetailedEventDto?> GetEventAsync(int id, string languageCode);
+        Task<DetailedEventDto?> GetEventByIdAsync(int id, string languageCode);
 
         /// <summary>
         /// Returns all tag names for events.

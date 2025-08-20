@@ -32,7 +32,7 @@ namespace LibraryInReact.API.Controllers
         [HttpGet]   // GET: api/events?languageCode=fi  
         public async Task<ActionResult<List<EventSummaryDto>>> GetEvents(string languageCode = "fi")
         {
-            var events = await eventService.GetEventsAsync(languageCode);
+            var events = await eventService.GetAllEventsAsync(languageCode);
             return Ok(events);
         }
 
@@ -45,7 +45,7 @@ namespace LibraryInReact.API.Controllers
         [HttpGet("{id}")]   // GET: api/events/{id}?languageCode=fi 
         public async Task<ActionResult<DetailedEventDto>> GetEvent(int id, string languageCode = "fi")
         {
-            var ev = await eventService.GetEventAsync(id, languageCode);
+            var ev = await eventService.GetEventByIdAsync(id, languageCode);
             if (ev == null) return NotFound();
             return Ok(ev);
         }

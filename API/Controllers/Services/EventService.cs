@@ -20,7 +20,7 @@ namespace LibraryInReact.API.Controllers.Services
         /// Returns all events for a given language (unfiltered).
         /// </summary>
         /// <param name="languageCode">Language code (e.g., "fi")</param>
-        public async Task<List<EventSummaryDto>> GetEventsAsync(string languageCode = "fi")
+        public async Task<List<EventSummaryDto>> GetAllEventsAsync(string languageCode = "fi")
         {
             var events = await _context.Events
                 .Include(e => e.Library)
@@ -68,8 +68,8 @@ namespace LibraryInReact.API.Controllers.Services
         /// Returns a single event by its ID.
         /// </summary>
         /// <param name="id">Event ID</param>
-        /// /// <param name="languageCode">Language code (e.g., "fi")</param>
-        public async Task<DetailedEventDto?> GetEventAsync(int id, string languageCode)
+        /// <param name="languageCode">Language code (e.g., "fi")</param>
+        public async Task<DetailedEventDto?> GetEventByIdAsync(int id, string languageCode)
         {
             var selectedEvent = await _context.Events
                 .Include(ev => ev.Library)

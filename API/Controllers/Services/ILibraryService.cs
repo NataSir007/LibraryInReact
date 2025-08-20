@@ -16,7 +16,7 @@ public interface ILibraryService
     /// </summary>
     /// <param name="id">The ID of the library.</param>
     /// <returns>The <see cref="Library"/> object if found; otherwise, null.</returns>
-    Task<Library?> GetLibraryAsync(int id);
+    Task<Library?> GetLibraryByIdAsync(int id);
 
     /// <summary>
     /// Retrieves all opening hours.
