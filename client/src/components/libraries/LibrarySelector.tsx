@@ -12,7 +12,8 @@ export default function LibrarySelector({ libraries, selectedLibraryId, onLibrar
   const { t } = useTranslation();
   return (
     <Box display="flex" gap={2}>
-      <Select 
+      <Select
+        inputProps={{ 'data-testid': 'library-selector' }}
         value={selectedLibraryId || 0} // Use 0 for "All libraries"
         onChange={(e) => {
           const value = Number(e.target.value);
