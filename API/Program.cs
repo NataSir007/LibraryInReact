@@ -1,6 +1,13 @@
 using LibraryInReact.API.Controllers.Services;
+using LibraryInReact.API.Controllers.Services.Authentication;
+using LibraryInReact.API.Controllers.Services.Users;
+using LibraryInReact.API.Controllers.Services.Debts;
+using LibraryInReact.API.Controllers.Services.Notifications;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using Persistence;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -25,14 +32,55 @@ builder.Services.AddCors(options =>
     });
 });
 
+// Add JWT Authentication
+var jwtSecretKey = builder.Configuration["Jwt:SecretKey"] ?? "your-256-bit-secret-key-for-development-only-change-in-production";
+var jwtIssuer = builder.Configuration["Jwt:Issuer"] ?? "LibraryInReact";
+var jwtAudience = builder.Configuration["Jwt:Audience"] ?? "LibraryInReact-Users";
+
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+})
+.AddJwtBearer(options =>
+{
+    options.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidateIssuer = true,
+        ValidateAudience = true,
+        ValidateLifetime = true,
+        ValidateIssuerSigningKey = true,
+        ValidIssuer = jwtIssuer,
+        ValidAudience = jwtAudience,
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtSecretKey)),
+        ClockSkew = TimeSpan.Zero
+    };
+});
+
+builder.Services.AddAuthorization();
+
 builder.Services.AddDbContext<AppDbContext>(opt =>
 {
   opt.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
 
-// Register ILibraryService for dependency injection
+// Register existing services
 builder.Services.AddScoped<ILibraryService, LibraryService>();
 builder.Services.AddScoped<IEventService, EventService>();
+
+// Register authentication services
+builder.Services.AddScoped<IJwtService, JwtService>();
+builder.Services.AddScoped<IAuthService, AuthService>();
+
+// Register user management services
+builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<ILibraryCardService, LibraryCardService>();
+
+// Register debt management services
+builder.Services.AddScoped<IDebtService, DebtService>();
+
+// Register notification services
+builder.Services.AddScoped<INotificationService, NotificationService>();
 
 var app = builder.Build();
 
@@ -41,6 +89,10 @@ app.UseCors("AllowReactApp");
 
 // Enable static file serving
 app.UseStaticFiles();
+
+// Enable authentication and authorization
+app.UseAuthentication();
+app.UseAuthorization();
 
 app.MapControllers();
 

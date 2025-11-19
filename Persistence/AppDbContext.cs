@@ -17,7 +17,11 @@ public class AppDbContext(DbContextOptions options) : DbContext(options)
     public required DbSet<LibraryImage> LibraryImages { get; set; }
     public required DbSet<HolidayWeek> HolidayWeeks { get; set; }
     public required DbSet<OpeningHour> OpeningHours { get; set; }
-    public required DbSet<Tag> Tags { get; set; }
+    public required DbSet<Tag> Tags { get; set; }    
+    // User authentication entities
+    public required DbSet<User> Users { get; set; }
+    public required DbSet<LibraryCard> LibraryCards { get; set; }
+    public required DbSet<DebtRecord> DebtRecords { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -104,6 +108,50 @@ public class AppDbContext(DbContextOptions options) : DbContext(options)
         {
             builder.Property(lma => lma.LocationType)
                 .HasConversion<int>();
+        });
+
+        // Configure User entity
+        modelBuilder.Entity<User>(builder =>
+        {
+            builder.HasKey(u => u.Id);
+            builder.HasIndex(u => u.Email).IsUnique();
+            builder.Property(u => u.Status).HasConversion<int>();
+            builder.Property(u => u.NotificationPreference).HasConversion<int>();            
+            
+        });
+
+        // Configure LibraryCard entity
+        modelBuilder.Entity<LibraryCard>(builder =>
+        {
+            builder.HasKey(lc => lc.Id);
+            builder.HasIndex(lc => lc.CardNumber).IsUnique();
+            builder.Property(lc => lc.Status).HasConversion<int>();
+            
+            builder.HasOne(lc => lc.User)
+                .WithMany(u => u.LibraryCards)
+                .HasForeignKey(lc => lc.UserId)
+                .OnDelete(DeleteBehavior.Cascade);
+                
+        });
+
+        // Configure DebtRecord entity
+        modelBuilder.Entity<DebtRecord>(builder =>
+        {
+            builder.HasKey(dr => dr.Id);
+            builder.Property(dr => dr.Amount).HasColumnType("decimal(10,2)");
+            builder.Property(dr => dr.Status).HasConversion<int>();
+            builder.Property(dr => dr.Type).HasConversion<int>();
+            
+            builder.HasOne(dr => dr.User)
+                .WithMany(u => u.DebtRecords)
+                .HasForeignKey(dr => dr.UserId)
+                .OnDelete(DeleteBehavior.Cascade);
+                
+            builder.HasOne(dr => dr.LibraryCard)
+                .WithMany(lc => lc.DebtRecords)
+                .HasForeignKey(dr => dr.LibraryCardId)
+                .OnDelete(DeleteBehavior.Cascade);                
+            
         });
     }
 }
