@@ -251,7 +251,8 @@
     "themeLight": "Vaalea",
     "themeCustom": "Mukautettu",
     "libraryCardAndLoans": "Kirjastokortti ja lainat",
-    "loanPeriodsAndFees": "Laina-ajat ja maksut"
+    "loanPeriodsAndFees": "Laina-ajat ja maksut",
+    "login": "Kirjaudu sisään"
   },
   "searchHistory": {
     "titleSaveSearches": "Tallennetut haut",

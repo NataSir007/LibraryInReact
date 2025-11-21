@@ -250,7 +250,8 @@
     "themeLight": "Ljus",
     "themeCustom": "Anpassat tema",
     "libraryCardAndLoans": "Bibliotekskort och lån",
-    "loanPeriodsAndFees": "Lånetider och avgifter"
+    "loanPeriodsAndFees": "Lånetider och avgifter",
+    "login": "Logga in"
   },
   "searchHistory": {
     "titleSaveSearches": "Sparade sökningar",

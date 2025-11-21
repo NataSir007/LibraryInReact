@@ -1,9 +1,10 @@
-import { AppBar, Toolbar, Typography, Button, Box } from '@mui/material';
+import { AppBar, Toolbar, Typography, Box, Button } from '@mui/material';
 import LanguageSelector from '../../components/navbar/LanguageSelector';
+import ThemeSelector from '../../components/navbar/ThemeSelector';
 import MenuItemLink from '../shared/components/MenuItemLink';
 import { useTranslation } from 'react-i18next';
 import MenuItemInfo from './MenuItemInfo';
-const themes = ["dark", "light", "custom"];
+import PersonIcon from '@mui/icons-material/Person';
 
 interface NavbarProps {
   value: string;
@@ -11,10 +12,6 @@ interface NavbarProps {
 }
 
 const Navbar = ({ value, handleChange }: NavbarProps) => {
-
-  const handleThemeClick = (theme: string) => {
-    handleChange(theme);
-  };
   const { t } = useTranslation();
 
   return (
@@ -35,17 +32,12 @@ const Navbar = ({ value, handleChange }: NavbarProps) => {
               <MenuItemInfo />
           </Box>
           <LanguageSelector />
-          {themes.map((theme) => (
-            <Button
-              key={theme}
-              color="inherit"
-              onClick={() => handleThemeClick(theme)}
-              variant={value === theme ? "outlined" : "text"}
-              sx={{ mx: 0.5 }}
-            >
-              {t(`navbar.theme${theme.charAt(0).toUpperCase() + theme.slice(1)}`)}
-            </Button>
-          ))}
+          <Box sx={{ mx: 0.5 }} />
+          <ThemeSelector value={value} handleChange={handleChange} />
+          <Box sx={{ mx: 0.5 }} />
+          <Button variant="contained" color="primary" startIcon={<PersonIcon />}>
+            {t("navbar.login")}
+          </Button>
         </Toolbar>
       </AppBar>
     </>

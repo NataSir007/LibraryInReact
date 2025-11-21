@@ -250,7 +250,8 @@
     "themeLight": "Light",
     "themeCustom": "Custom",
     "libraryCardAndLoans": "Library Card And Loans",
-    "loanPeriodsAndFees": "Loan Periods And Fees"
+    "loanPeriodsAndFees": "Loan Periods And Fees",
+    "login": "Login"
   },
   "searchHistory": {
     "titleSaveSearches": "Saved searches",
