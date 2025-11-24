@@ -61,6 +61,7 @@ const UserLogin: React.FC<UserLoginProps> = ({ open, onClose }) => {
                     '& .Mui-selected': {
                         color: 'primary.contrastText',
                         fontWeight: 700,
+                        opacity: 1,
                         backgroundColor: theme.palette.mode === 'dark' 
                             ? 'rgba(255, 255, 255, 0.15)' 
                             : 'primary.dark',
