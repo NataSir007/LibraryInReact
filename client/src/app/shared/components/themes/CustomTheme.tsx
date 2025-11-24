@@ -45,9 +45,9 @@ const CustomTheme: ThemeOptions = {
       contrastText: "#333333" // Neutral Gray
     },
     success: {
-      main: "#6A0DAD",        // Primary Violet (success using brand color)
-      light: "#9B30FF",       // Bright Accent
-      dark: "#4B0082",        // Deep Violet
+      main: "#9ACD32",        // Yellow-Green (success)
+      light: "#C5E17A",       // Lighter Yellow-Green
+      dark: "#6B8E23",        // Olive Drab (darker yellow-green)
       contrastText: "#ffffff" // White
     },
     background: {

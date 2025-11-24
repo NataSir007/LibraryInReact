@@ -59,12 +59,12 @@ const UserLogin: React.FC<UserLoginProps> = ({ open, onClose }) => {
                         opacity: 0.7,
                     },
                     '& .Mui-selected': {
-                        color: 'primary.contrastText',
+                    color: '#fff', // OVERWRITES : Always white text for selected tab
                         fontWeight: 700,
                         opacity: 1,
                         backgroundColor: theme.palette.mode === 'dark' 
                             ? 'rgba(255, 255, 255, 0.15)' 
-                            : 'primary.dark',
+                            : theme.palette.primary.dark,
                     },
                     '& .MuiTabs-indicator': {
                         backgroundColor: theme.palette.mode === 'dark' 
