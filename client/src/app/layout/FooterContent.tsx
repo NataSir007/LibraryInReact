@@ -64,7 +64,7 @@ const Footer = () => {
                   <RouterLink
                     to={link.href}
                     style={{
-                      color: "inherit",
+                      color: "background.paper",
                       textDecoration: "underline",
                     }}
                   >

@@ -5,6 +5,8 @@ import MenuItemLink from '../shared/components/MenuItemLink';
 import { useTranslation } from 'react-i18next';
 import MenuItemInfo from './MenuItemInfo';
 import PersonIcon from '@mui/icons-material/Person';
+import { useState } from 'react';
+import UserLogin from '../../components/user/UserLogin';
 
 interface NavbarProps {
   value: string;
@@ -13,6 +15,7 @@ interface NavbarProps {
 
 const Navbar = ({ value, handleChange }: NavbarProps) => {
   const { t } = useTranslation();
+  const [loginOpen, setLoginOpen] = useState(false);
 
   return (
     <>
@@ -35,11 +38,17 @@ const Navbar = ({ value, handleChange }: NavbarProps) => {
           <Box sx={{ mx: 0.5 }} />
           <ThemeSelector value={value} handleChange={handleChange} />
           <Box sx={{ mx: 0.5 }} />
-          <Button variant="contained" color="primary" startIcon={<PersonIcon />}>
+          <Button
+            onClick={() => setLoginOpen(true)}
+            variant="contained"
+            color="primary"
+            startIcon={<PersonIcon />}
+          >
             {t("navbar.login")}
           </Button>
         </Toolbar>
       </AppBar>
+      <UserLogin open={loginOpen} onClose={() => setLoginOpen(false)} />
     </>
   );
 };
