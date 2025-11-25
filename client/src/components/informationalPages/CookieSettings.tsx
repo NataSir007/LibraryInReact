@@ -7,7 +7,7 @@ import {
   Switch,
   Typography,
   Divider,
-  Paper,
+  Paper
 } from "@mui/material";
 import { ExpandMore, ExpandLess, CheckCircle } from "@mui/icons-material";
 import { useTranslation } from "react-i18next";
@@ -67,10 +67,8 @@ const CookieSettings: React.FC = () => {
         {t("cookieSettings.title")}
       </Typography>
       <Typography variant="body2" gutterBottom>
-        {t("cookieSettings.description")}{" "}
-        <a href="#">{t("cookieSettings.privacyInfo")}</a>.
+        {t("cookieSettings.description")}{" "}        
       </Typography>
-
       {categoryKeys.map((categoryKey) => (
         <Box
           key={categoryKey}
@@ -79,7 +77,11 @@ const CookieSettings: React.FC = () => {
             border: "1px solid #ccc",
             borderRadius: 1,
             p: 1,
-            bgcolor: enabled[categoryKey] ? "#f5faff" : "#fafafa",
+            bgcolor: enabled[categoryKey]
+              ? (theme) => theme.palette.mode === "dark"
+                  ? theme.palette.secondary.light
+                  : theme.palette.background.default
+              : (theme) => `rgba(${parseInt(theme.palette.text.disabled.slice(1,3),16)},${parseInt(theme.palette.text.disabled.slice(3,5),16)},${parseInt(theme.palette.text.disabled.slice(5,7),16)},0.3)`,
           }}
         >
           <Box display="flex" justifyContent="space-between" alignItems="center">
@@ -144,10 +146,24 @@ const CookieSettings: React.FC = () => {
         <Button variant="contained" color="primary">
           {t("cookieSettings.acceptAll")}
         </Button>
-        <Button variant="outlined" onClick={setOnlyEssential}>
+        <Button
+          variant="outlined"
+          onClick={setOnlyEssential}
+          sx={{
+            color: (theme) => theme.palette.mode === "dark" ? theme.palette.primary.contrastText: undefined,
+            borderColor: (theme) => theme.palette.mode === "dark" ? theme.palette.primary.contrastText : undefined,
+          }}
+        >
           {t("cookieSettings.acceptEssential")}
         </Button>
-        <Button variant="text">{t("cookieSettings.save")}</Button>
+        <Button
+          variant="text"
+          sx={{
+            color: (theme) => theme.palette.mode === "dark" ? theme.palette.primary.contrastText : undefined,
+          }}
+        >
+          {t("cookieSettings.save")}
+        </Button>
       </Box>
     </Paper>
   );

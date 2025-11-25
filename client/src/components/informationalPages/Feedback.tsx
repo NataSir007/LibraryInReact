@@ -6,11 +6,12 @@ import {
   MenuItem,
   Typography,
   Paper,
+  useTheme,
 } from '@mui/material';
 import { useTranslation } from 'react-i18next';
-
 export default function Feedback() {
   const { t } = useTranslation();
+  const theme = useTheme();
 
   const subjects = [
     t("feedback.subjects.fees"),
@@ -76,6 +77,7 @@ type ErrorState = Partial<Record<keyof FormState, string>>;
           value={form.subject}
           onChange={handleChange('subject')}
           margin="normal"
+          sx={{ bgcolor: theme.palette.background.default }}
         >
           {subjects.map((option) => (
             <MenuItem key={option} value={option}>
@@ -90,6 +92,7 @@ type ErrorState = Partial<Record<keyof FormState, string>>;
           value={form.cardNumber}
           onChange={handleChange('cardNumber')}
           margin="normal"
+          sx={{ bgcolor: theme.palette.background.default }}
         />
 
         <TextField
@@ -101,6 +104,7 @@ type ErrorState = Partial<Record<keyof FormState, string>>;
           margin="normal"
           error={!!errors.title}
           helperText={errors.title}
+          sx={{ bgcolor: theme.palette.background.default }}
         />
 
         <TextField
@@ -114,6 +118,7 @@ type ErrorState = Partial<Record<keyof FormState, string>>;
           margin="normal"
           error={!!errors.message}
           helperText={errors.message}
+          sx={{ bgcolor: theme.palette.background.default }}
         />
 
         <TextField
@@ -123,6 +128,7 @@ type ErrorState = Partial<Record<keyof FormState, string>>;
           onChange={handleChange('url')}
           placeholder="http://..."
           margin="normal"
+          sx={{ bgcolor: theme.palette.background.default }}
         />
 
         <Typography sx={{ mt: 2 }}>
@@ -135,6 +141,7 @@ type ErrorState = Partial<Record<keyof FormState, string>>;
           value={form.name}
           onChange={handleChange('name')}
           margin="normal"
+          sx={{ bgcolor: theme.palette.background.default }}
         />
 
         <TextField
@@ -143,6 +150,7 @@ type ErrorState = Partial<Record<keyof FormState, string>>;
           value={form.email}
           onChange={handleChange('email')}
           margin="normal"
+          sx={{ bgcolor: theme.palette.background.default }} 
         />
 
         <Typography variant="body2" sx={{ mt: 2, fontWeight: 'bold' }}>

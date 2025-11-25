@@ -52,7 +52,7 @@ const LightTheme: ThemeOptions = {
     },
     background: {
       default: "#FFF5F0",     // Background Light (page background)
-      paper: "#FFFFFF"        // White (cards, dialogs)
+      paper: "#F8F7F7",        // light paper background
     },
     text: {
       primary: "#333333",     // Neutral Charcoal (main text)
