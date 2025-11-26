@@ -1,0 +1,21 @@
+<svg width="30" height="36" viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg">
+  <!-- Left vertical face of the D -->
+  <polygon points="0,0 40,20 40,100 0,120"
+           fill="#2D8B8B" />
+
+  <!-- Top face of the D -->
+  <polygon points="0,0 80,0 100,20 40,20"
+           fill="#4DB8B8" />
+
+  <!-- Right curved face of the D -->
+  <polygon points="40,20 100,20 100,100 40,100"
+           fill="#6FD4D4" />
+
+  <!-- Bottom face of the D -->
+  <polygon points="0,120 40,100 100,100 80,120"
+           fill="#2D8B8B" />
+
+  <!-- Inner shadow/depth on right side -->
+  <polygon points="80,0 100,20 100,100 80,120"
+           fill="#1F6A6A" />
+</svg>
