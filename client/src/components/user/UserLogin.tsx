@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Dialog, DialogTitle, DialogContent, Tabs, Tab, Box, IconButton, useTheme } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 import UserLoginWithLibraryCard from './UserLoginWithLibraryCard';
-import UserLoginWithBankId from './UserLoginWithBankId';
+// import UserLoginWithBankId from './UserLoginWithBankAuthentication';
 
 interface UserLoginProps {
     open: boolean;
@@ -18,10 +18,10 @@ const UserLogin: React.FC<UserLoginProps> = ({ open, onClose }) => {
     };
 
     return (
-        <Dialog 
-            open={open} 
-            onClose={onClose} 
-            maxWidth="md" 
+        <Dialog
+            open={open}
+            onClose={onClose}
+            maxWidth="md"
             fullWidth
             PaperProps={{
                 sx: {
@@ -29,7 +29,7 @@ const UserLogin: React.FC<UserLoginProps> = ({ open, onClose }) => {
                 }
             }}
         >
-            <DialogTitle sx={{ 
+            <DialogTitle sx={{
                 color: theme.palette.mode === 'dark' ? 'text.primary' : 'primary.contrastText',
                 fontWeight: 600
             }}>
@@ -46,12 +46,12 @@ const UserLogin: React.FC<UserLoginProps> = ({ open, onClose }) => {
                     <CloseIcon />
                 </IconButton>
             </DialogTitle>
-            <Tabs 
-                value={activeTab} 
-                onChange={handleTabChange} 
-                sx={{ 
-                    borderBottom: 1, 
-                    borderColor: 'divider', 
+            <Tabs
+                value={activeTab}
+                onChange={handleTabChange}
+                sx={{
+                    borderBottom: 1,
+                    borderColor: 'divider',
                     px: 3,
                     '& .MuiTab-root': {
                         color: 'primary.contrastText',
@@ -59,31 +59,31 @@ const UserLogin: React.FC<UserLoginProps> = ({ open, onClose }) => {
                         opacity: 0.7,
                     },
                     '& .Mui-selected': {
-                    color: '#fff', // OVERWRITES : Always white text for selected tab
+                        color: '#fff', // OVERWRITES : Always white text for selected tab
                         fontWeight: 700,
                         opacity: 1,
-                        backgroundColor: theme.palette.mode === 'dark' 
-                            ? 'rgba(255, 255, 255, 0.15)' 
+                        backgroundColor: theme.palette.mode === 'dark'
+                            ? 'rgba(255, 255, 255, 0.15)'
                             : theme.palette.primary.dark,
                     },
                     '& .MuiTabs-indicator': {
-                        backgroundColor: theme.palette.mode === 'dark' 
-                            ? theme.palette.primary.light 
+                        backgroundColor: theme.palette.mode === 'dark'
+                            ? theme.palette.primary.light
                             : theme.palette.primary.contrastText,
                         height: 4,
                     }
                 }}
             >
                 <Tab label="Library Card" />
-                <Tab label="Bank ID" />
+                {/* <Tab label="Bank Authentication" /> */}
             </Tabs>
-            <DialogContent sx={{ 
+            <DialogContent sx={{
                 bgcolor: 'background.paper',
                 color: 'text.primary'
             }}>
                 <Box sx={{ py: 2 }}>
                     {activeTab === 0 && <UserLoginWithLibraryCard />}
-                    {activeTab === 1 && <UserLoginWithBankId />}
+                    {/* {activeTab === 1 && <UserLoginWithBankAuthentication />} */}
                 </Box>
             </DialogContent>
         </Dialog>

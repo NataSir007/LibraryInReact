@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Box, Button, Typography, useTheme } from '@mui/material';
 import { banks } from '../../utils/bankData';
 
-const UserLoginWithBankId: React.FC = () => {
+const UserLoginWithBankAuthentication: React.FC = () => {
     const theme = useTheme();
     const [logoErrors, setLogoErrors] = useState<Record<string, boolean>>({});
 
@@ -23,25 +23,25 @@ const UserLoginWithBankId: React.FC = () => {
     };
 
     const getButtonBgColor = () => {
-        return theme.palette.mode === 'dark' 
-            ? theme.palette.primary.light 
+        return theme.palette.mode === 'dark'
+            ? theme.palette.primary.light
             : theme.palette.background.default;
     };
 
     return (
         <Box sx={{ py: 2 }}>
-            <Typography 
-                variant="h6" 
-                sx={{ 
-                    mb: 3, 
-                    textAlign: 'center', 
-                    color: theme.palette.mode === 'dark' 
-                        ? theme.palette.primary.contrastText 
-                        : theme.palette.primary.main, 
+            <Typography
+                variant="h6"
+                sx={{
+                    mb: 3,
+                    textAlign: 'center',
+                    color: theme.palette.mode === 'dark'
+                        ? theme.palette.primary.contrastText
+                        : theme.palette.primary.main,
                 }}
             >
                 Choose your bank
-            </Typography>                
+            </Typography>
             <Box
                 sx={{
                     display: 'grid',
@@ -61,8 +61,8 @@ const UserLoginWithBankId: React.FC = () => {
                             justifyContent: 'center',
                             p: '10px',
                             border: '1px solid',
-                            borderColor: theme.palette.mode === 'dark' 
-                                ? theme.palette.divider 
+                            borderColor: theme.palette.mode === 'dark'
+                                ? theme.palette.divider
                                 : theme.palette.divider,
                             borderRadius: 1,
                             bgcolor: getButtonBgColor(),
@@ -117,4 +117,12 @@ const UserLoginWithBankId: React.FC = () => {
     );
 };
 
-export default UserLoginWithBankId;
+export default UserLoginWithBankAuthentication;
+
+/*
+- Pankkitunnistautuminen ei ole "ilmainen kirjautuminen", vaan osa virallista kansallista infrastruktuuria.
+- Suomifi-tunnistus vaatii virallisen sopimuksen DVV:n kanssa. En voi vain kokeilla ilman rekisteröintiä.
+- DVV tarjoaa testiympäristön, mutta se vaatii silti sopimuksen.
+
+- Joten jäädytän tämän osalta toteutuksen tähän pisteeseen. En poista koodia, koska toivon voivani palata asiaan myöhemmin.
+*/
